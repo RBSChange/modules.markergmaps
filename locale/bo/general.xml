@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="module-name">
+		<locale lang="fr">Google Maps</locale>
+		<locale lang="en">Google Maps</locale>
+	</entity>
+
+	<entity id="tree-root-name">
+		<locale lang="fr">Google Maps</locale>
+		<locale lang="en">Google Maps</locale>
+	</entity>
+
+	<entity id="system-folder-name">
+		<locale lang="fr">Google Maps</locale>
+		<locale lang="en">Google Maps</locale>
+	</entity>
+
+	<entity id="markertype">
+		<locale lang="fr">google Maps</locale>
+		<locale lang="en">Google Maps</locale>
+	</entity>
+
+	<entity id="add-new-marker">
+		<locale lang="fr">ajouter un marqueur Google Maps</locale>
+		<locale lang="en">add Google Maps marker</locale>
+	</entity>
+
+	<entity id="blocktitle">
+		<locale lang="fr">carte Google Maps</locale>
+		<locale lang="en">Google Maps</locale>
+	</entity>
+
+	<entity id="get-key">
+		<locale lang="fr">obtenir une clé</locale>
+		<locale lang="en">get key</locale>
+	</entity>
+</localization>

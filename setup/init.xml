@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/markergmaps/persistentdocument/import/markergmaps_binding.xml" />
+	
+	<rootfolder module="preferences">
+		<markergmapspreferences />
+	</rootfolder>
+	
+	<systemfolder module="list" relatedmodule="markergmaps">
+		<staticlist listid="modules_markergmaps/colormarker"
+			description=""
+			label="Couleur du pointeur d'une carte Google Maps">
+			
+			<staticitem value="red-dot.png" label="&amp;modules.markergmaps.bo.list.Red;" />
+			<staticitem value="blue-dot.png" label="&amp;modules.markergmaps.bo.list.Blue;" />
+			<staticitem value="green-dot.png" label="&amp;modules.markergmaps.bo.list.Green;" />
+			<staticitem value="yellow-dot.png" label="&amp;modules.markergmaps.bo.list.Yellow;" />
+			<staticitem value="purple-dot.png" label="&amp;modules.markergmaps.bo.list.Purple;" />
+			<staticitem value="pink-dot.png" label="&amp;modules.markergmaps.bo.list.Pink;" />
+			<staticitem value="orange-dot.png" label="&amp;modules.markergmaps.bo.list.Orange;" />
+			<staticitem value="ltblue-dot.png" label="&amp;modules.markergmaps.bo.list.Cyan;" />
+		</staticlist>	
+	</systemfolder>
+</script>

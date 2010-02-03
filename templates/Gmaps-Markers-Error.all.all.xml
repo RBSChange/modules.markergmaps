@@ -1,0 +1,3 @@
+<errors>
+	<error tal:repeat="error errors" tal:content="error"/>
+</errors>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<blocks>
+	<block type="modules_markergmaps_position" icon="map-position" label="&amp;modules.markergmaps.bo.blocks.Document-name;" hidden="true">
+		<parameters>
+			<parameter name="width" type="Integer"  />
+			<parameter name="height" type="Integer"  />
+			<parameter name="maxwidth" type="Integer"  />
+			<parameter name="maxheight" type="Integer"  />
+			<parameter name="gpsexport" type="Boolean" default-value="false" />
+		</parameters>
+	</block>
+	<block type="modules_markergmaps_folder" icon="list-block" label="&amp;modules.markergmaps.bo.blocks.Document-list;" hidden="true">
+		<parameters>
+			<parameter name="subfolder" type="Boolean"  default-value="false" />
+			<parameter name="width" type="Integer"  />
+			<parameter name="height" type="Integer"  />
+			<parameter name="maxwidth" type="Integer"  />
+			<parameter name="maxheight" type="Integer"  />
+			<parameter name="showpositionslist" type="Boolean" default-value="false" />
+			<parameter name="gpsexport" type="Boolean" default-value="false" />
+		</parameters>
+	</block>
+</blocks>

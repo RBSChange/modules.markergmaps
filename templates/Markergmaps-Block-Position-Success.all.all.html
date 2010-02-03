@@ -1,0 +1,138 @@
+<div tal:omit-tag="" tal:condition="position">
+		<div tal:attributes="id php: 'gmaps' . position->getId()" style="overflow:hidden"/>
+		<tal:block tal:condition="gpsexport">
+			
+			<span class="gps-export">
+				<tal:block change:translate="&amp;modules.markergmaps.frontoffice.GpsExportSingleLabel;"/>
+				<a change:link="module markergmaps; action ExportGpsOv2; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportOv2;"></a>
+				-
+				<a change:link="module markergmaps; action ExportGpsGpx; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportGpx;"></a>
+			</span>
+			
+		</tal:block>
+		<script type="text/javascript">
+		//<![CDATA[
+		if (typeof(googleMapsScriptIncluded) == 'undefined')
+		{
+			googleMapsScriptIncluded = true;
+			document.write(unescape('%3Cscript src="' + '${php: GmapsHelper::getGmapsUrlForCurrentWebsite()}' + '" type="text/javascript"%3E%3C/script%3E'));
+		}
+		//]]>
+		</script>
+  	<script type="text/javascript">
+      if (GBrowserIsCompatible())
+      {
+      	markergmaps_id${position/getId} = "gmaps" + "${position/getId}";
+      	markergmaps_width${position/getId} = "${width}";
+      	markergmaps_height${position/getId} = "${height}";
+
+      	if(markergmaps_width${position/getId}!='' && markergmaps_height${position/getId}!='')
+      	{
+        	var markergmaps_map${position/getId} = new GMap2(document.getElementById(markergmaps_id${position/getId}), {size: new GSize(markergmaps_width${position/getId}, markergmaps_height${position/getId})});
+      	}
+      	else
+      	{
+      		var markergmaps_map${position/getId} = new GMap2(document.getElementById(markergmaps_id${position/getId}));
+      	}
+
+        markergmaps_map${position/getId}.enableScrollWheelZoom();
+				markergmaps_map${position/getId}.addControl(new GSmallMapControl());
+				markergmaps_map${position/getId}.addControl(new GMapTypeControl());
+
+				GEvent.addListener(markergmaps_map${position/getId}, "load", function()
+				{
+					markergmaps_customIcon${position/getId} = new GIcon(G_DEFAULT_ICON);
+					markergmaps_customIcon${position/getId}.image = "${php: GmapsHelper::getGoogleIconsUrl()}" + "${position/getColormarker}";
+					markergmaps_customIcon${position/getId}.iconSize = new GSize(32, 32);
+
+					if(markergmaps_width${position/getId}=="" && markergmaps_height${position/getId}!="")
+					{
+						jQuery('#'+markergmaps_id${position/getId}).attr('style', 'position:relative; overflow:hidden; height:'+markergmaps_height${position/getId}+'px;');
+					}
+					var markergmaps_point${position/getId} = markergmaps_map${position/getId}.getCenter();
+					var markergmaps_options${position/getId} = {
+						draggable: false,
+						bouncy: false,
+						icon: markergmaps_customIcon${position/getId}
+					};
+					var markergmaps_marker${position/getId} = new GMarker(markergmaps_point${position/getId}, markergmaps_options${position/getId});
+					markergmaps_map${position/getId}.addOverlay(markergmaps_marker${position/getId});
+
+					markergmaps_address${position/getId} = "<p tal:omit-tag='' tal:content='position/getFullDescription'/>";
+					markergmaps_title${position/getId} = "<p tal:omit-tag='' tal:content='php: addslashes(position->getLabel())'/>";
+					markergmaps_link${position/getId} = "${link}";
+					markergmaps_icon${position/getId} = "${icon}";
+
+					function displayInfoBulle${position/getId}()
+					{
+						markergmaps_html${position/getId} = '';
+						if(markergmaps_title${position/getId}!='')
+						{
+							if(markergmaps_icon${position/getId}!='')
+							{
+								markergmaps_html${position/getId} += '<img class="gmaps-bullet-icon" src="'+markergmaps_icon${position/getId}+'"/>';
+							}
+							markergmaps_html${position/getId} += '<strong class="gmaps-bullet-title">';
+							if(markergmaps_link${position/getId}!='')
+							{
+								markergmaps_html${position/getId} += '<a href="'+markergmaps_link${position/getId}+'">';
+							}
+							markergmaps_html${position/getId} += markergmaps_title${position/getId};
+							if(markergmaps_link${position/getId}!='')
+							{
+								markergmaps_html${position/getId} += '</a>';
+							}
+							markergmaps_html${position/getId} += '</strong>';
+						}
+						if(markergmaps_address${position/getId}!='')
+						{
+							markergmaps_html${position/getId} += '<div class="gmaps-bullet-address">'+markergmaps_address${position/getId}+'</div>';
+						}
+						markergmaps_map${position/getId}.openInfoWindowHtml(markergmaps_point${position/getId}, markergmaps_html${position/getId});
+					}
+
+					if(markergmaps_address${position/getId}!="" || markergmaps_title${position/getId}!="")
+					{
+						displayInfoBulle${position/getId}();
+						GEvent.addListener(markergmaps_marker${position/getId}, "click", function()
+						{
+							displayInfoBulle${position/getId}();
+						});
+					}
+				});
+
+       	markergmaps_map${position/getId}.setCenter(new GLatLng(parseFloat("${position/getLatitude}"), parseFloat("${position/getLongitude}")), parseInt("${position/getZoom}"));
+
+       	markergmaps_maxwidth${position/getId} = "${maxwidth}";
+       	markergmaps_maxheight${position/getId} = "${maxheight}";
+
+       	function maximizeMap${position/getId}()
+       	{
+       		markergmaps_map${position/getId}.savePosition();
+       		jQuery('#'+markergmaps_id${position/getId}).parent().attr('style', 'float:left; overflow:hidden; width:'+markergmaps_maxwidth${position/getId}+'px;');
+       		jQuery('#'+markergmaps_id${position/getId}).attr('style', 'position:relative; overflow:hidden; height:'+markergmaps_maxheight${position/getId}+'px;');
+       		markergmaps_map${position/getId}.checkResize();
+       		markergmaps_map${position/getId}.returnToSavedPosition();
+       		jQuery('#gmaps-max-'+markergmaps_id${position/getId}).hide();
+       		jQuery('#gmaps-min-'+markergmaps_id${position/getId}).show();
+
+       	}
+       	function minimizeMap${position/getId}()
+       	{
+       		markergmaps_map${position/getId}.savePosition();
+       		jQuery('#'+markergmaps_id${position/getId}).parent().attr('style', 'float:left; overflow:hidden; width:'+markergmaps_width${position/getId}+'px;');
+       		jQuery('#'+markergmaps_id${position/getId}).attr('style', 'position:relative; overflow:hidden; height:'+markergmaps_height${position/getId}+'px;');
+       		markergmaps_map${position/getId}.checkResize();
+       		markergmaps_map${position/getId}.returnToSavedPosition();
+       		jQuery('#gmaps-min-'+markergmaps_id${position/getId}).hide();
+       		jQuery('#gmaps-max-'+markergmaps_id${position/getId}).show();
+       	}
+       	if(markergmaps_maxwidth${position/getId}!="" && markergmaps_maxheight${position/getId}!="")
+       	{
+       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${position/getId}+'"><a href="javascript:minimizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Minimize-map;"/></p>');
+       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${position/getId}+'"><a href="javascript:maximizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Maximize-map;"/></p>');
+       		jQuery('#gmaps-min-'+markergmaps_id${position/getId}).hide();
+       	}
+      }
+    </script>
+</div>

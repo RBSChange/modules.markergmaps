@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlrewriting>
+	<rules>
+		<rule redirection="markergmaps/GetMarker">
+			<template>/marker-$cmpref.kml</template>
+		</rule>
+		<rule redirection="markergmaps/ExportGpsOv2">
+			<template>/gmaps/poi_$cmpref.ov2</template>
+			<parameters>
+				<parameter name="cmpref" format="[0-9]+" />
+			</parameters>
+		</rule>
+		<rule redirection="markergmaps/ExportGpsGpx">
+			<template>/gmaps/poi_$cmpref.gpx</template>
+			<parameters>
+				<parameter name="cmpref" format="[0-9]+" />
+			</parameters>
+		</rule>
+	</rules>
+</urlrewriting>

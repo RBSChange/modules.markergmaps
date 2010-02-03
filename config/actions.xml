@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<actions extends="generic">
+	<action name="createFolder">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			this.createDocumentEditor('modules_markergmaps_folder', listWidget.getSelectedItems()[0].id);
+		]]></body>
+	</action>
+	<action name="createPosition" label="&amp;modules.markergmaps.bo.actions.Create-Position;">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			this.createDocumentEditor('modules_markergmaps_position', listWidget.getSelectedItems()[0].id);
+		]]></body>
+	</action>
+	<action name="createMarkergmaps" label="&amp;modules.markergmaps.bo.actions.Create-Markergmaps;">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			this.createDocumentEditor('modules_markergmaps_markergmaps', listWidget.getSelectedItems()[0].id);
+		]]></body>
+	</action>
+</actions>

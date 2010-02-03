@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section labeli18n="modules.markergmaps.document.preferences.Edition-form-title">
+		<field name="width" />
+		<field name="maxwidth" />
+		<field name="height" />
+		<field name="maxheight" />
+	</section>
+</panel>

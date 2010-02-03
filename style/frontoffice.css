@@ -1,0 +1,12 @@
+.gmaps-bullet-icon{
+	margin-right: 5px;
+	float: left;
+}
+.gmaps-bullet-title{
+	margin-bottom: 5px;
+	padding-right: 10px;
+	display: block;
+}
+.gmaps-bullet-address{
+	clear: both;
+}

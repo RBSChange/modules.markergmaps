@@ -1,0 +1,10 @@
+cfield[fieldtype="googlemap"]{
+	-moz-binding: url(binding:modules.markergmaps.cPositionEditor#cGoogleMapField);
+}
+cfield[fieldtype="googlemapaddress"]{
+	-moz-binding: url(binding:modules.markergmaps.cPositionEditor#cGoogleMapAddressField);
+}
+#edt_website_marker cfield[fieldtype="markergmapsproperties"]
+{
+	-moz-binding: url(binding:modules.markergmaps.cMarkergmapsEditor#cMarkergmapsPropertiesField);
+}

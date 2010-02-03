@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
+	model-version="1.0" icon="map-position" has-url="false">
+	<properties>
+		<add name="longitude" type="String" min-occurs="1" max-occurs="1"/>
+		<add name="latitude" type="String" min-occurs="1" max-occurs="1"/>
+		<add name="zoom" type="String"/>
+		<add name="maptype" type="String"/>
+		<add name="address" type="LongString"/>
+		<add name="description" type="XHTMLFragment"/>
+		<add name="colormarker" type="String" from-list="modules_markergmaps/colormarker" default-value="red-dot.png"/>
+	</properties>
+
+	<statuses default="PUBLICATED"/>
+</document>

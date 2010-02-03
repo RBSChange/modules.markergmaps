@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<script tal:attributes="src url" type="text/javascript"></script>
+  	<script type="text/javascript">
+	var point;
+
+    function initialize(address)
+    {
+      if (GBrowserIsCompatible())
+      {
+	      document.getElementById('longitude').value = "";
+	      document.getElementById('latitude').value = "";
+
+	      var map = new GMap2(document.getElementById("maps"));
+	      var geocoder = new GClientGeocoder();
+
+	      var colormarker = "${colormarker}";
+
+	      var customIcon = new GIcon(G_DEFAULT_ICON);
+	      customIcon.image = "${php: GmapsHelper::getGoogleIconsUrl()}" + colormarker;
+	      customIcon.iconSize = new GSize(32, 32);
+
+	      var options = { draggable: true, bouncy: false, icon: customIcon };
+
+	      function showMap(point)
+	      {
+		      map.enableScrollWheelZoom();
+		      map.addControl(new GSmallMapControl());
+		      map.addControl(new GMapTypeControl());
+
+		      GEvent.addListener(map, "load", function()
+			  {
+				      if(point == undefined)
+				      {
+				      point = map.getCenter();
+				      }
+				      var marker = new GMarker(point, options);
+				      map.addOverlay(marker);
+				      var pos = marker.getLatLng();
+				      document.getElementById('longitude').value = pos.x;
+				      document.getElementById('latitude').value = pos.y;
+
+				      GEvent.addListener(marker, "dragend", function()
+					      {
+					     	 var elem = marker.getLatLng();
+					     	 document.getElementById('longitude').value =elem.x;
+					    	 document.getElementById('latitude').value = elem.y;
+					      });
+				      });
+		      GEvent.addListener(map, "zoomend", function()
+				      {
+				      document.getElementById('zoom').value = map.getZoom();
+				      });
+		      GEvent.addListener(map, "maptypechanged", function()
+			  {
+					document.getElementById('maptype').value = map.getCurrentMapType().getName();
+			  });
+
+		      lat = "${lat}";
+		      lng = "${lng}";
+		      zoom = "${zoom}";
+		      maptype = "${maptype}";
+
+		      if(maptype!="")
+		      {
+			      var alltypes = map.getMapTypes();
+			      for(var t in alltypes)
+			      {
+				      if(alltypes[t].getName() == maptype)
+				      {
+					      map.setMapType(alltypes[t]);
+				      }
+			      }
+		      }
+
+		      if(zoom == "")
+		      {
+			      zoom = 5;
+		      }
+		      if(point != undefined)
+		      {
+			      map.setCenter(new GLatLng(point.y, point.x), parseInt(zoom));
+		      }
+		      else if(lat!="" && lng!="")
+		      {
+			      map.setCenter(new GLatLng(parseFloat(lat), parseFloat(lng)), parseInt(zoom));
+		      }
+		      else
+		      {
+			      geocoder = new GClientGeocoder();
+			      geocoder.getLatLng("${country}", function(center)
+							{
+					      if(center)
+					      {
+					      map.setCenter(center, parseInt(zoom));
+					      }
+					      else
+					      {
+					      map.setCenter(new GLatLng(0, 0), 1);
+					      }
+					      });
+		      }
+	      }
+
+	      if (address == null)
+	      {
+		      address = "${address}";
+	      }
+	      if (geocoder && address!="")
+	      {
+		      geocoder.getLatLng(address, function(newpoint) { if (newpoint == null) { alert('Impossible de localiser l\'adresse'); } else { showMap(newpoint); } });
+	      }
+	      else
+	      {
+		      showMap(undefined);
+	      }
+      }
+    }
+    </script>
+    <style>
+    label, input { font-family: Arial; font-weight: bold;  font-size: 9pt; height: 16px; }
+    </style>
+  </head>
+  	<body onload="initialize()" onunload="GUnload()" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+		<div id="maps" style="width: 502px; height: 330px"></div>
+		<form onsubmit="initialize(this.elements['address'].value); return false;">
+			<input type="hidden"  id="address" size="10" />
+			<input type="hidden"  id="latitude" size="10" />
+			<input type="hidden"  id="longitude" size="10" />
+			<input type="hidden" id="zoom" tal:attributes="value zoom" />
+			<input type="hidden" id="maptype" tal:attributes="value maptype" />
+		</form>
+	</body>
+</html>

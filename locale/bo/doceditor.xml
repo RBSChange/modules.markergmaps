@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="localizeAddress">
+		<locale lang="fr">localiser l'adresse</locale>
+		<locale lang="en">localize address</locale>
+	</entity>
+	<entity id="captureMap">
+		<locale lang="fr">capturer les réglages de la carte</locale>
+		<locale lang="en">capture map settings</locale>
+	</entity>
+	<entity id="property.googleMap">
+		<locale lang="fr">carte Google Map</locale>
+		<locale lang="en">Google Map</locale>
+	</entity>
+</localization>

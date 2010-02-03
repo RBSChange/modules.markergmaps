@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+
+	<binding id="cGoogleMapAddressField" extends="form.cField#cLongTextField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:textbox anonid="internalcontrol" multiline="true" cols="50" rows="5" xbl:inherits="maxlength,disabled,tabindex,accesskey,cols,rows" />
+					<xul:toolbar>
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" xbl:inherits="hidden=hidehelp" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.LocalizeAddress;"  oncommand="localizeAddress()" image="{HttpHost}/icons/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+		<implementation>
+			<method name="localizeAddress">
+				<body><![CDATA[
+					this.dispatchFieldEvent('localizeAddress');
+				]]></body>
+			</method>
+		</implementation>
+	</binding>
+
+
+
+	<!-- Preferences sections -->
+	<binding id="cGoogleMapField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googleiframe" xbl:inherits="src=googleiframesrc" scrolling="no" width="502" height="330" style="margin-top:4px" />
+					<xul:toolbar xbl:inherits="hidden=hidehelp">
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMap()" image="{HttpHost}/icons/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<method name="captureMap">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googleiframe").contentWindow);
+					this.mInternalValue.lat = iframe.document.getElementById('latitude').value;
+					this.mInternalValue.lng = iframe.document.getElementById('longitude').value;
+					this.mInternalValue.zoom = iframe.document.getElementById('zoom').value;
+					this.mInternalValue.maptype = iframe.document.getElementById('maptype').value;	
+					this.valueChanged();
+				]]></body>
+			</method>
+			
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');						
+					}
+					var errorMessage = this.checkRequired(fval);
+					this.setValidity(errorMessage);
+				]]></body>
+			</method>
+			
+			<method name="setAddress">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.address = val;
+					this.updateIframe();
+					this.valueChanged();
+				]]></body>
+			</method>
+			
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified) 
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified) 
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}			
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+					this.updateIframe();
+				]]></body>
+			</method>
+			
+			<method name="updateIframe">
+				<body><![CDATA[
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframe';
+					if(this.mInternalValue.lat && this.mInternalValue.lng)
+					{
+						url += '&lat='+this.mInternalValue.lat+'&lng='+this.mInternalValue.lng;
+					}
+					if(this.mInternalValue.zoom)
+					{
+						url += '&zoom='+this.mInternalValue.zoom;
+					}
+					if(this.mInternalValue.maptype)
+					{
+						url += '&maptype='+this.mInternalValue.maptype;
+					}
+					if(this.mInternalValue.colormarker)
+					{
+						url += '&colormarker='+this.mInternalValue.colormarker;
+					}
+					if(this.mInternalValue.address)
+					{
+						url += '&address=' + encodeURI(this.mInternalValue.address.replace(/\n/gm, " "));
+					}
+					this.setAttribute("googleiframesrc", url);
+				]]></body>
+			</method>
+			
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);					
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+		</handlers>
+	</binding>
+
+</bindings>

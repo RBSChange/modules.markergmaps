@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+	<entity id="red">
+		<locale lang="fr">rouge</locale>
+		<locale lang="en">red</locale>
+	</entity>
+
+	<entity id="blue">
+		<locale lang="fr">bleu</locale>
+		<locale lang="en">blue</locale>
+	</entity>
+
+	<entity id="green">
+		<locale lang="fr">vert</locale>
+		<locale lang="en">green</locale>
+	</entity>
+
+	<entity id="yellow">
+		<locale lang="fr">jaune</locale>
+		<locale lang="en">yellow</locale>
+	</entity>
+
+	<entity id="purple">
+		<locale lang="fr">violet</locale>
+		<locale lang="en">purple</locale>
+	</entity>
+
+	<entity id="pink">
+		<locale lang="fr">rose</locale>
+		<locale lang="en">pink</locale>
+	</entity>
+
+	<entity id="orange">
+		<locale lang="fr">orange</locale>
+		<locale lang="en">orange</locale>
+	</entity>
+
+	<entity id="cyan">
+		<locale lang="fr">cyan</locale>
+		<locale lang="en">cyan</locale>
+	</entity>
+</localization>

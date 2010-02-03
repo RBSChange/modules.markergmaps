@@ -1,0 +1,23 @@
+<kml xmlns="http://earth.google.com/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+	<Document>
+		<name tal:content="website/getLabel"></name>
+		<atom:link tal:attributes="href website/getUrl"/>
+		<description tal:content="website/getDescription"/>
+		<Placemark tal:repeat="marker markers">
+			<name tal:content="marker/getLabel"/>
+			<span tal:define="global icon marker/getMarkerIcon"/>
+			<Style id="normalPlacemark" tal:condition="icon">
+				<IconStyle>
+					<Icon>
+						<href tal:content="icon"></href>
+					</Icon>
+				</IconStyle>
+			</Style>
+			<Point>
+				<coordinates>${marker/getLng},${marker/getLat}</coordinates>
+			</Point>
+			<span tal:define="global markerInfo" tal:omit-tag=""><span tal:repeat="info marker/getMarkerInfo" tal:omit-tag="">${info} <br/></span></span>
+			<description><![CDATA[${markerInfo}]]></description>		
+		</Placemark>
+	</Document>
+</kml>

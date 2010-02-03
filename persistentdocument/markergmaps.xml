@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<document model-version="1.0" publish-on-day-change="false" extend="modules_website/marker" has-url="false">
+	<properties />
+	<form>
+		<property name="account" size="120"/>
+	</form>
+</document>

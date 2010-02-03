@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+
+	<entity id="fr">
+		<locale lang="fr">France</locale>
+	</entity>
+
+	<entity id="en">
+		<locale lang="en">England</locale>
+	</entity>
+
+	<entity id="de">
+		<locale lang="de">Deutschland</locale>
+	</entity>
+
+	<entity id="es">
+		<locale lang="es">Espana</locale>
+	</entity>
+
+	<entity id="it">
+		<locale lang="it">Italia</locale>
+	</entity>
+</localization>

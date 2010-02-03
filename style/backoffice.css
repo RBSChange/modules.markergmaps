@@ -1,0 +1,9 @@
+treechildren::-moz-tree-image(modules_markergmaps_position){
+	list-style-image: url(/icons/small/map-position.png) ;
+}
+treechildren::-moz-tree-image(modules_markergmaps_markergmaps){
+	list-style-image: url(/icons/small/googlemaps.png) ;
+}
+treechildren::-moz-tree-image(modules_markergmaps_preferences){
+	list-style-image: url(/icons/small/googlemaps.png) ;
+}
