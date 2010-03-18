@@ -18,6 +18,8 @@ class markergmaps_Setup extends object_InitDataSetup
 			echo "ERROR: " . $e->getMessage() . "\n";
 			Framework::exception($e);
 		}
+		
+		f_permission_PermissionService::getInstance()->addImportInRight('website', 'markergmaps', 'websiterights');
 	}
 
 	/**
