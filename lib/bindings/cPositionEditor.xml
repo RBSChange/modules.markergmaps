@@ -85,6 +85,14 @@
 				]]></body>
 			</method>
 			
+			<method name="setColormarker">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.colormarker = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+			
 			<method name="valueChanged">
 				<body><![CDATA[
 					this.dispatchFieldEvent('fieldChanged');
