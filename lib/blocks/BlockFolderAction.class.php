@@ -18,8 +18,8 @@ class markergmaps_BlockFolderAction extends website_BlockAction
 			return website_BlockView::DUMMY;
 		}
 		$this->setDatas($request);
-		$request->setAttribute("gpsexport", $this->getConfigurationParameter("gpsexport", false));
-		$request->setAttribute("showpositionslist", $this->getConfigurationParameter("showpositionslist", false));
+		$request->setAttribute("gpsexport", $this->getConfiguration()->getGpsexport());
+		$request->setAttribute("showpositionslist",  $this->getConfiguration()->getShowpositionslist());
 		return website_BlockView::SUCCESS;
 	}
 	

@@ -1,6 +1,6 @@
 <div tal:omit-tag="" tal:condition="positions">
 		<ul class="position-list normal" tal:condition="showpositionslist">	
-			<li tal:repeat="position positions"><a href="javascript:centerMapOnPoint(${repeat/position/index})" tal:content="position/getLabel"/></li>
+			<li tal:repeat="position positions"><a href="javascript:centerMapOnPoint(${repeat/position/index})" class="link" tal:content="position/getLabel"/></li>
 		</ul>
 		
 		<p tal:condition="folder" tal:omit-tag=""><p tal:omit-tag="" tal:define="global folderid folder/getId"/></p>

@@ -18,7 +18,7 @@ class markergmaps_BlockPositionAction extends website_BlockAction
 			return website_BlockView::DUMMY;
 		}
 		$this->setDatas($request);
-		$request->setAttribute("gpsexport", $this->getConfigurationParameter("gpsexport"));
+		$request->setAttribute("gpsexport", $this->getConfiguration()->getGpsexport());
 		return website_BlockView::SUCCESS;
 	}
 	
