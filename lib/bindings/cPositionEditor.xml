@@ -13,7 +13,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.LocalizeAddress;"  oncommand="localizeAddress()" image="{HttpHost}/icons/small/refresh.png" />
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.LocalizeAddress;"  oncommand="localizeAddress()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
@@ -41,7 +41,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMap()" image="{HttpHost}/icons/small/refresh.png" />
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMap()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
