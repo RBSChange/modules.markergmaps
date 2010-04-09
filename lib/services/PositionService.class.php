@@ -125,10 +125,10 @@ class markergmaps_PositionService extends f_persistentdocument_DocumentService
 	 *
 	 * @param markergmaps_persistentdocument_position $document
 	 * @param string $forModuleName
-	 * @param unknown_type $allowedSections
+	 * @param array $allowedSections
 	 * @return array
 	 */
-	public function getResume($document, $forModuleName, $allowedSections)
+	public function getResume($document, $forModuleName, $allowedSections = null)
 	{
 		$data = parent::getResume($document, $forModuleName, $allowedSections);
 		$data['properties']['latitude'] = $document->getLatitude();
