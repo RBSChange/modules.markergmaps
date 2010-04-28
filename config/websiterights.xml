@@ -3,4 +3,12 @@
 	<actions>
 		<document name="markergmaps" />
 	</actions>
+	<roles>
+		<role name="TreeManager">
+			<permission name="Insert.markergmaps" />
+			<permission name="Update.markergmaps" />
+			<permission name="Load.markergmaps" />
+			<permission name="Delete.markergmaps" />
+		</role>
+	</roles>
 </rights>
