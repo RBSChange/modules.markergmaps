@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<script tal:attributes="src url" type="text/javascript"></script>
+  	<script type="text/javascript">
+    function initialize()
+    {
+      if (GBrowserIsCompatible())
+      {
+	      var map = new GMap2(document.getElementById("maps"));
+	      map.addMapType(G_PHYSICAL_MAP);
+
+	      var colormarker = "${colormarker}";
+	      var address = "${address}";
+	      var picto = "${picto}";
+	      var width = "${width}";
+	      var height = "${height}";
+	      var shadow = "${shadow}";
+	      var swidth = "${swidth}";
+	      var sheight = "${sheight}";
+	      var geocoder = new GClientGeocoder();
+
+	      var customIcon = new GIcon(G_DEFAULT_ICON);
+	      if(picto == "")
+	      {
+	      	customIcon.image = "${php: GmapsHelper::getGoogleIconsUrl()}" + colormarker;
+	      	customIcon.iconSize = new GSize(32, 32);
+	      }
+	      else
+	      {
+	      	customIcon.image = picto;
+	      	if(width && height)
+	      	{
+	      		customIcon.iconSize = new GSize(parseInt(width), parseInt(height));
+	      	}
+	      }
+	      if(shadow != "")
+	      {
+	      	customIcon.shadow = shadow;
+	      	if(swidth && sheight)
+	      	{
+	      		customIcon.shadowSize = new GSize(parseInt(swidth), parseInt(sheight));
+	      	}
+	      }
+
+	      var options = { draggable: true, bouncy: false, icon: customIcon };
+	      var point;
+	      var marker;
+
+	      map.enableScrollWheelZoom();
+	      map.addControl(new GLargeMapControl3D());
+	      map.addControl(new GMapTypeControl());
+
+	      function displayMarker(point, zoom)
+	      {
+	      	marker = new GMarker(point, options);
+	      	map.addOverlay(marker);
+	      	map.setCenter(point, zoom);
+	      	document.getElementById('longitude').value = point.x;
+	      	document.getElementById('latitude').value = point.y;
+
+	      	GEvent.addListener(marker, "dragend", function(){
+		     		var elem = marker.getLatLng();
+		     		document.getElementById('longitude').value = elem.x;
+		    		document.getElementById('latitude').value = elem.y;
+		      });
+	      }
+
+	      if(address != '')
+	      {
+	      	geocoder.getLatLng(address, function(point){
+	      		displayMarker(point, 12);
+	      	});
+	      }
+	      else if(document.getElementById('latitude').value != '' && document.getElementById('longitude').value != '')
+	      {
+	      	point = new GLatLng(document.getElementById('latitude').value, document.getElementById('longitude').value);
+	      	displayMarker(point, 12);
+	      }
+       	else
+	      {
+	      	geocoder.getLatLng("${country}", function(center){
+				  	if(center)
+				    {
+				    	displayMarker(center, 5);
+				    }
+				    else
+				    {
+				    	displayMarker(new GLatLng(0, 0), 1);
+				    }
+					});
+	      }
+	    }
+    }
+    </script>
+  </head>
+  <body onload="initialize()" onunload="GUnload()" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+		<div id="maps" style="width: 650px; height: 400px"></div>
+		<input type="hidden"  id="latitude" size="10" value="${latitude}" />
+		<input type="hidden"  id="longitude" size="10" value="${longitude}" />
+	</body>
+</html>

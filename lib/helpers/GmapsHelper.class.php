@@ -43,21 +43,21 @@ class GmapsHelper
 	{
 		return GmapsHelper::getKeyForWebsite(website_WebsiteModuleService::getInstance()->getDefaultWebsite());
 	}
-	
+
 	/**
 	 * @return String
 	 */
 	public static function getGmapsUrlForCurrentWebsite()
 	{
-		return GmapsHelper::getGoogleMapsUrl()."?file=api&v=2.128e&hl=".RequestContext::getInstance()->getLang()."&key=".GmapsHelper::getKeyForCurrentWebsite();
+		return GmapsHelper::getGoogleMapsUrl()."?file=api&v=2.223&hl=".RequestContext::getInstance()->getLang()."&key=".GmapsHelper::getKeyForCurrentWebsite();
 	}
-	
+
 	/**
 	 * @return String
 	 */
 	public static function getGmapsUrlForDefaultWebsite()
 	{
-		return GmapsHelper::getGoogleMapsUrl()."?file=api&v=2.128e&hl=".RequestContext::getInstance()->getLang()."&key=".GmapsHelper::getKeyForDefaultWebsite();
+		return GmapsHelper::getGoogleMapsUrl()."?file=api&v=2.223&hl=".RequestContext::getInstance()->getLang()."&key=".GmapsHelper::getKeyForDefaultWebsite();
 	}
 
 	/**

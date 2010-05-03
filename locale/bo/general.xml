@@ -34,4 +34,9 @@
 		<locale lang="fr">obtenir une clé</locale>
 		<locale lang="en">get key</locale>
 	</entity>
+
+	<entity id="suretodelete">
+		<locale lang="fr">êtes vous sûr de vouloir supprimer cet élément ?</locale>
+		<locale lang="en">are you sure to delete this element?</locale>
+	</entity>
 </localization>

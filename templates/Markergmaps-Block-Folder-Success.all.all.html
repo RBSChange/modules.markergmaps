@@ -1,20 +1,20 @@
 <div tal:omit-tag="" tal:condition="positions">
-		<ul class="position-list normal" tal:condition="showpositionslist">	
+		<ul class="position-list normal" tal:condition="showpositionslist">
 			<li tal:repeat="position positions"><a href="javascript:centerMapOnPoint(${repeat/position/index})" class="link" tal:content="position/getLabel"/></li>
 		</ul>
-		
+
 		<p tal:condition="folder" tal:omit-tag=""><p tal:omit-tag="" tal:define="global folderid folder/getId"/></p>
 		<p tal:condition="not: folder" tal:omit-tag=""><p tal:omit-tag="" tal:define="global folderid php: rand(100,1000)"/></p>
 		<div tal:attributes="id php: 'gmaps' . folderid" style="overflow:hidden"/>
 		<tal:block tal:condition="gpsexport">
-			
+
 			<span class="gps-export">
 				<tal:block change:translate="&amp;modules.markergmaps.frontoffice.GpsExportMultipleLabel;"/>
 				<a change:link="module markergmaps; action ExportGpsOv2; cmpref folderid" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportOv2;"></a>
 				-
 				<a change:link="module markergmaps; action ExportGpsGpx; cmpref folderid" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportGpx;"></a>
 			</span>
-			
+
 		</tal:block>
 		<script type="text/javascript">
 		//<![CDATA[
@@ -29,11 +29,11 @@
       if (GBrowserIsCompatible())
       {
       	var markergmaps_id${folderid} = "gmaps" + "${folderid}";
-      	var markergmaps_width${folderid} = "${width}";
-      	var markergmaps_height${folderid} = "${height}";
+      	var markergmaps_width${folderid} = parseInt(${width});
+      	var markergmaps_height${folderid} = parseInt(${height});
       	var markergmaps_allpoints${folderid} = [];
-		var markergmaps_allhtml${folderid} = [];
-		
+				var markergmaps_allhtml${folderid} = [];
+
       	if(markergmaps_width${folderid}!='' && markergmaps_height${folderid}!='')
       	{
         	var markergmaps_map${folderid} = new GMap2(document.getElementById(markergmaps_id${folderid}), {size: new GSize(markergmaps_width${folderid}, markergmaps_height${folderid})});
@@ -67,13 +67,13 @@
 						markergmaps_map${folderid}.addOverlay(markergmaps_marker${folderid}${position/getId});
 
 						markergmaps_allpoints${folderid}.push(markergmaps_point${folderid}${position/getId});
-						
-						
+
+
 						markergmaps_title${folderid}${position/getId} = "<p tal:omit-tag='' tal:content='php: addslashes(position->getLabel())'/>";
 						markergmaps_link${folderid}${position/getId} = "<p tal:replace='php: links[repeat.position.key]'/>";
 						markergmaps_address${folderid}${position/getId} = "<p tal:omit-tag='' tal:content='position/getFullDescription'/>";
 						markergmaps_icon${folderid}${position/getId} = "<p tal:replace='php: icons[repeat.position.key]'/>";
-						
+
 						var markergmaps_html${folderid}${position/getId} = '';
 						if(markergmaps_title${folderid}${position/getId}!='')
 						{
@@ -98,24 +98,23 @@
 							markergmaps_html${folderid}${position/getId} += '<div class="gmaps-bullet-address">'+markergmaps_address${folderid}${position/getId}+'</div>';
 						}
 						markergmaps_allhtml${folderid}.push(markergmaps_html${folderid}${position/getId});
-						
+
 						GEvent.addListener(markergmaps_marker${folderid}${position/getId}, "click", function()
 						{
-							
-							markergmaps_map${folderid}.openInfoWindowHtml(markergmaps_point${folderid}${position/getId}, markergmaps_allhtml${folderid}[${repeat/position/index}]);
+
+							markergmaps_map${folderid}.openInfoWindowHtml(markergmaps_point${folderid}${position/getId}, markergmaps_allhtml${folderid}[${repeat/position/index}], {autoScroll:true});
 						});
 					</p>
 				});
 
       	markergmaps_map${folderid}.setCenter(new GLatLng(0,0), 0);
         var markergmaps_polygon${folderid} = new GPolygon(markergmaps_allpoints${folderid});
-        markergmaps_map${folderid}.addOverlay(markergmaps_polygon${folderid});
         var markergmaps_bounds${folderid} = markergmaps_polygon${folderid}.getBounds();
 				var markergmaps_zoom${folderid} = markergmaps_map${folderid}.getBoundsZoomLevel(markergmaps_bounds${folderid});
        	markergmaps_map${folderid}.setCenter(markergmaps_bounds${folderid}.getCenter(), --markergmaps_zoom${folderid});
 
-       	markergmaps_maxwidth${folderid} = "${maxwidth}";
-       	markergmaps_maxheight${folderid} = "${maxheight}";
+       	markergmaps_maxwidth${folderid} = parseInt(${maxwidth});
+       	markergmaps_maxheight${folderid} = parseInt(${maxheight});
 
        	function maximizeMap${folderid}()
        	{
@@ -137,17 +136,17 @@
        		jQuery('#gmaps-min-'+markergmaps_id${folderid}).hide();
        		jQuery('#gmaps-max-'+markergmaps_id${folderid}).show();
        	}
-       	if(markergmaps_maxwidth${folderid}!="" && markergmaps_maxheight${folderid}!="")
+       	if(!isNaN(markergmaps_maxwidth${folderid}) && !isNaN(markergmaps_maxheight${folderid}))
        	{
        		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${folderid}+'"><a href="javascript:minimizeMap${folderid}()" i18n:translate="&modules.markergmaps.frontoffice.Minimize-map;"/></p>');
        		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${folderid}+'"><a href="javascript:maximizeMap${folderid}()" i18n:translate="&modules.markergmaps.frontoffice.Maximize-map;"/></p>');
        		jQuery('#gmaps-min-'+markergmaps_id${folderid}).hide();
        	}
-       	
+
        	function centerMapOnPoint(positionId)
        	{
        		markergmaps_map${folderid}.setCenter( markergmaps_allpoints${folderid}[positionId]);
-       		markergmaps_map${folderid}.openInfoWindowHtml(markergmaps_allpoints${folderid}[positionId], markergmaps_allhtml${folderid}[positionId]);
+       		markergmaps_map${folderid}.openInfoWindowHtml(markergmaps_allpoints${folderid}[positionId], markergmaps_allhtml${folderid}[positionId], {autoScroll:true});
        	}
       }
     </script>

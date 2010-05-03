@@ -8,3 +8,21 @@ cfield[fieldtype="googlemapaddress"]{
 {
 	-moz-binding: url(binding:modules.markergmaps.cMarkergmapsEditor#cMarkergmapsPropertiesField);
 }
+cfield[fieldtype="googlemappolyline"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cGooglePolylineField);
+}
+cfield[fieldtype="googlemapmarker"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cGoogleMarkerField);
+}
+cfield[fieldtype="googlemappolygon"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cGooglePolygonField);
+}
+cfield[fieldtype="googlemapground"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cGoogleGroundField);
+}
+cfield[fieldtype="gmapselements"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#gmapselements);
+}
+cfield[fieldtype="initmap"]{
+	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cInitmapField);
+}

@@ -1,0 +1,42 @@
+<tal:block>
+var colormarker${gmarker/getId} = "${gmarker/getColormarker}";
+var picto${gmarker/getId} = "${gmarker/getPictoUrl}";
+var width${gmarker/getId} = "${gmarker/getWidth}";
+var height${gmarker/getId} = "${gmarker/getHeight}";
+var shadow${gmarker/getId} = "${gmarker/getShadow}";
+var swidth${gmarker/getId} = "${gmarker/getSwidth}";
+var sheight${gmarker/getId} = "${gmarker/getSheight}";
+var customIcon${gmarker/getId} = new GIcon(G_DEFAULT_ICON);
+if(picto${gmarker/getId} == "")
+{
+	customIcon${gmarker/getId}.image = "${php: GmapsHelper::getGoogleIconsUrl()}" + colormarker${gmarker/getId};
+	customIcon${gmarker/getId}.iconSize = new GSize(32, 32);
+}
+else
+{
+	customIcon${gmarker/getId}.image = picto${gmarker/getId};
+	if(width${gmarker/getId} && height${gmarker/getId})
+	{
+		customIcon${gmarker/getId}.iconSize = new GSize(parseInt(width${gmarker/getId}), parseInt(height${gmarker/getId}));
+	}
+}
+if(shadow${gmarker/getId} != "")
+{
+	customIcon${gmarker/getId}.shadow = shadow${gmarker/getId};
+	if(swidth${gmarker/getId} && sheight${gmarker/getId})
+	{
+		customIcon${gmarker/getId}.shadowSize = new GSize(parseInt(swidth${gmarker/getId}), parseInt(sheight${gmarker/getId}));
+	}
+}
+var options${gmarker/getId} = { icon: customIcon${gmarker/getId} };
+var point${gmarker/getId} = new GLatLng(${gmarker/getLatitude}, ${gmarker/getLongitude});
+var gmarker${gmarker/getId} = new GMarker(point${gmarker/getId}, options${gmarker/getId});
+<tal:block tal:condition="gmarker/getInfobulle">
+GEvent.addListener(gmarker${gmarker/getId}, "click", function()
+{
+	gmarker${gmarker/getId}.openInfoWindowHtml("${gmarker/getAddslashesSummaryAsHtml}", {maxTitle: "${gmarker/getAddslashesTitleAsHtml}", maxContent: "${gmarker/getAddslashesDescriptionAsHtml}", autoScroll:true});
+});
+</tal:block>
+${o}.push(gmarker${gmarker/getId});
+${map}.addOverlay(gmarker${gmarker/getId});
+</tal:block>

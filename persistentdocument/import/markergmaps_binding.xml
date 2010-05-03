@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <script>
-	<binding fileName="modules/generic/persistentdocument/import/generic_binding.xml" />
-	<binding name="preferences" className="markergmaps_PreferencesScriptDocumentElement" />
-	<binding name="markergmapspreferences" className="markergmaps_PreferencesScriptDocumentElement" />
-	<binding name="position" className="markergmaps_PositionScriptDocumentElement" />
-	<binding name="markergmaps" className="markergmaps_MarkergmapsScriptDocumentElement" />
+  <binding fileName="modules/generic/persistentdocument/import/generic_binding.xml"/>
+  <binding name="preferences" className="markergmaps_PreferencesScriptDocumentElement"/>
+  <binding name="markergmapspreferences" className="markergmaps_PreferencesScriptDocumentElement"/>
+  <binding name="position" className="markergmaps_PositionScriptDocumentElement"/>
+  <binding name="markergmaps" className="markergmaps_MarkergmapsScriptDocumentElement"/>
+  <binding name="map" className="markergmaps_MapScriptDocumentElement"/>
+  <binding name="polyline" className="markergmaps_PolylineScriptDocumentElement"/>
+  <binding name="element" className="markergmaps_ElementScriptDocumentElement"/>
+  <binding name="gmarker" className="markergmaps_GmarkerScriptDocumentElement"/>
+  <binding name="polygon" className="markergmaps_PolygonScriptDocumentElement"/>
+  <binding name="ground" className="markergmaps_GroundScriptDocumentElement"/>
 </script>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="document-name">
+    <locale lang="fr">carte</locale>
+    <locale lang="en">map</locale>
+  </entity>
+  <entity id="label">
+    <locale lang="fr">nom de la carte</locale>
+    <locale lang="en">name of the map</locale>
+  </entity>
+  <entity id="label-help">
+    <locale lang="fr">nom de la carte</locale>
+    <locale lang="en">name of the map</locale>
+  </entity>
+  <entity id="width">
+    <locale lang="fr">largeur</locale>
+    <locale lang="en">width</locale>
+  </entity>
+  <entity id="width-help">
+    <locale lang="fr">largeur</locale>
+    <locale lang="en">width</locale>
+  </entity>
+  <entity id="height">
+    <locale lang="fr">hauteur</locale>
+    <locale lang="en">height</locale>
+  </entity>
+  <entity id="height-help">
+    <locale lang="fr">hauteur</locale>
+    <locale lang="en">height</locale>
+  </entity>
+  <entity id="maptype">
+    <locale lang="fr">affichage par défaut</locale>
+    <locale lang="en">default display</locale>
+  </entity>
+  <entity id="maptype-help">
+    <locale lang="fr">affichage par défaut</locale>
+    <locale lang="en">default display</locale>
+  </entity>
+  <entity id="search">
+    <locale lang="fr">afficher un moteur de recherche</locale>
+    <locale lang="en">display search form</locale>
+  </entity>
+  <entity id="search-help">
+    <locale lang="fr">afficher un moteur de recherche</locale>
+    <locale lang="en">display search form</locale>
+  </entity>
+  <entity id="searchposition">
+    <locale lang="fr">position du moteur de recherche</locale>
+    <locale lang="en">search form position</locale>
+  </entity>
+  <entity id="searchposition-help">
+    <locale lang="fr">position du moteur de recherche</locale>
+    <locale lang="en">search form position</locale>
+  </entity>
+  <entity id="choosedisplay">
+    <locale lang="fr">affichage configurable en frontoffice</locale>
+    <locale lang="en">configure display in frontoffice</locale>
+  </entity>
+  <entity id="choosedisplay-help">
+    <locale lang="fr">affichage configurable en frontoffice</locale>
+    <locale lang="en">configure display in frontoffice</locale>
+  </entity>
+  <entity id="displayall">
+    <locale lang="fr">tout afficher par défaut</locale>
+    <locale lang="en">display all by default</locale>
+  </entity>
+  <entity id="displayall-help">
+    <locale lang="fr">tout afficher par défaut</locale>
+    <locale lang="en">display all by default</locale>
+  </entity>
+  <entity id="minimap">
+    <locale lang="fr">afficher une mini carte en bas à droite</locale>
+    <locale lang="en">display mini-map at bottom right corner</locale>
+  </entity>
+  <entity id="minimap-help">
+    <locale lang="fr">afficher une mini carte en bas à droite</locale>
+    <locale lang="en">display mini-map at bottom right corner</locale>
+  </entity>
+  <entity id="maptypeposition">
+    <locale lang="fr">position des types de carte</locale>
+    <locale lang="en">map types position</locale>
+  </entity>
+  <entity id="maptypeposition-help">
+    <locale lang="fr">position des types de carte</locale>
+    <locale lang="en">map types position</locale>
+  </entity>
+  <entity id="scale">
+    <locale lang="fr">afficher l'échelle</locale>
+    <locale lang="en">display scale</locale>
+  </entity>
+  <entity id="scale-help">
+    <locale lang="fr">afficher l'échelle</locale>
+    <locale lang="en">display scale</locale>
+  </entity>
+  <entity id="scaleposition">
+    <locale lang="fr">position de l'échelle</locale>
+    <locale lang="en">scale position</locale>
+  </entity>
+  <entity id="scaleposition-help">
+    <locale lang="fr">position de l'échelle</locale>
+    <locale lang="en">scale position</locale>
+  </entity>
+
+  <entity id="mapnormal">
+    <locale lang="fr">activation du mode plan</locale>
+    <locale lang="en">enable map display</locale>
+  </entity>
+  <entity id="mapnormal-help">
+    <locale lang="fr">activation du mode plan</locale>
+    <locale lang="en">enable map display</locale>
+  </entity>
+  <entity id="mapsatellite">
+    <locale lang="fr">activation du mode satellite</locale>
+    <locale lang="en">enable satellite display</locale>
+  </entity>
+  <entity id="mapsatellite-help">
+    <locale lang="fr">activation du mode satellite</locale>
+    <locale lang="en">enable satellite display</locale>
+  </entity>
+  <entity id="maphybrid">
+    <locale lang="fr">activation du mode mixte</locale>
+    <locale lang="en">enable hybrid display</locale>
+  </entity>
+  <entity id="maphybrid-help">
+    <locale lang="fr">activation du mode mixte</locale>
+    <locale lang="en">enable hybrid display</locale>
+  </entity>
+  <entity id="mapterrain">
+    <locale lang="fr">activation du mode relief</locale>
+    <locale lang="en">enable terrain display</locale>
+  </entity>
+  <entity id="mapterrain-help">
+    <locale lang="fr">activation du mode relief</locale>
+    <locale lang="en">enable terrain display</locale>
+  </entity>
+  <entity id="menulistmaptype">
+    <locale lang="fr">affichage des types de carte en menu</locale>
+    <locale lang="en">display map types in droplist</locale>
+  </entity>
+  <entity id="menulistmaptype-help">
+    <locale lang="fr">affichage des types de carte en menu</locale>
+    <locale lang="en">display map types in droplist</locale>
+  </entity>
+
+  <entity id="control">
+    <locale lang="fr">type de navigation</locale>
+    <locale lang="en">navigation type</locale>
+  </entity>
+  <entity id="control-help">
+    <locale lang="fr">type de navigation</locale>
+    <locale lang="en">navigation type</locale>
+  </entity>
+  <entity id="controlposition">
+    <locale lang="fr">position de la navigation</locale>
+    <locale lang="en">navigation position</locale>
+  </entity>
+  <entity id="controlposition-help">
+    <locale lang="fr">position de la navigation</locale>
+    <locale lang="en">navigation position</locale>
+  </entity>
+
+  <entity id="drag">
+    <locale lang="fr">activer le déplacement de la carte</locale>
+    <locale lang="en">enable dragging of the map</locale>
+  </entity>
+  <entity id="drag-help">
+    <locale lang="fr">activer le déplacement de la carte</locale>
+    <locale lang="en">enable dragging of the map</locale>
+  </entity>
+  <entity id="dblclick">
+    <locale lang="fr">activer le zoom par double clic</locale>
+    <locale lang="en">enable double click to zoom</locale>
+  </entity>
+  <entity id="controlposition-help">
+    <locale lang="fr">activer le zoom par double clic</locale>
+    <locale lang="en">enable double click to zoom</locale>
+  </entity>
+  <entity id="scrollzoom">
+    <locale lang="fr">activer le zoom sur la molette de la souris</locale>
+    <locale lang="en">enable scroll wheel zooming</locale>
+  </entity>
+  <entity id="scrollzoom-help">
+    <locale lang="fr">activer le zoom sur la molette de la souris</locale>
+    <locale lang="en">enable scroll wheel zooming</locale>
+  </entity>
+
+  <entity id="streetview">
+    <locale lang="fr">activer StreetView</locale>
+    <locale lang="en">enable StreetView</locale>
+  </entity>
+  <entity id="streetview-help">
+    <locale lang="fr">activer StreetView</locale>
+    <locale lang="en">enable StreetView</locale>
+  </entity>
+  <entity id="svtop">
+    <locale lang="fr">position verticale de l'icone StreetView</locale>
+    <locale lang="en">top position of StreetView icon</locale>
+  </entity>
+  <entity id="svtop-help">
+    <locale lang="fr">position verticale de l'icone StreetView</locale>
+    <locale lang="en">top position of StreetView icon</locale>
+  </entity>
+  <entity id="svleft">
+    <locale lang="fr">position horizontale de l'icone StreetView</locale>
+    <locale lang="en">left position of StreetView icon</locale>
+  </entity>
+  <entity id="svleft-help">
+    <locale lang="fr">position horizontale de l'icone StreetView</locale>
+    <locale lang="en">left position of StreetView icon</locale>
+  </entity>
+
+
+  <entity id="startpublicationdate">
+    <locale lang="fr">Début de publication</locale>
+  </entity>
+  <entity id="startpublicationdate-help">
+    <locale lang="fr">A partir de cette date, le document sera publié. Si le champ est vide, la publication du document commencera dès maintenant.</locale>
+  </entity>
+  <entity id="endpublicationdate">
+    <locale lang="fr">Fin de publication</locale>
+  </entity>
+  <entity id="endpublicationdate-help">
+    <locale lang="fr">A partir de cette date, le document ne sera plus publié. Si le champ est vide, le document restera indéfiniment publié.</locale>
+  </entity>
+</localization>

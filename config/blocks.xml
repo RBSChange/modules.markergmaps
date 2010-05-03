@@ -20,4 +20,5 @@
 			<parameter name="gpsexport" type="Boolean" default-value="false" />
 		</parameters>
 	</block>
+	<block type="modules_markergmaps_map" icon="map" label="&amp;modules.markergmaps.bo.blocks.Map;" hidden="true"/>
 </blocks>

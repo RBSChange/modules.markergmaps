@@ -7,3 +7,6 @@ treechildren::-moz-tree-image(modules_markergmaps_markergmaps){
 treechildren::-moz-tree-image(modules_markergmaps_preferences){
 	list-style-image: url(/changeicons/small/googlemaps.png) ;
 }
+treechildren::-moz-tree-image(modules_markergmaps_map){
+	list-style-image: url(/changeicons/small/googlemaps.png);
+}

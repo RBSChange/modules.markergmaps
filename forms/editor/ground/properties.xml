@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+    <field name="label"/>
+    <field name="image" allowfile="true"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.Map">
+		<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
+  	<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemapground" />
+	</section>
+
+	<xul>
+		<javascript>
+
+			<constructor><![CDATA[
+				var me = this;
+				this.addEventListener('localizeAddress', function(event) {me.onLocalizeAddress()}, true);
+				this.fields['image'].addEventListener('fieldChanged', function(event) {me.onImageChanged()}, true);
+			]]></constructor>
+
+			<method name="fixString">
+				<parameter name="data" />
+				<body><![CDATA[
+					var fs = (data == null) ? "" : data.toString();
+					return (fs.length > 0) ? fs.replace(/^\s+/g, "").replace(/\s+$/g, "") : fs;
+				]]></body>
+			</method>
+
+			<method name="onImageChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setImage(this.fields['image'].value);
+				]]></body>
+			</method>
+
+			<method name="onLocalizeAddress">
+				<parameter name="event" />
+				<body><![CDATA[
+					var addressValue = this.fixString(this.fields['address'].value);
+					if (addressValue != "")
+					{
+						this.fields['googlemapsvalue'].setAddress(addressValue);
+					}
+				]]></body>
+			</method>
+
+		</javascript>
+	</xul>
+</panel>

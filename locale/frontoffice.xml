@@ -24,21 +24,26 @@
 		<locale lang="fr">réduire la carte</locale>
 		<locale lang="en">minimize map</locale>
 	</entity>
-	
+
 	<entity id="GpsExportMultiple">
 		<locale lang="fr">Point(s) d'intérêt(s) pour GPS</locale>
 	</entity>
-	
+
 	<entity id="GpsExportSingle">
 		<locale lang="fr">Point d'intérêt pour GPS</locale>
 	</entity>
-	
+
 	<entity id="GpsExportOv2">
 		<locale lang="fr">Format ov2</locale>
 	</entity>
-		
+
 	<entity id="GpsExportGpx">
 		<locale lang="fr">Format gpx</locale>
+	</entity>
+
+	<entity id="backtomap">
+		<locale lang="fr">retour à la carte</locale>
+		<locale lang="en">back to map</locale>
 	</entity>
 
 </localization>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+    <field name="label"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.Elements" class="toggle">
+		<fieldinput name="elementsJSON" type="gmapselements" />
+	</section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Display" class="toggle">
+    <field name="width"/>
+    <field name="height"/>
+    <field name="mapnormal"/>
+    <field name="mapsatellite"/>
+    <field name="maphybrid"/>
+    <field name="mapterrain"/>
+    <field name="menulistmaptype"/>
+    <field name="maptypeposition"/>
+    <field name="choosedisplay"/>
+    <field name="displayall"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Control" class="toggle" hidden="true">
+  	<field name="control"/>
+    <field name="controlposition"/>
+    <field name="minimap"/>
+    <field name="drag"/>
+    <field name="dblclick"/>
+    <field name="scrollzoom"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Scale" class="toggle" hidden="true">
+    <field name="scale"/>
+    <field name="scaleposition"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Streetview" class="toggle" hidden="true">
+    <field name="streetview"/>
+    <field name="svtop"/>
+    <field name="svleft"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Search" class="toggle" hidden="true">
+    <field name="search"/>
+    <field name="searchposition"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Preview" class="toggle" hidden="true">
+  	<field name="initmap" type="initmap" />
+  </section>
+</panel>

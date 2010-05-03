@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+    <field name="label"/>
+    <field name="infobulle"/>
+    <field name="summary"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.Plus" class="toggle" hidden="true">
+    <field name="title"/>
+    <field name="description"/>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.Image" class="toggle" hidden="true">
+    <field name="colormarker"/>
+    <section labeli18n="modules.markergmaps.bo.doceditor.Changeicon">
+	    <field name="picto" allowfile="true"/>
+	    <field name="width"/>
+	    <field name="height"/>
+	    <field name="shadow" allowfile="true"/>
+	    <field name="swidth"/>
+	    <field name="sheight"/>
+  	</section>
+  </section>
+  <section labeli18n="modules.markergmaps.bo.doceditor.Map">
+		<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
+  	<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemapmarker" />
+	</section>
+
+	<xul>
+		<javascript>
+
+			<constructor><![CDATA[
+				var me = this;
+				this.addEventListener('localizeAddress', function(event) {me.onLocalizeAddress()}, true);
+				this.fields['colormarker'].addEventListener('fieldChanged', function(event) {me.onColorChanged()}, true);
+				this.fields['picto'].addEventListener('fieldChanged', function(event) {me.onPictoChanged()}, true);
+				this.fields['width'].addEventListener('fieldChanged', function(event) {me.onWidthChanged()}, true);
+				this.fields['height'].addEventListener('fieldChanged', function(event) {me.onHeightChanged()}, true);
+				this.fields['shadow'].addEventListener('fieldChanged', function(event) {me.onShadowChanged()}, true);
+				this.fields['swidth'].addEventListener('fieldChanged', function(event) {me.onSwidthChanged()}, true);
+				this.fields['sheight'].addEventListener('fieldChanged', function(event) {me.onSheightChanged()}, true);
+			]]></constructor>
+
+
+
+			<method name="fixString">
+				<parameter name="data" />
+				<body><![CDATA[
+					var fs = (data == null) ? "" : data.toString();
+					return (fs.length > 0) ? fs.replace(/^\s+/g, "").replace(/\s+$/g, "") : fs;
+				]]></body>
+			</method>
+			<method name="onColorChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setColormarker(this.fields['colormarker'].value);
+				]]></body>
+			</method>
+			<method name="onPictoChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setPicto(this.fields['picto'].value);
+				]]></body>
+			</method>
+			<method name="onWidthChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setWidth(this.fields['width'].value);
+				]]></body>
+			</method>
+			<method name="onHeightChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setHeight(this.fields['height'].value);
+				]]></body>
+			</method>
+			<method name="onShadowChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setShadow(this.fields['shadow'].value);
+				]]></body>
+			</method>
+			<method name="onSwidthChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setSwidth(this.fields['swidth'].value);
+				]]></body>
+			</method>
+			<method name="onSheightChanged">
+				<parameter name="event" />
+				<body><![CDATA[
+					this.fields['googlemapsvalue'].setSheight(this.fields['sheight'].value);
+				]]></body>
+			</method>
+			<method name="onLocalizeAddress">
+				<parameter name="event" />
+				<body><![CDATA[
+					var addressValue = this.fixString(this.fields['address'].value);
+					if (addressValue != "")
+					{
+						this.fields['googlemapsvalue'].setAddress(addressValue);
+					}
+				]]></body>
+			</method>
+
+		</javascript>
+	</xul>
+</panel>

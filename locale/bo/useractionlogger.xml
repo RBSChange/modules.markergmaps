@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localization>
+	<entity id="insert-folder">
+    <locale lang="fr">création du dossier {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-folder">
+    <locale lang="fr">créer un dossier</locale>
+  </entity>
+  <entity id="update-folder">
+    <locale lang="fr">mise à jour du dossier {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-folder">
+    <locale lang="fr">mettre à jour un dossier</locale>
+  </entity>
+  <entity id="delete-folder">
+    <locale lang="fr">suppression du dossier {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-folder">
+    <locale lang="fr">supprimer un dossier</locale>
+  </entity>
+  <entity id="move-folder">
+    <locale lang="fr">déplacement du dossier {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-folder">
+    <locale lang="fr">déplacer un dossier</locale>
+  </entity>
+
+  <entity id="insert-position">
+    <locale lang="fr">création de la poisition {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-position">
+    <locale lang="fr">créer une position</locale>
+  </entity>
+  <entity id="update-position">
+    <locale lang="fr">mise à jour de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-position">
+    <locale lang="fr">mettre à jour une position</locale>
+  </entity>
+  <entity id="activate-position">
+    <locale lang="fr">activation de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-position">
+    <locale lang="fr">activer une position</locale>
+  </entity>
+  <entity id="deactivated-position">
+    <locale lang="fr">désactivation de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-position">
+    <locale lang="fr">désactiver une position</locale>
+  </entity>
+  <entity id="reactivate-position">
+    <locale lang="fr">réactivation de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-position">
+    <locale lang="fr">réactiver une position</locale>
+  </entity>
+  <entity id="delete-position">
+    <locale lang="fr">suppression de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-position">
+    <locale lang="fr">supprimer une position</locale>
+  </entity>
+  <entity id="move-position">
+    <locale lang="fr">déplacement de la position {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-position">
+    <locale lang="fr">déplacer une position</locale>
+  </entity>
+
+  <entity id="insert-map">
+    <locale lang="fr">création de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-map">
+    <locale lang="fr">créer une carte</locale>
+  </entity>
+  <entity id="update-map">
+    <locale lang="fr">mise à jour de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-map">
+    <locale lang="fr">mettre à jour une carte</locale>
+  </entity>
+  <entity id="activate-map">
+    <locale lang="fr">activation de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-map">
+    <locale lang="fr">activer une carte</locale>
+  </entity>
+  <entity id="deactivated-map">
+    <locale lang="fr">désactivation de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-map">
+    <locale lang="fr">désactiver une carte</locale>
+  </entity>
+  <entity id="reactivate-map">
+    <locale lang="fr">réactivation de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-map">
+    <locale lang="fr">réactiver une carte</locale>
+  </entity>
+  <entity id="delete-map">
+    <locale lang="fr">suppression de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-map">
+    <locale lang="fr">supprimer une carte</locale>
+  </entity>
+  <entity id="move-map">
+    <locale lang="fr">déplacement de la carte {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-map">
+    <locale lang="fr">déplacer une carte</locale>
+  </entity>
+
+  <entity id="insert-ground">
+    <locale lang="fr">création de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-ground">
+    <locale lang="fr">créer une image de fond</locale>
+  </entity>
+  <entity id="update-ground">
+    <locale lang="fr">mise à jour de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-ground">
+    <locale lang="fr">mettre à jour une image de fond</locale>
+  </entity>
+  <entity id="activate-ground">
+    <locale lang="fr">activation de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-ground">
+    <locale lang="fr">activer une image de fond</locale>
+  </entity>
+  <entity id="deactivated-ground">
+    <locale lang="fr">désactivation de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-ground">
+    <locale lang="fr">désactiver une image de fond</locale>
+  </entity>
+  <entity id="reactivate-ground">
+    <locale lang="fr">réactivation de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-ground">
+    <locale lang="fr">réactiver une image de fond</locale>
+  </entity>
+  <entity id="delete-ground">
+    <locale lang="fr">suppression de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-ground">
+    <locale lang="fr">supprimer une image de fond</locale>
+  </entity>
+  <entity id="move-ground">
+    <locale lang="fr">déplacement de l'image de fond {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-ground">
+    <locale lang="fr">déplacer une image de fond</locale>
+  </entity>
+
+  <entity id="insert-gmarker">
+    <locale lang="fr">création du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-gmarker">
+    <locale lang="fr">créer un point</locale>
+  </entity>
+  <entity id="update-gmarker">
+    <locale lang="fr">mise à jour du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-gmarker">
+    <locale lang="fr">mettre à jour un point</locale>
+  </entity>
+  <entity id="activate-gmarker">
+    <locale lang="fr">activation du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-gmarker">
+    <locale lang="fr">activer un point</locale>
+  </entity>
+  <entity id="deactivated-gmarker">
+    <locale lang="fr">désactivation du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-gmarker">
+    <locale lang="fr">désactiver un point</locale>
+  </entity>
+  <entity id="reactivate-gmarker">
+    <locale lang="fr">réactivation du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-gmarker">
+    <locale lang="fr">réactiver un point</locale>
+  </entity>
+  <entity id="delete-gmarker">
+    <locale lang="fr">suppression du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-gmarker">
+    <locale lang="fr">supprimer un point</locale>
+  </entity>
+  <entity id="move-gmarker">
+    <locale lang="fr">déplacement du point {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-gmarker">
+    <locale lang="fr">déplacer un point</locale>
+  </entity>
+
+  <entity id="insert-polyline">
+    <locale lang="fr">création du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-polyline">
+    <locale lang="fr">créer un tracé</locale>
+  </entity>
+  <entity id="update-polyline">
+    <locale lang="fr">mise à jour du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-polyline">
+    <locale lang="fr">mettre à jour un tracé</locale>
+  </entity>
+  <entity id="activate-polyline">
+    <locale lang="fr">activation du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-polyline">
+    <locale lang="fr">activer un tracé</locale>
+  </entity>
+  <entity id="deactivated-polyline">
+    <locale lang="fr">désactivation du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-polyline">
+    <locale lang="fr">désactiver un tracé</locale>
+  </entity>
+  <entity id="reactivate-polyline">
+    <locale lang="fr">réactivation du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-polyline">
+    <locale lang="fr">réactiver un tracé</locale>
+  </entity>
+  <entity id="delete-polyline">
+    <locale lang="fr">suppression du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-polyline">
+    <locale lang="fr">supprimer un tracé</locale>
+  </entity>
+  <entity id="move-polyline">
+    <locale lang="fr">déplacement du tracé {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-polyline">
+    <locale lang="fr">déplacer un tracé</locale>
+  </entity>
+
+  <entity id="insert-polygon">
+    <locale lang="fr">création de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-insert-polygon">
+    <locale lang="fr">créer une zone</locale>
+  </entity>
+  <entity id="update-polygon">
+    <locale lang="fr">mise à jour de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-update-polygon">
+    <locale lang="fr">mettre à jour une zone</locale>
+  </entity>
+  <entity id="activate-polygon">
+    <locale lang="fr">activation de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-activate-polygon">
+    <locale lang="fr">activer une zone</locale>
+  </entity>
+  <entity id="deactivated-polygon">
+    <locale lang="fr">désactivation de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-deactivated-polygon">
+    <locale lang="fr">désactiver une zone</locale>
+  </entity>
+  <entity id="reactivate-polygon">
+    <locale lang="fr">réactivation de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-reactivate-polygon">
+    <locale lang="fr">réactiver une zone</locale>
+  </entity>
+  <entity id="delete-polygon">
+    <locale lang="fr">suppression de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-delete-polygon">
+    <locale lang="fr">supprimer une zone</locale>
+  </entity>
+  <entity id="move-polygon">
+    <locale lang="fr">déplacement de la zone {documentlabel}</locale>
+  </entity>
+  <entity id="log-move-polygon">
+    <locale lang="fr">déplacer une zone</locale>
+  </entity>
+
+</localization>

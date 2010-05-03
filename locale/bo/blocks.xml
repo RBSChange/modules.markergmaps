@@ -10,6 +10,11 @@
 		<locale lang="en">Google Maps</locale>
 	</entity>
 
+	<entity id="map">
+		<locale lang="fr">carte Google Maps</locale>
+		<locale lang="en">map Google Maps</locale>
+	</entity>
+
 	<entity id="position.width">
     <locale lang="fr">largeur</locale>
     <locale lang="en">width</locale>
@@ -49,12 +54,12 @@
     <locale lang="fr">hauteur agrandie de cette carte, hauteur agrandie par défaut prise dans les préférences du module</locale>
     <locale lang="en">maximized height of this map, default maximized height taken in module preferences</locale>
   </entity>
-  
+
   <entity id="position.gpsexport">
     <locale lang="fr">export GPS</locale>
     <locale lang="en">GPS export</locale>
   </entity>
-  
+
   <entity id="position.gpsexport-help">
     <locale lang="fr">Permet de proposer à l'internaute de télécharger le point de la carte dans des formats compatibles avec les GPS</locale>
   </entity>
@@ -108,21 +113,21 @@
     <locale lang="fr">définit si les points sont pris dans le dossier uniquement ou également dans les sous dossiers</locale>
     <locale lang="en">define if markers are taken in the folder only or also in subfolders</locale>
   </entity>
-  
-    
+
+
   <entity id="folder.gpsexport">
     <locale lang="fr">export GPS</locale>
     <locale lang="en">GPS export</locale>
   </entity>
-  
+
   <entity id="folder.gpsexport-help">
     <locale lang="fr">permet de proposer à l'internaute de télécharger le point de la carte dans des formats compatibles avec les GPS</locale>
   </entity>
-  
+
     <entity id="folder.showpositionslist">
     <locale lang="fr">afficher la liste des points</locale>
   </entity>
-  
+
   <entity id="folder.showpositionslist-help">
     <locale lang="fr">permet de proposer à l'internaute la liste textuelle des points présent sur la carte</locale>
   </entity>

@@ -38,6 +38,14 @@
     <locale lang="fr">Validateur du contenu avant publication</locale>
     <locale lang="en">Validator</locale>
   </entity>
+  <entity id="Guest">
+    <locale lang="fr">Invité</locale>
+    <locale lang="en">Guest</locale>
+  </entity>
+  <entity id="Guest-help">
+    <locale lang="fr">Invité</locale>
+    <locale lang="en">Guest</locale>
+  </entity>
   <entity id="User">
     <locale lang="fr">Utilisateur</locale>
     <locale lang="en">User</locale>

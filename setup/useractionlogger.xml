@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+  <binding fileName="modules/useractionlogger/persistentdocument/import/useractionlogger_binding.xml"/>
+  <actiondef modulename="markergmaps" actionname="insert.folder" label="modules.markergmaps.bo.useractionlogger.insert-folder"/>
+  <actiondef modulename="markergmaps" actionname="update.folder" label="modules.markergmaps.bo.useractionlogger.update-folder"/>
+  <actiondef modulename="markergmaps" actionname="delete.folder" label="modules.markergmaps.bo.useractionlogger.delete-folder"/>
+  <actiondef modulename="markergmaps" actionname="move.folder" label="modules.markergmaps.bo.useractionlogger.move-folder"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.position" label="modules.markergmaps.bo.useractionlogger.insert-position"/>
+  <actiondef modulename="markergmaps" actionname="update.position" label="modules.markergmaps.bo.useractionlogger.update-position"/>
+  <actiondef modulename="markergmaps" actionname="activate.position" label="modules.markergmaps.bo.useractionlogger.activate-position"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.position" label="modules.markergmaps.bo.useractionlogger.deactivated-position"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.position" label="modules.markergmaps.bo.useractionlogger.reactivate-position"/>
+  <actiondef modulename="markergmaps" actionname="delete.position" label="modules.markergmaps.bo.useractionlogger.delete-position"/>
+  <actiondef modulename="markergmaps" actionname="move.position" label="modules.markergmaps.bo.useractionlogger.move-position"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.map" label="modules.markergmaps.bo.useractionlogger.insert-map"/>
+  <actiondef modulename="markergmaps" actionname="update.map" label="modules.markergmaps.bo.useractionlogger.update-map"/>
+  <actiondef modulename="markergmaps" actionname="activate.map" label="modules.markergmaps.bo.useractionlogger.activate-map"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.map" label="modules.markergmaps.bo.useractionlogger.deactivated-map"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.map" label="modules.markergmaps.bo.useractionlogger.reactivate-map"/>
+  <actiondef modulename="markergmaps" actionname="delete.map" label="modules.markergmaps.bo.useractionlogger.delete-map"/>
+  <actiondef modulename="markergmaps" actionname="move.map" label="modules.markergmaps.bo.useractionlogger.move-map"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.ground" label="modules.markergmaps.bo.useractionlogger.insert-ground"/>
+  <actiondef modulename="markergmaps" actionname="update.ground" label="modules.markergmaps.bo.useractionlogger.update-ground"/>
+  <actiondef modulename="markergmaps" actionname="activate.ground" label="modules.markergmaps.bo.useractionlogger.activate-ground"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.ground" label="modules.markergmaps.bo.useractionlogger.deactivated-ground"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.ground" label="modules.markergmaps.bo.useractionlogger.reactivate-ground"/>
+  <actiondef modulename="markergmaps" actionname="delete.ground" label="modules.markergmaps.bo.useractionlogger.delete-ground"/>
+  <actiondef modulename="markergmaps" actionname="move.ground" label="modules.markergmaps.bo.useractionlogger.move-ground"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.gmarker" label="modules.markergmaps.bo.useractionlogger.insert-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="update.gmarker" label="modules.markergmaps.bo.useractionlogger.update-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="activate.gmarker" label="modules.markergmaps.bo.useractionlogger.activate-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.gmarker" label="modules.markergmaps.bo.useractionlogger.deactivated-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.gmarker" label="modules.markergmaps.bo.useractionlogger.reactivate-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="delete.gmarker" label="modules.markergmaps.bo.useractionlogger.delete-gmarker"/>
+  <actiondef modulename="markergmaps" actionname="move.gmarker" label="modules.markergmaps.bo.useractionlogger.move-gmarker"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.polyline" label="modules.markergmaps.bo.useractionlogger.insert-polyline"/>
+  <actiondef modulename="markergmaps" actionname="update.polyline" label="modules.markergmaps.bo.useractionlogger.update-polyline"/>
+  <actiondef modulename="markergmaps" actionname="activate.polyline" label="modules.markergmaps.bo.useractionlogger.activate-polyline"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.polyline" label="modules.markergmaps.bo.useractionlogger.deactivated-polyline"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.polyline" label="modules.markergmaps.bo.useractionlogger.reactivate-polyline"/>
+  <actiondef modulename="markergmaps" actionname="delete.polyline" label="modules.markergmaps.bo.useractionlogger.delete-polyline"/>
+  <actiondef modulename="markergmaps" actionname="move.polyline" label="modules.markergmaps.bo.useractionlogger.move-polyline"/>
+
+  <actiondef modulename="markergmaps" actionname="insert.polygon" label="modules.markergmaps.bo.useractionlogger.insert-polygon"/>
+  <actiondef modulename="markergmaps" actionname="update.polygon" label="modules.markergmaps.bo.useractionlogger.update-polygon"/>
+  <actiondef modulename="markergmaps" actionname="activate.polygon" label="modules.markergmaps.bo.useractionlogger.activate-polygon"/>
+  <actiondef modulename="markergmaps" actionname="deactivated.polygon" label="modules.markergmaps.bo.useractionlogger.deactivated-polygon"/>
+  <actiondef modulename="markergmaps" actionname="reactivate.polygon" label="modules.markergmaps.bo.useractionlogger.reactivate-polygon"/>
+  <actiondef modulename="markergmaps" actionname="delete.polygon" label="modules.markergmaps.bo.useractionlogger.delete-polygon"/>
+  <actiondef modulename="markergmaps" actionname="move.polygon" label="modules.markergmaps.bo.useractionlogger.move-polygon"/>
+</script>

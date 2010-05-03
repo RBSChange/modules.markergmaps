@@ -1,0 +1,6 @@
+<tal:block>
+var obj${polyline/getId} = [${polyline/getPoints}];
+var polyline${polyline/getId} = new GPolyline(obj${polyline/getId}, "${polyline/getColor}", ${polyline/getWeight}, ${polyline/getOpacity});
+${o}.push(polyline${polyline/getId});
+${map}.addOverlay(polyline${polyline/getId});
+</tal:block>

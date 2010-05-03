@@ -1,0 +1,6 @@
+<tal:block>
+bounds${ground/getId} = new GLatLngBounds(new GLatLng(${ground/getSwlat}, ${ground/getSwlng}), new GLatLng(${ground/getNelat}, ${ground/getNelng}));
+ground${ground/getId} = new GGroundOverlay('${ground/getImageUrl}', bounds${ground/getId});
+${o}.push(ground${ground/getId});
+${map}.addOverlay(ground${ground/getId});
+</tal:block>

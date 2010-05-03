@@ -1,0 +1,6 @@
+<tal:block>
+var obj${polygon/getId} = [${polygon/getPoints}];
+var polygon${polygon/getId} = new GPolygon(obj${polygon/getId}, "${polygon/getColor}", ${polygon/getWeight}, ${polygon/getOpacity}, "${polygon/getFillcolor}", ${polygon/getFillopacity});
+${o}.push(polygon${polygon/getId});
+${map}.addOverlay(polygon${polygon/getId});
+</tal:block>

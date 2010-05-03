@@ -1,14 +1,14 @@
 <div tal:omit-tag="" tal:condition="position">
 		<div tal:attributes="id php: 'gmaps' . position->getId()" style="overflow:hidden"/>
 		<tal:block tal:condition="gpsexport">
-			
+
 			<span class="gps-export">
 				<tal:block change:translate="&amp;modules.markergmaps.frontoffice.GpsExportSingleLabel;"/>
 				<a change:link="module markergmaps; action ExportGpsOv2; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportOv2;"></a>
 				-
 				<a change:link="module markergmaps; action ExportGpsGpx; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportGpx;"></a>
 			</span>
-			
+
 		</tal:block>
 		<script type="text/javascript">
 		//<![CDATA[
@@ -23,8 +23,8 @@
       if (GBrowserIsCompatible())
       {
       	markergmaps_id${position/getId} = "gmaps" + "${position/getId}";
-      	markergmaps_width${position/getId} = "${width}";
-      	markergmaps_height${position/getId} = "${height}";
+      	markergmaps_width${position/getId} = parseInt(${width});
+      	markergmaps_height${position/getId} = parseInt(${height});
 
       	if(markergmaps_width${position/getId}!='' && markergmaps_height${position/getId}!='')
       	{
@@ -60,35 +60,21 @@
 
 					markergmaps_address${position/getId} = "<p tal:omit-tag='' tal:content='position/getFullDescription'/>";
 					markergmaps_title${position/getId} = "<p tal:omit-tag='' tal:content='php: addslashes(position->getLabel())'/>";
-					markergmaps_link${position/getId} = "${link}";
-					markergmaps_icon${position/getId} = "${icon}";
 
 					function displayInfoBulle${position/getId}()
 					{
 						markergmaps_html${position/getId} = '';
 						if(markergmaps_title${position/getId}!='')
 						{
-							if(markergmaps_icon${position/getId}!='')
-							{
-								markergmaps_html${position/getId} += '<img class="gmaps-bullet-icon" src="'+markergmaps_icon${position/getId}+'"/>';
-							}
 							markergmaps_html${position/getId} += '<strong class="gmaps-bullet-title">';
-							if(markergmaps_link${position/getId}!='')
-							{
-								markergmaps_html${position/getId} += '<a href="'+markergmaps_link${position/getId}+'">';
-							}
 							markergmaps_html${position/getId} += markergmaps_title${position/getId};
-							if(markergmaps_link${position/getId}!='')
-							{
-								markergmaps_html${position/getId} += '</a>';
-							}
 							markergmaps_html${position/getId} += '</strong>';
 						}
 						if(markergmaps_address${position/getId}!='')
 						{
 							markergmaps_html${position/getId} += '<div class="gmaps-bullet-address">'+markergmaps_address${position/getId}+'</div>';
 						}
-						markergmaps_map${position/getId}.openInfoWindowHtml(markergmaps_point${position/getId}, markergmaps_html${position/getId});
+						markergmaps_map${position/getId}.openInfoWindowHtml(markergmaps_point${position/getId}, markergmaps_html${position/getId}, {autoScroll:true});
 					}
 
 					if(markergmaps_address${position/getId}!="" || markergmaps_title${position/getId}!="")
@@ -101,10 +87,10 @@
 					}
 				});
 
-       	markergmaps_map${position/getId}.setCenter(new GLatLng(parseFloat("${position/getLatitude}"), parseFloat("${position/getLongitude}")), parseInt("${position/getZoom}"));
+       	markergmaps_map${position/getId}.setCenter(new GLatLng(parseFloat(${position/getLatitude}), parseFloat(${position/getLongitude})), parseInt(${position/getZoom}));
 
-       	markergmaps_maxwidth${position/getId} = "${maxwidth}";
-       	markergmaps_maxheight${position/getId} = "${maxheight}";
+       	markergmaps_maxwidth${position/getId} = parseInt(${maxwidth});
+       	markergmaps_maxheight${position/getId} = parseInt(${maxheight});
 
        	function maximizeMap${position/getId}()
        	{
@@ -127,7 +113,7 @@
        		jQuery('#gmaps-min-'+markergmaps_id${position/getId}).hide();
        		jQuery('#gmaps-max-'+markergmaps_id${position/getId}).show();
        	}
-       	if(markergmaps_maxwidth${position/getId}!="" && markergmaps_maxheight${position/getId}!="")
+       	if(!isNaN(markergmaps_maxwidth${position/getId}) && !isNaN(markergmaps_maxheight${position/getId}))
        	{
        		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${position/getId}+'"><a href="javascript:minimizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Minimize-map;"/></p>');
        		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${position/getId}+'"><a href="javascript:maximizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Maximize-map;"/></p>');

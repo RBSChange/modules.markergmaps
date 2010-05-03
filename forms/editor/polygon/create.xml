@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+    <field name="label"/>
+    <field name="color" type="color"/>
+    <field name="weight"/>
+    <field name="opacity"/>
+    <field name="fillcolor" type="color"/>
+    <field name="fillopacity"/>
+  </section>
+</panel>

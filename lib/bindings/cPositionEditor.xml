@@ -55,11 +55,11 @@
 					this.mInternalValue.lat = iframe.document.getElementById('latitude').value;
 					this.mInternalValue.lng = iframe.document.getElementById('longitude').value;
 					this.mInternalValue.zoom = iframe.document.getElementById('zoom').value;
-					this.mInternalValue.maptype = iframe.document.getElementById('maptype').value;	
+					this.mInternalValue.maptype = iframe.document.getElementById('maptype').value;
 					this.valueChanged();
 				]]></body>
 			</method>
-			
+
 			<method name="setInitialValue">
 				<parameter name="val" />
 				<body><![CDATA[
@@ -69,13 +69,13 @@
 					if (this.modified)
 					{
 						this.removeAttribute("modified");
-						this.dispatchFieldEvent('fieldRestored');						
+						this.dispatchFieldEvent('fieldRestored');
 					}
 					var errorMessage = this.checkRequired(fval);
 					this.setValidity(errorMessage);
 				]]></body>
 			</method>
-			
+
 			<method name="setAddress">
 				<parameter name="val" />
 				<body><![CDATA[
@@ -84,7 +84,7 @@
 					this.valueChanged();
 				]]></body>
 			</method>
-			
+
 			<method name="setColormarker">
 				<parameter name="val" />
 				<body><![CDATA[
@@ -92,13 +92,13 @@
 					this.updateIframe();
 				]]></body>
 			</method>
-			
+
 			<method name="valueChanged">
 				<body><![CDATA[
 					this.dispatchFieldEvent('fieldChanged');
 					if (this.initialvalue != this.value)
 					{
-						if (!this.modified) 
+						if (!this.modified)
 						{
 							this.setAttribute("modified", "true");
 							this.dispatchFieldEvent('fieldModified');
@@ -106,11 +106,11 @@
 					}
 					else
 					{
-						if (this.modified) 
+						if (this.modified)
 						{
 							this.removeAttribute("modified");
 							this.dispatchFieldEvent('fieldRestored');
-						}			
+						}
 					}
 				]]></body>
 			</method>
@@ -130,7 +130,7 @@
 					this.updateIframe();
 				]]></body>
 			</method>
-			
+
 			<method name="updateIframe">
 				<body><![CDATA[
 					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframe';
@@ -157,14 +157,14 @@
 					this.setAttribute("googleiframesrc", url);
 				]]></body>
 			</method>
-			
+
 			<property name="value">
 				<getter><![CDATA[
 					return JSON.stringify(this.mInternalValue);
 				]]></getter>
 				<setter><![CDATA[
 					var fval = this.fixString(val);
-					this.updateValueWithString(fval);					
+					this.updateValueWithString(fval);
 				]]></setter>
 			</property>
 

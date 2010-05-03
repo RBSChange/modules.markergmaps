@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<script tal:attributes="src url" type="text/javascript"></script>
+  	<script type="text/javascript">
+    function initialize()
+    {
+      if (GBrowserIsCompatible())
+      {
+	      var map = new GMap2(document.getElementById("maps"));
+	      map.addMapType(G_PHYSICAL_MAP);
+
+	      var address = "${address}";
+	      var image = "${image}";
+	      var geocoder = new GClientGeocoder();
+
+	      var swIcon = new GIcon(G_DEFAULT_ICON);
+	      swIcon.image = "http://labs.google.com/ridefinder/images/mm_20_red.png";
+	      swIcon.iconSize = new GSize(12, 20);
+	      swIcon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+	      swIcon.shadowSize = new GSize(20, 20);
+	      swIcon.iconAnchor = new GPoint(6, 20);
+
+
+	      var neIcon = new GIcon(G_DEFAULT_ICON);
+	      neIcon.image = "http://labs.google.com/ridefinder/images/mm_20_green.png";
+	      neIcon.iconSize = new GSize(12, 20);
+	      neIcon.shadow = "http://labs.google.com/ridefinder/images/mm_20_shadow.png";
+	      neIcon.shadowSize = new GSize(20, 20);
+	      neIcon.iconAnchor = new GPoint(6, 20);
+
+
+	      var swOpts = { draggable: true, bouncy: false, icon: swIcon };
+	      var neOpts = { draggable: true, bouncy: false, icon: neIcon };
+
+	      map.enableScrollWheelZoom();
+	      map.addControl(new GLargeMapControl3D());
+	      map.addControl(new GMapTypeControl());
+
+	      var swLat = "${swlat}";
+	      var swLng = "${swlng}";
+	      var neLat = "${nelat}";
+	      var neLng = "${nelng}";
+
+	      function bindPoint(swPoint, nePoint)
+	      {
+		      GEvent.addListener(swPoint, "dragend", function(){
+		      	map.removeOverlay(ground);
+		      	var elem = swPoint.getLatLng();
+		    		document.getElementById('swlng').value = elem.x;
+		    		document.getElementById('swlat').value = elem.y;
+		    		ground = new GGroundOverlay(image, new GLatLngBounds(swPoint.getLatLng(), nePoint.getLatLng()));
+		    		map.addOverlay(ground);
+		      });
+		      GEvent.addListener(nePoint, "dragend", function(){
+		      	map.removeOverlay(ground);
+		      	var elem = nePoint.getLatLng();
+		     		document.getElementById('nelng').value = elem.x;
+		    		document.getElementById('nelat').value = elem.y;
+		    		ground = new GGroundOverlay(image, new GLatLngBounds(swPoint.getLatLng(), nePoint.getLatLng()));
+		    		map.addOverlay(ground);
+		      });
+	      }
+
+	      if(swLat != "" && swLng != "" && neLat != "" && neLng != "")
+	      {
+	      	swPoint = new GMarker(new GLatLng(swLat, swLng), swOpts);
+		    	nePoint = new GMarker(new GLatLng(neLat, neLng), neOpts);
+		    	map.addOverlay(swPoint);
+		    	map.addOverlay(nePoint);
+		    	bounds = new GLatLngBounds(swPoint.getLatLng(), nePoint.getLatLng());
+		    	ground = new GGroundOverlay(image, bounds);
+			    map.addOverlay(ground);
+			    map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
+			    bindPoint(swPoint, nePoint);
+	      }
+	      else
+	      {
+	      	geocoder.getLatLng("${country}", function(center){
+				  	if(center)
+				    {
+				    	map.setCenter(center, 6);
+				    }
+				    else
+				    {
+				    	map.setCenter(new GLatLng(0, 0), 2);
+				    }
+
+				    bounds = map.getBounds();
+			    	sw = bounds.getSouthWest();
+			    	ne = bounds.getNorthEast();
+			    	swPoint = new GMarker(sw, swOpts);
+			    	nePoint = new GMarker(ne, neOpts);
+			    	map.addOverlay(swPoint);
+			    	map.addOverlay(nePoint);
+			    	document.getElementById('swlat').value = sw.lat();
+			    	document.getElementById('swlng').value = sw.lng();
+			    	document.getElementById('nelat').value = ne.lat();
+			    	document.getElementById('nelng').value = ne.lng();
+			    	ground = new GGroundOverlay(image, bounds);
+			    	map.addOverlay(ground);
+
+			    	if(center)
+				    {
+				    	map.setCenter(center, 5);
+				    }
+				    else
+				    {
+				    	map.setCenter(new GLatLng(0, 0), 1);
+				    }
+				    bindPoint(swPoint, nePoint);
+					});
+	      }
+
+	      if(address != '')
+	      {
+	      	geocoder.getLatLng(address, function(point){
+	      		map.setCenter(point, 12);
+	      	});
+	      }
+	    }
+    }
+    </script>
+  </head>
+  <body onload="initialize()" onunload="GUnload()" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+		<div id="maps" style="width: 650px; height: 400px"></div>
+		<input type="hidden" id="swlat" size="10" value="${swlat}" />
+		<input type="hidden" id="swlng" size="10" value="${swlng}" />
+		<input type="hidden" id="nelat" size="10" value="${nelat}" />
+		<input type="hidden" id="nelng" size="10" value="${nelng}" />
+	</body>
+</html>

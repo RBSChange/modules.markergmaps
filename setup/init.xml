@@ -2,16 +2,13 @@
 <script>
 	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
 	<binding fileName="modules/markergmaps/persistentdocument/import/markergmaps_binding.xml" />
-	
+
 	<rootfolder module="preferences">
 		<markergmapspreferences />
 	</rootfolder>
-	
+
 	<systemfolder module="list" relatedmodule="markergmaps">
-		<staticlist listid="modules_markergmaps/colormarker"
-			description=""
-			label="Couleur du pointeur d'une carte Google Maps">
-			
+		<staticlist listid="modules_markergmaps/colormarker" description="" label="Couleur du pointeur d'une carte Google Maps">
 			<staticitem value="red-dot.png" label="&amp;modules.markergmaps.bo.list.Red;" />
 			<staticitem value="blue-dot.png" label="&amp;modules.markergmaps.bo.list.Blue;" />
 			<staticitem value="green-dot.png" label="&amp;modules.markergmaps.bo.list.Green;" />
@@ -20,6 +17,42 @@
 			<staticitem value="pink-dot.png" label="&amp;modules.markergmaps.bo.list.Pink;" />
 			<staticitem value="orange-dot.png" label="&amp;modules.markergmaps.bo.list.Orange;" />
 			<staticitem value="ltblue-dot.png" label="&amp;modules.markergmaps.bo.list.Cyan;" />
-		</staticlist>	
+		</staticlist>
+
+		<staticlist listid="modules_markergmaps/maptypes" description="" label="Types de cartes">
+			<staticitem value="G_NORMAL_MAP" label="&amp;modules.markergmaps.bo.list.maptypes.Plan;" />
+			<staticitem value="G_SATELLITE_MAP" label="&amp;modules.markergmaps.bo.list.maptypes.Satellite;" />
+			<staticitem value="G_HYBRID_MAP" label="&amp;modules.markergmaps.bo.list.maptypes.Hybride;" />
+			<staticitem value="G_PHYSICAL_MAP" label="&amp;modules.markergmaps.bo.list.maptypes.Terrain;" />
+		</staticlist>
+
+		<staticlist listid="modules_markergmaps/position" description="" label="Liste des positions">
+			<staticitem value="G_ANCHOR_TOP_LEFT" label="&amp;modules.markergmaps.bo.list.searchposition.Topleft;" />
+			<staticitem value="G_ANCHOR_TOP_RIGHT" label="&amp;modules.markergmaps.bo.list.searchposition.Topright;" />
+			<staticitem value="G_ANCHOR_BOTTOM_LEFT" label="&amp;modules.markergmaps.bo.list.searchposition.Bottomleft;" />
+			<staticitem value="G_ANCHOR_BOTTOM_RIGHT" label="&amp;modules.markergmaps.bo.list.searchposition.Bottomright;" />
+		</staticlist>
+
+		<staticlist listid="modules_markergmaps/opacity" description="" label="Opacité">
+			<staticitem value="0.1" label="&amp;modules.markergmaps.bo.list.opacity.o1;" />
+			<staticitem value="0.2" label="&amp;modules.markergmaps.bo.list.opacity.o2;" />
+			<staticitem value="0.3" label="&amp;modules.markergmaps.bo.list.opacity.o3;" />
+			<staticitem value="0.4" label="&amp;modules.markergmaps.bo.list.opacity.o4;" />
+			<staticitem value="0.5" label="&amp;modules.markergmaps.bo.list.opacity.o5;" />
+			<staticitem value="0.6" label="&amp;modules.markergmaps.bo.list.opacity.o6;" />
+			<staticitem value="0.7" label="&amp;modules.markergmaps.bo.list.opacity.o7;" />
+			<staticitem value="0.8" label="&amp;modules.markergmaps.bo.list.opacity.o8;" />
+			<staticitem value="0.9" label="&amp;modules.markergmaps.bo.list.opacity.o9;" />
+			<staticitem value="1" label="&amp;modules.markergmaps.bo.list.opacity.o10;" />
+		</staticlist>
+
+		<staticlist listid="modules_markergmaps/control" description="" label="Type de bouton pour la direction et le zoom">
+			<staticitem value="" label="&amp;modules.markergmaps.bo.list.control.None;" />
+			<staticitem value="GSmallMapControl" label="&amp;modules.markergmaps.bo.list.control.Small;" />
+			<staticitem value="GLargeMapControl" label="&amp;modules.markergmaps.bo.list.control.Large;" />
+			<staticitem value="GLargeMapControl3D" label="&amp;modules.markergmaps.bo.list.control.Large3d;" />
+			<staticitem value="GSmallZoomControl" label="&amp;modules.markergmaps.bo.list.control.Smallzoom;" />
+			<staticitem value="GSmallZoomControl3D" label="&amp;modules.markergmaps.bo.list.control.Smallzoom3d;" />
+		</staticlist>
 	</systemfolder>
 </script>

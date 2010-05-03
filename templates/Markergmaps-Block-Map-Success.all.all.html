@@ -1,0 +1,128 @@
+<div class="gmaps-map">
+	<div id="gmaps${map/getId}"></div>
+</div>
+<div tal:condition="map/getChoosedisplay" class="gmaps-overlays">
+	<ul>
+		<li tal:repeat="e map/getPublishedElementsArray">
+			<input tal:condition="not: map/getDisplayall" type="checkbox" class="gmapsoverlay" m="overlays${map/getId}" n="${repeat/e/index}" id="o${e/getId}" />
+			<input tal:condition="map/getDisplayall" type="checkbox" class="gmapsoverlay" m="overlays${map/getId}" n="${repeat/e/index}" id="o${e/getId}" checked="checked" />
+			<label for="o${e/getId}" tal:content="e/getLabel" />
+		</li>
+	</ul>
+</div>
+<script tal:condition="load" src="${php: GmapsHelper::getGmapsUrlForCurrentWebsite()}" type="text/javascript"></script>
+<tal:block tal:condition="map/getSearch">
+<script tal:condition="load" src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=${php: GmapsHelper::getKeyForCurrentWebsite()}" type="text/javascript"></script>
+<script tal:condition="load" src="http://www.google.com/uds/solutions/localsearch/gmlocalsearch.js" type="text/javascript"></script>
+</tal:block>
+<tal:block tal:condition="map/getStreetview">
+<script tal:condition="load" change:javascript="src 'modules.markergmaps.lib.js.streetview'" type="text/javascript"></script>
+</tal:block>
+<script type="text/javascript">
+$(function(){
+	function loadMap${map/getId}()
+	{
+		if (GBrowserIsCompatible())
+		{
+			var mapOpts${map/getId} = {
+				size: new GSize(${map/getWidth}, ${map/getHeight})
+			};
+			var latitude${map/getId} = "${map/getLatitude}";
+			var longitude${map/getId} = "${map/getLongitude}";
+			var zoom${map/getId} = "${map/getZoom}";
+			var map${map/getId} = new GMap2(document.getElementById("gmaps${map/getId}"), mapOpts${map/getId});
+			if(latitude${map/getId} != "" && longitude${map/getId} != "" && zoom${map/getId} != "")
+			{
+				map${map/getId}.setCenter(new GLatLng(parseFloat(latitude${map/getId}), parseFloat(longitude${map/getId})), parseInt(zoom${map/getId}));
+			}
+			else
+			{
+				map${map/getId}.setCenter(map${map/getId}.getBounds().getCenter(), 2);
+			}
+			<tal:block tal:condition="map/getControl">
+			map${map/getId}.addControl(new ${map/getControl}(), new GControlPosition(${map/getControlposition}, new GSize(10,10)));
+			</tal:block>
+			<tal:block tal:condition="not: map/getMapnormal">
+			map${map/getId}.removeMapType(G_NORMAL_MAP);
+			</tal:block>
+			<tal:block tal:condition="not: map/getMapsatellite">
+			map${map/getId}.removeMapType(G_SATELLITE_MAP);
+			</tal:block>
+			<tal:block tal:condition="not: map/getMaphybrid">
+			map${map/getId}.removeMapType(G_HYBRID_MAP);
+			</tal:block>
+			<tal:block tal:condition="map/getMapterrain">
+			map${map/getId}.addMapType(G_PHYSICAL_MAP);
+			</tal:block>
+			map${map/getId}.setMapType(${map/getMaptype});
+			<tal:block tal:condition="map/getMenulistmaptype">
+			map${map/getId}.addControl(new GMenuMapTypeControl(), new GControlPosition(${map/getMaptypeposition}, new GSize(10,10)));
+			</tal:block>
+			<tal:block tal:condition="not: map/getMenulistmaptype">
+			map${map/getId}.addControl(new GMapTypeControl(), new GControlPosition(${map/getMaptypeposition}, new GSize(10,10)));
+			</tal:block>
+			<tal:block tal:condition="map/getScale">
+			map${map/getId}.addControl(new GScaleControl(), new GControlPosition(${map/getScaleposition}, new GSize(10,10)));
+			</tal:block>
+			<tal:block tal:condition="map/getMinimap">
+			map${map/getId}.addControl(new GOverviewMapControl());
+			</tal:block>
+			<tal:block tal:condition="not: map/getDrag">
+			map${map/getId}.disableDragging();
+			</tal:block>
+			<tal:block tal:condition="not: map/getDblclick">
+			map${map/getId}.disableDoubleClickZoom();
+			</tal:block>
+			<tal:block tal:condition="map/getScrollzoom">
+			map${map/getId}.enableScrollWheelZoom();
+			</tal:block>
+			<tal:block tal:condition="map/getSearch">
+			map${map/getId}.addControl(new google.maps.LocalSearch(), new GControlPosition(${map/getSearchposition}, new GSize(10,10)));
+			</tal:block>
+
+			overlays${map/getId} = [];
+			<tal:block tal:repeat="e map/getPublishedElementsArray" tal:replace="php: e->getFrontofficeCode('map' . map->getId(), 'overlays' . map->getId())"/>
+
+			<tal:block tal:condition="not: map/getDisplayall">
+			for(i in overlays${map/getId})
+			{
+				overlays${map/getId}[i].hide();
+			}
+			</tal:block>
+
+			<tal:block tal:condition="map/getStreetview">
+			jQuery('#gmaps${map/getId}').streetview({
+				map: map${map/getId},
+				width: ${map/getWidth},
+				height: ${map/getHeight},
+				svbutton : {
+					top: ${map/getSvtop},
+					left: ${map/getSvleft}
+				},
+				icon: {
+					path: "${icon}",
+					width: 22,
+					height: 31
+				},
+				dragicon: {
+					path: "${dragicon}",
+					width: 56,
+					height: 40,
+				},
+				flyicon: "${flyicon}",
+				closeicon: {
+					path: "${closeicon}",
+					title: "${backtomap}"
+				}
+			});
+			</tal:block>
+		}
+	}
+	<tal:block tal:condition="map/getSearch">
+	GSearch.setOnLoadCallback(loadMap${map/getId});
+	</tal:block>
+	<tal:block tal:condition="not: map/getSearch">
+	loadMap${map/getId}();
+	</tal:block>
+});
+</script>

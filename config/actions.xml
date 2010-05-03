@@ -1,21 +1,31 @@
 <?xml version="1.0"?>
 <actions extends="generic">
-	<action name="createFolder">
-		<parameter name="listWidget" />
-		<body><![CDATA[
+  <action name="createFolder">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_markergmaps_folder', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createPosition" label="&amp;modules.markergmaps.bo.actions.Create-Position;">
-		<parameter name="listWidget" />
-		<body><![CDATA[
+  </action>
+  <action name="createPosition" label="&amp;modules.markergmaps.bo.actions.Create-Position;">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_markergmaps_position', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
-	<action name="createMarkergmaps" label="&amp;modules.markergmaps.bo.actions.Create-Markergmaps;">
-		<parameter name="listWidget" />
-		<body><![CDATA[
+  </action>
+  <action name="createMarkergmaps" label="&amp;modules.markergmaps.bo.actions.Create-Markergmaps;">
+    <parameter name="listWidget"/>
+    <body><![CDATA[
 			this.createDocumentEditor('modules_markergmaps_markergmaps', listWidget.getSelectedItems()[0].id);
 		]]></body>
-	</action>
+  </action>
+  <action name="createMap">
+    <parameter name="listWidget"/>
+    <body><![CDATA[this.createDocumentEditor('modules_markergmaps_map', listWidget.getSelectedItems()[0].id);]]></body>
+  </action>
+  <action name="createElement">
+    <parameter name="params"/>
+    <body><![CDATA[
+    	this.createDocumentEditor(params[2], params[3]);
+    ]]></body>
+  </action>
 </actions>

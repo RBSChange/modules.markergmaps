@@ -1,0 +1,1297 @@
+<?xml version="1.0"?>
+<bindings xmlns="http://www.mozilla.org/xbl" xmlns:xbl="http://www.mozilla.org/xbl" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<binding id="gmapselements" extends="form.cField#cAbstractField">
+		<implementation>
+			<field name="mValue">null</field>
+			<field name="documentEditor">null</field>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					if (fval != '')
+					{
+						this.mValue = wCore.parseJSON(fval);
+						this.setAttribute("initialvalue", wCore.stringifyJSON(this.mValue));
+					}
+					else
+					{
+						this.mValue = null;
+						this.setAttribute("initialvalue", '');
+					}
+					this.setValidity(null);
+					this.onLoad();
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					if (this.mValue != null)
+					{
+						return wCore.stringifyJSON(this.mValue);
+					}
+					return '';
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					if (fval != '')
+					{
+						this.mValue = wCore.parseJSON(fval);
+					}
+					else
+					{
+						this.mValue = null;
+					}
+					this.onLoad();
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+				]]></body>
+			</method>
+
+			<constructor><![CDATA[
+				this.setInitialValue(this.initialvalue);
+				var parentNode = this.parentNode;
+				while(parentNode != null)
+				{
+					if(parentNode.localName == 'cdocumenteditor')
+					{
+						this.documentEditor = parentNode;
+						break;
+					}
+					parentNode = parentNode.parentNode;
+				}
+
+				this.mGrid = this.getElementByAnonId('grid');
+
+				var me = this;
+				this.mGrid.addEventListener("dragstart", function (event) {me.onDragStart(event);}, false);
+				this.mGrid.addEventListener("dragenter", function (event) {me.onDragEnter(event);}, false);
+				this.mGrid.addEventListener("dragover", function (event) {me.onDragOver(event);}, false);
+				this.mGrid.addEventListener("drop", function (event) {me.onDrop(event);}, false);
+				this.mGrid.addEventListener("dragend", function (event) {me.onDragEnd(event);}, false);
+				this.mGrid.addEventListener("dragleave", function (event) {me.onDragLeave(event);}, false);
+			]]></constructor>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="cleanList">
+				<body><![CDATA[
+					var rows = this.getElementByAnonId('document-rows');
+					while (rows.lastChild && rows.lastChild.getAttribute('class') != 'head')
+					{
+						rows.removeChild(rows.lastChild);
+					}
+				]]></body>
+			</method>
+
+
+			<method name="onLoad">
+				<body><![CDATA[
+					this.cleanList();
+					if (this.mValue != null)
+					{
+						for (var i = 0; i < this.mValue.length; i++)
+						{
+							var item = this.mValue[i];
+							this.addItem(item);
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="addItem">
+				<parameter name="jsnode" />
+				<body><![CDATA[
+					var row = document.createElement('row');
+					row.setAttribute('class', 'document');
+					row.setAttribute('documentId', jsnode.id);
+
+					var cell = row.appendChild(document.createElement('label'));
+					cell.setAttribute('value', jsnode.type);
+					cell.style.cursor = 'move';
+
+					cell = row.appendChild(document.createElement('label'));
+					cell.setAttribute('value', jsnode.label);
+					cell.style.cursor = 'move';
+
+					cell = row.appendChild(document.createElement('label'));
+					cell.setAttribute('value', jsnode.status);
+					cell.style.cursor = 'move';
+
+					cell = row.appendChild(document.createElement('toolbar'));
+					cell.setAttribute('class', 'actions');
+					var button = cell.appendChild(document.createElement('toolbarbutton'));
+					button.setAttribute('action', 'edit');
+					button.setAttribute('documentId', jsnode.id);
+					button.setAttribute('documentModel', jsnode.model);
+					button.setAttribute('image', '{HttpHost}/icons/small/edit.png');
+					button.setAttribute('label', "&modules.uixul.bo.actions.Edit;");
+
+					var button = cell.appendChild(document.createElement('toolbarbutton'));
+					button.setAttribute('action', 'delete');
+					button.setAttribute('documentId', jsnode.id);
+					button.setAttribute('image', '{HttpHost}/icons/small/delete.png');
+					button.setAttribute('label', "&modules.uixul.bo.actions.Delete;");
+
+					this.getElementByAnonId('document-rows').appendChild(row);
+				]]></body>
+			</method>
+
+			<method name="edit">
+				<parameter name="id" />
+				<parameter name="model" />
+				<body><![CDATA[
+					var uri = ['markergmaps', 'openDocument', model, id, 'properties'].join(',');
+					openActionUri(uri);
+				]]></body>
+			</method>
+
+			<method name="delete">
+				<parameter name="id" />
+				<body><![CDATA[
+					if (confirm("&modules.markergmaps.bo.general.Suretodelete;"))
+					{
+						var me = this;
+						var callBack = function(result) {me.refresh();};
+						wCore.executeJSON('markergmaps', 'DeleteJSON', {cmpref: id, lang: Context.W_LANG}, callBack, true);
+					}
+				]]></body>
+			</method>
+
+			<method name="refresh">
+				<body><![CDATA[
+					this.documentEditor.executeServerAction('properties', 'Initialize');
+				]]></body>
+			</method>
+
+			<method name="createNewPolyline">
+				<body><![CDATA[
+					var uri = ['markergmaps', 'createElement', 'modules_markergmaps_polyline', this.documentEditor.documentid].join(',');
+					openActionUri(uri);
+				]]></body>
+			</method>
+			<method name="createNewPolygon">
+				<body><![CDATA[
+					var uri = ['markergmaps', 'createElement', 'modules_markergmaps_polygon', this.documentEditor.documentid].join(',');
+					openActionUri(uri);
+				]]></body>
+			</method>
+			<method name="createNewMarker">
+				<body><![CDATA[
+					var uri = ['markergmaps', 'createElement', 'modules_markergmaps_gmarker', this.documentEditor.documentid].join(',');
+					openActionUri(uri);
+				]]></body>
+			</method>
+			<method name="createNewGround">
+				<body><![CDATA[
+					var uri = ['markergmaps', 'createElement', 'modules_markergmaps_ground', this.documentEditor.documentid].join(',');
+					openActionUri(uri);
+				]]></body>
+			</method>
+
+
+			<method name="getTargetedRow">
+				<parameter name="event" />
+				<body><![CDATA[
+					var node = event.target;
+					//wCore.debug('getTargetedRow tagName = '+node.tagName);
+					while (node && node.tagName != 'row' && node.tagName != 'xul:row')
+					{
+						node = node.parentNode;
+					}
+					return node;
+				]]></body>
+			</method>
+
+			<method name="isRowValidForEvent">
+				<parameter name="row" />
+				<parameter name="event" />
+				<body><![CDATA[
+					var movedId = event.dataTransfer.getData('movedId');
+					return (row !== null && ((row.getAttribute('class') == 'head' && this.mFirstId != movedId) || (row.hasAttribute('documentId') && row.getAttribute('documentId') != movedId)));
+				]]></body>
+			</method>
+
+			<method name="onDragStart">
+				<parameter name="event" />
+				<body><![CDATA[
+					//wCore.debug('onDragStart');
+					var row = this.getTargetedRow(event);
+					if (row !== null && row.hasAttribute('documentId'))
+					{
+						event.dataTransfer.effectAllowed='move';
+						event.dataTransfer.setData('movedId', row.getAttribute('documentId'));
+						event.dataTransfer.setDragImage(event.target,0,0);
+						return true;
+					}
+					return false;
+				]]></body>
+			</method>
+
+			<method name="onDragEnter">
+				<parameter name="event" />
+				<body><![CDATA[
+					//wCore.debug('onDragEnter');
+					var row = this.getTargetedRow(event);
+					if (this.isRowValidForEvent(row, event))
+					{
+						row.setAttribute('dragAfter', 'true');
+					}
+				]]></body>
+			</method>
+
+			<method name="onDragLeave">
+				<parameter name="event" />
+				<body><![CDATA[
+					//wCore.debug('onDragLeave');
+					var row = this.getTargetedRow(event);
+					if (this.isRowValidForEvent(row, event))
+					{
+						row.removeAttribute('dragAfter');
+					}
+				]]></body>
+			</method>
+
+			<method name="onDragOver">
+				<parameter name="event" />
+				<body><![CDATA[
+					//wCore.debug('onDragOver');
+					var row = this.getTargetedRow(event);
+					if (this.isRowValidForEvent(row, event))
+					{
+						//wCore.debug('onDragOver afterId = ' + row.getAttribute('documentId') + ', movedId = '+ movedId);
+						event.preventDefault();
+						return true;
+					}
+					return false;
+				]]></body>
+			</method>
+
+			<method name="onDrop">
+				<parameter name="event" />
+				<body><![CDATA[
+					event.stopPropagation();
+
+					var movedId = event.dataTransfer.getData('movedId');
+
+					var row = this.getTargetedRow(event);
+					if (row !== null && row.getAttribute('class') == 'head' && this.mFirstId != movedId)
+					{
+						var afterId = null;
+						var beforeId = this.mFirstId;
+					}
+					else if (row !== null && row.hasAttribute('documentId') && row.getAttribute('documentId') != movedId)
+					{
+						var afterId = row.getAttribute('documentId');
+						var beforeId = null;
+					}
+					else
+					{
+						return;
+					}
+					wCore.debug('onDrop beforeId = ' + beforeId + ', afterId = ' + afterId + ', movedId = ' + event.dataTransfer.getData('movedId'));
+
+					var parameters = {cmpref: [movedId], destref: this.documentEditor.documentid, beforeid: beforeId, afterid: afterId};
+
+					var result = wCore.executeJSON('markergmaps', 'Move', parameters, null, true);
+					//result = result['contents'];
+					this.refresh();
+
+					return false;
+				]]></body>
+			</method>
+
+			<method name="onDragEnd">
+				<parameter name="event" />
+				<body><![CDATA[
+					wCore.debug('onDragEnd');
+					return true;
+				]]></body>
+			</method>
+
+
+		</implementation>
+		<handlers>
+			<handler event="fieldChanged"><![CDATA[
+				var target = event.originalTarget;
+				wCore.debug('fieldChanged '+target.name+ ', '+target.localName );
+				if (target.localName == 'cfield' && target.name == 'targetId')
+				{
+					this.mTargetId = target.value;
+				}
+			]]></handler>
+			<handler event="click" button="0" clickcount="1"><![CDATA[
+				var target = event.originalTarget;
+				if (target.localName == 'toolbarbutton' && target.hasAttribute('action'))
+				{
+					switch (target.getAttribute('action'))
+					{
+						case 'createPolyline':
+							this.createNewPolyline();
+							break;
+						case 'createPolygon':
+							this.createNewPolygon();
+							break;
+						case 'createMarker':
+							this.createNewMarker();
+							break;
+						case 'createGround':
+							this.createNewGround();
+							break;
+						case 'edit':
+							this.edit(target.getAttribute('documentId'), target.getAttribute('documentModel'));
+							break;
+						case 'delete':
+							this.delete(target.getAttribute('documentId'));
+							break;
+					}
+					return;
+				}
+			]]></handler>
+		</handlers>
+		<resources>
+			<stylesheet src="modules.uixul.cEditorGrid" />
+		</resources>
+		<content>
+			<xul:vbox flex="1">
+				<xul:toolbar anonid="result-toolbar">
+					<xul:toolbarbutton action="createGround" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Ground;" />
+					<xul:toolbarbutton action="createMarker" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Marker;" />
+					<xul:toolbarbutton action="createPolyline" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polyline;" />
+					<xul:toolbarbutton action="createPolygon" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polygon;" />
+					<xul:spacer flex="1" />
+				</xul:toolbar>
+				<xul:grid flex="1" anonid="grid">
+					<xul:columns>
+						<xul:column flex="1" />
+						<xul:column flex="5" />
+						<xul:column flex="1" />
+						<xul:column flex="1" />
+						<xul:column />
+					</xul:columns>
+					<xul:rows anonid="document-rows">
+						<xul:row class="head">
+							<xul:label anonid="type" value="Type" />
+							<xul:label anonid="label" value="Nom" />
+							<xul:label anonid="statusColumn" value="Etat" />
+							<xul:label anonid="actionsColumn" value="Actions" />
+						</xul:row>
+					</xul:rows>
+				</xul:grid>
+				<children/>
+			</xul:vbox>
+		</content>
+	</binding>
+
+
+	<binding id="cGooglePolylineField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googlepolylineiframe" xbl:inherits="src=googlepolylineiframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:toolbar xbl:inherits="hidden=hidehelp">
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapPolyline()" image="{IconsBase}/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<method name="captureMapPolyline">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googlepolylineiframe").contentWindow);
+					this.mInternalValue.points = iframe.document.getElementById('points').value;
+					this.valueChanged();
+				]]></body>
+			</method>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');
+					}
+					var errorMessage = this.checkRequired(fval);
+					this.setValidity(errorMessage);
+				]]></body>
+			</method>
+
+			<method name="setOpacity">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolyline();
+					this.mInternalValue.opacity = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setWeight">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolyline();
+					this.mInternalValue.weight = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setColor">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolyline();
+					this.mInternalValue.color = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setPoints">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.points = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setAddress">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.address = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="updateIframe">
+				<body><![CDATA[
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframePolyline';
+					if(this.mInternalValue.color)
+					{
+						url += '&color='+this.mInternalValue.color;
+					}
+					if(this.mInternalValue.weight)
+					{
+						url += '&weight='+this.mInternalValue.weight;
+					}
+					if(this.mInternalValue.opacity)
+					{
+						url += '&opacity='+this.mInternalValue.opacity;
+					}
+					if(this.mInternalValue.points)
+					{
+						url += '&points='+this.mInternalValue.points;
+					}
+					if(this.mInternalValue.address)
+					{
+						url += '&address=' + encodeURI(this.mInternalValue.address.replace(/\n/gm, " "));
+						this.mInternalValue.address = null;
+					}
+					this.setAttribute("googlepolylineiframesrc", url);
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+					this.updateIframe();
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+		</handlers>
+	</binding>
+
+
+	<binding id="cGoogleMarkerField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googlemarkeriframe" xbl:inherits="src=googlemarkeriframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:toolbar xbl:inherits="hidden=hidehelp">
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapMarker()" image="{IconsBase}/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<method name="captureMapMarker">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googlemarkeriframe").contentWindow);
+					this.mInternalValue.latitude = iframe.document.getElementById('latitude').value;
+					this.mInternalValue.longitude = iframe.document.getElementById('longitude').value;
+					this.valueChanged();
+				]]></body>
+			</method>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');
+					}
+					var errorMessage = this.checkRequired(fval);
+					this.setValidity(errorMessage);
+				]]></body>
+			</method>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setAddress">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.address = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setColormarker">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.colormarker = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setPicto">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.picto = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setWidth">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.width = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setHeight">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.height = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setShadow">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.shadow = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setSwidth">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.swidth = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setSheight">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapMarker();
+					this.mInternalValue.sheight = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="updateIframe">
+				<body><![CDATA[
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframeGmarker';
+					if(this.mInternalValue.latitude && this.mInternalValue.longitude)
+					{
+						url += '&latitude='+this.mInternalValue.latitude+'&longitude='+this.mInternalValue.longitude;
+					}
+					if(this.mInternalValue.colormarker)
+					{
+						url += '&colormarker='+this.mInternalValue.colormarker;
+					}
+					if(this.mInternalValue.picto)
+					{
+						url += '&picto='+this.mInternalValue.picto;
+					}
+					if(this.mInternalValue.width)
+					{
+						url += '&width='+this.mInternalValue.width;
+					}
+					if(this.mInternalValue.height)
+					{
+						url += '&height='+this.mInternalValue.height;
+					}
+					if(this.mInternalValue.shadow)
+					{
+						url += '&shadow='+this.mInternalValue.shadow;
+					}
+					if(this.mInternalValue.swidth)
+					{
+						url += '&swidth='+this.mInternalValue.swidth;
+					}
+					if(this.mInternalValue.sheight)
+					{
+						url += '&sheight='+this.mInternalValue.sheight;
+					}
+					if(this.mInternalValue.address)
+					{
+						url += '&address=' + encodeURI(this.mInternalValue.address.replace(/\n/gm, " "));
+						this.mInternalValue.address = null;
+					}
+					this.setAttribute("googlemarkeriframesrc", url);
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+					this.updateIframe();
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+		</handlers>
+	</binding>
+
+	<binding id="cGooglePolygonField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googlepolygoniframe" xbl:inherits="src=googlepolygoniframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:toolbar xbl:inherits="hidden=hidehelp">
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapPolygon()" image="{IconsBase}/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<method name="captureMapPolygon">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googlepolygoniframe").contentWindow);
+					this.mInternalValue.points = iframe.document.getElementById('points').value;
+					this.valueChanged();
+				]]></body>
+			</method>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');
+					}
+					var errorMessage = this.checkRequired(fval);
+					this.setValidity(errorMessage);
+				]]></body>
+			</method>
+
+			<method name="setOpacity">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolygon();
+					this.mInternalValue.opacity = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setWeight">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolygon();
+					this.mInternalValue.weight = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setColor">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolygon();
+					this.mInternalValue.color = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setFillOpacity">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolygon();
+					this.mInternalValue.fillopacity = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setFillColor">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapPolygon();
+					this.mInternalValue.fillcolor = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setPoints">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.points = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setAddress">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.mInternalValue.address = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="updateIframe">
+				<body><![CDATA[
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframePolygon';
+					if(this.mInternalValue.color)
+					{
+						url += '&color='+this.mInternalValue.color;
+					}
+					if(this.mInternalValue.fillcolor)
+					{
+						url += '&fillcolor='+this.mInternalValue.fillcolor;
+					}
+					if(this.mInternalValue.weight)
+					{
+						url += '&weight='+this.mInternalValue.weight;
+					}
+					if(this.mInternalValue.opacity)
+					{
+						url += '&opacity='+this.mInternalValue.opacity;
+					}
+					if(this.mInternalValue.fillopacity)
+					{
+						url += '&fillopacity='+this.mInternalValue.fillopacity;
+					}
+					if(this.mInternalValue.points)
+					{
+						url += '&points='+this.mInternalValue.points;
+					}
+					if(this.mInternalValue.address)
+					{
+						url += '&address=' + encodeURI(this.mInternalValue.address.replace(/\n/gm, " "));
+						this.mInternalValue.address = null;
+					}
+					this.setAttribute("googlepolygoniframesrc", url);
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+					this.updateIframe();
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+		</handlers>
+	</binding>
+
+	<binding id="cGoogleGroundField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googlegroundiframe" xbl:inherits="src=googlegroundiframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:toolbar xbl:inherits="hidden=hidehelp">
+						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
+					</xul:toolbar>
+				</xul:hbox>
+				<xul:hbox>
+					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapGround()" image="{IconsBase}/small/refresh.png" />
+					<xul:spacer flex="1" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<method name="captureMapGround">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googlegroundiframe").contentWindow);
+					this.mInternalValue.swlat = iframe.document.getElementById('swlat').value;
+					this.mInternalValue.swlng = iframe.document.getElementById('swlng').value;
+					this.mInternalValue.nelat = iframe.document.getElementById('nelat').value;
+					this.mInternalValue.nelng = iframe.document.getElementById('nelng').value;
+					this.valueChanged();
+				]]></body>
+			</method>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');
+					}
+					var errorMessage = this.checkRequired(fval);
+					this.setValidity(errorMessage);
+				]]></body>
+			</method>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setAddress">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapGround();
+					this.mInternalValue.address = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="setImage">
+				<parameter name="val" />
+				<body><![CDATA[
+					this.captureMapGround();
+					this.mInternalValue.image = val;
+					this.updateIframe();
+				]]></body>
+			</method>
+
+			<method name="updateIframe">
+				<body><![CDATA[
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframeGround';
+					if(this.mInternalValue.swlat && this.mInternalValue.swlng
+					&& this.mInternalValue.nelat && this.mInternalValue.nelng)
+					{
+						url += '&swlat='+this.mInternalValue.swlat+'&swlng='+this.mInternalValue.swlng;
+						url += '&nelat='+this.mInternalValue.nelat+'&nelng='+this.mInternalValue.nelng;
+					}
+					if(this.mInternalValue.image)
+					{
+						url += '&image='+this.mInternalValue.image;
+					}
+					if(this.mInternalValue.address)
+					{
+						url += '&address=' + encodeURI(this.mInternalValue.address.replace(/\n/gm, " "));
+						this.mInternalValue.address = null;
+					}
+					this.setAttribute("googlegroundiframesrc", url);
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+					this.updateIframe();
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+		</handlers>
+	</binding>
+
+	<binding id="cInitmapField" extends="form.cField#cAbstractField">
+		<content>
+			<children />
+			<xul:vbox>
+				<xul:vbox>
+					<xul:hbox>
+						<xul:label value="&amp;modules.markergmaps.bo.doceditor.Helprefreshdata;"/>
+						<xul:button label="&amp;modules.markergmaps.bo.doceditor.Refreshpreview;" oncommand="updateIframe()" image="{IconsBase}/small/refresh.png" />
+						<xul:spacer flex="1" />
+					</xul:hbox>
+					<xul:hbox>
+						<xul:label value="&amp;modules.markergmaps.bo.doceditor.Helpinitdata;"/>
+						<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureInitmap()" image="{IconsBase}/small/refresh.png" />
+						<xul:spacer flex="1" />
+					</xul:hbox>
+				</xul:vbox>
+				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
+					<xul:iframe anonid="googlepreviewiframe" xbl:inherits="src,width,height" scrolling="no" style="margin-top:4px" />
+				</xul:hbox>
+			</xul:vbox>
+		</content>
+
+		<implementation>
+			<field name="mInternalValue">{}</field>
+			<field name="documentEditor">null</field>
+
+			<constructor><![CDATA[
+				this.setInitialValue(this.initialvalue);
+				var parentNode = this.parentNode;
+				while(parentNode != null)
+				{
+					if(parentNode.localName == 'cdocumenteditor')
+					{
+						this.documentEditor = parentNode;
+						break;
+					}
+					parentNode = parentNode.parentNode;
+				}
+			]]></constructor>
+
+			<method name="captureInitmap">
+				<body><![CDATA[
+					var iframe = new XPCNativeWrapper(document.getAnonymousElementByAttribute(this, "anonid", "googlepreviewiframe").contentWindow);
+					this.mInternalValue.latitude = iframe.document.getElementById('latitude').value;
+					this.mInternalValue.longitude = iframe.document.getElementById('longitude').value;
+					this.mInternalValue.zoom = iframe.document.getElementById('zoom').value;
+					this.mInternalValue.maptype = iframe.document.getElementById('maptype').value;
+					this.valueChanged();
+				]]></body>
+			</method>
+
+			<method name="setInitialValue">
+				<parameter name="val" />
+				<body><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+					this.setAttribute("initialvalue", fval);
+					if (this.modified)
+					{
+						this.removeAttribute("modified");
+						this.dispatchFieldEvent('fieldRestored');
+					}
+					this.setValidity(null);
+					var iframe = document.getAnonymousElementByAttribute(this, "anonid", "googlepreviewiframe");
+					iframe.setAttribute("src", "about:blank");
+				]]></body>
+			</method>
+
+			<method name="valueChanged">
+				<body><![CDATA[
+					this.dispatchFieldEvent('fieldChanged');
+					if (this.initialvalue != this.value)
+					{
+						if (!this.modified)
+						{
+							this.setAttribute("modified", "true");
+							this.dispatchFieldEvent('fieldModified');
+						}
+					}
+					else
+					{
+						if (this.modified)
+						{
+							this.removeAttribute("modified");
+							this.dispatchFieldEvent('fieldRestored');
+						}
+					}
+				]]></body>
+			</method>
+
+			<method name="updateValueWithString">
+				<parameter name="value" />
+				<body><![CDATA[
+					this.mInternalValue = {}
+					try
+					{
+						this.mInternalValue = JSON.parse(value);
+					}
+					catch (e)
+					{
+						// Nothing to do
+					}
+				]]></body>
+			</method>
+
+			<method name="updateIframe">
+				<body><![CDATA[
+					this.setAttribute("src", "about:blank");
+					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframePreview&id='+this.documentEditor.documentid;
+					this.setAttribute("src", url);
+					this.setAttribute("width", (this.mInternalValue.width - -20) + "px");
+					this.setAttribute("height", (this.mInternalValue.height - -80) + "px");
+				]]></body>
+			</method>
+
+			<property name="value">
+				<getter><![CDATA[
+					return JSON.stringify(this.mInternalValue);
+				]]></getter>
+				<setter><![CDATA[
+					var fval = this.fixString(val);
+					this.updateValueWithString(fval);
+				]]></setter>
+			</property>
+
+			<method name="reset">
+				<body><![CDATA[
+					this.setInitialValue(this.initialvalue);
+				]]></body>
+			</method>
+		</implementation>
+
+		<handlers>
+			<handler event="fieldChanged"><![CDATA[
+				var target = event.originalTarget;
+				wCore.debug('fieldChanged '+target.name+ ', '+target.localName );
+				if (target.localName == 'cfield' && target.name == 'targetId')
+				{
+					this.mTargetId = target.value;
+				}
+			]]></handler>
+		</handlers>
+	</binding>
+
+</bindings>

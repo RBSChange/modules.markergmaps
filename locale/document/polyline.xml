@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization>
+  <entity id="document-name">
+    <locale lang="fr">tracé</locale>
+    <locale lang="en">polyline</locale>
+  </entity>
+  <entity id="label">
+    <locale lang="en">nom</locale>
+    <locale lang="fr">label</locale>
+  </entity>
+  <entity id="label-help">
+    <locale lang="en">nom</locale>
+    <locale lang="fr">label</locale>
+  </entity>
+  <entity id="color">
+    <locale lang="fr">couleur</locale>
+    <locale lang="en">color</locale>
+  </entity>
+  <entity id="color-help">
+    <locale lang="fr">couleur</locale>
+    <locale lang="en">color</locale>
+  </entity>
+  <entity id="weight">
+    <locale lang="fr">épaisseur</locale>
+    <locale lang="en">weight</locale>
+  </entity>
+  <entity id="weight-help">
+    <locale lang="fr">épaisseur</locale>
+    <locale lang="en">weight</locale>
+  </entity>
+  <entity id="opacity">
+    <locale lang="fr">opacité</locale>
+    <locale lang="en">opacity</locale>
+  </entity>
+  <entity id="opacity-help">
+    <locale lang="fr">opacité</locale>
+    <locale lang="en">opacity</locale>
+  </entity>
+  <entity id="points">
+    <locale lang="fr">points</locale>
+    <locale lang="en">points</locale>
+  </entity>
+  <entity id="points-help">
+    <locale lang="fr">points</locale>
+    <locale lang="en">points</locale>
+  </entity>
+  <entity id="startpublicationdate">
+    <locale lang="fr">Début de publication</locale>
+  </entity>
+  <entity id="startpublicationdate-help">
+    <locale lang="fr">A partir de cette date, le document sera publié. Si le champ est vide, la publication du document commencera dès maintenant.</locale>
+  </entity>
+  <entity id="endpublicationdate">
+    <locale lang="fr">Fin de publication</locale>
+  </entity>
+  <entity id="endpublicationdate-help">
+    <locale lang="fr">A partir de cette date, le document ne sera plus publié. Si le champ est vide, le document restera indéfiniment publié.</locale>
+  </entity>
+</localization>

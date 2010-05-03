@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<script tal:attributes="src url" type="text/javascript"></script>
+  	<script type="text/javascript">
+	  function initialize()
+    {
+      if (GBrowserIsCompatible())
+      {
+      	var address = "${address}";
+
+	      var map = new GMap2(document.getElementById("maps"));
+	      map.addMapType(G_PHYSICAL_MAP);
+
+	      map.enableScrollWheelZoom();
+	      map.addControl(new GLargeMapControl3D());
+	      map.addControl(new GMapTypeControl());
+
+			  eval('obj = ['+ document.getElementById('points').value +'];');
+			  var polyline = new GPolyline(obj, "#${color}", ${weight}, ${opacity});
+			  map.addOverlay(polyline);
+			  var zoomed = false;
+			  if(obj.length)
+			  {
+			  	var center = polyline.getBounds();
+			  	zoom = map.getBoundsZoomLevel(center);
+			  	map.setCenter(center.getCenter(), zoom);
+			  	zoomed = true;
+			  }
+
+			  if(address != "")
+			  {
+			  	var geocoder = new GClientGeocoder();
+			  	geocoder.getLatLng(address, function(point){
+			  		map.setCenter(point, 12);
+			  	});
+			  }
+
+			 	polyline.enableDrawing();
+			  polyline.enableEditing({onEvent: "mouseover"});
+			  polyline.disableEditing({onEvent: "mouseout"});
+
+			  GEvent.addListener(polyline, "lineupdated", function() {
+			  	allpoints = '';
+			  	for(i=0; i < this.getVertexCount(); i++)
+			  	{
+			  		allpoints += 'new GLatLng' + this.getVertex(i) + ", ";
+			  	}
+			  	document.getElementById('points').value = allpoints.substr(0, allpoints.length-2);
+			  });
+
+			  GEvent.addListener(polyline, "endline", function() {
+			    GEvent.addListener(polyline, "click", function(latlng, index) {
+			      if (typeof index == "number") {
+			        polyline.deleteVertex(index);
+			      }
+			    });
+			  });
+
+			  if(zoomed == false)
+				{
+		      geocoder = new GClientGeocoder();
+		      geocoder.getLatLng("${country}", function(center)
+					{
+			      if(center)
+			      {
+			      	map.setCenter(center, 5);
+			      }
+			      else
+			      {
+			      	map.setCenter(new GLatLng(0, 0), 1);
+			      }
+		      });
+				}
+      }
+    }
+    </script>
+  </head>
+  	<body onload="initialize()" onunload="GUnload()" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
+		<div id="maps" style="width: 650px; height: 400px"></div>
+		<input type="hidden" id="points" value="${points}"/>
+	</body>
+</html>
