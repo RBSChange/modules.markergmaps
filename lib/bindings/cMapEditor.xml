@@ -149,13 +149,13 @@
 					button.setAttribute('action', 'edit');
 					button.setAttribute('documentId', jsnode.id);
 					button.setAttribute('documentModel', jsnode.model);
-					button.setAttribute('image', '{HttpHost}/icons/small/edit.png');
+					button.setAttribute('image', '{IconsBase}/small/edit.png');
 					button.setAttribute('label', "&modules.uixul.bo.actions.Edit;");
 
 					var button = cell.appendChild(document.createElement('toolbarbutton'));
 					button.setAttribute('action', 'delete');
 					button.setAttribute('documentId', jsnode.id);
-					button.setAttribute('image', '{HttpHost}/icons/small/delete.png');
+					button.setAttribute('image', '{IconsBase}/small/delete.png');
 					button.setAttribute('label', "&modules.uixul.bo.actions.Delete;");
 
 					this.getElementByAnonId('document-rows').appendChild(row);
@@ -380,10 +380,10 @@
 		<content>
 			<xul:vbox flex="1">
 				<xul:toolbar anonid="result-toolbar">
-					<xul:toolbarbutton action="createGround" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Ground;" />
-					<xul:toolbarbutton action="createMarker" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Marker;" />
-					<xul:toolbarbutton action="createPolyline" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polyline;" />
-					<xul:toolbarbutton action="createPolygon" image="{HttpHost}/icons/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polygon;" />
+					<xul:toolbarbutton action="createGround" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Ground;" />
+					<xul:toolbarbutton action="createMarker" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Marker;" />
+					<xul:toolbarbutton action="createPolyline" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polyline;" />
+					<xul:toolbarbutton action="createPolygon" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polygon;" />
 					<xul:spacer flex="1" />
 				</xul:toolbar>
 				<xul:grid flex="1" anonid="grid">
