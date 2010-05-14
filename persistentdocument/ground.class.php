@@ -17,6 +17,7 @@ class markergmaps_persistentdocument_ground extends markergmaps_persistentdocume
 	public function getGooglemapsvalue()
 	{
 		$info = array();
+		$info['mapElementId'] = $this->getId();
 		$info['swlat'] = $this->getSwlat();
 		$info['swlng'] = $this->getSwlng();
 		$info['nelat'] = $this->getNelat();
@@ -30,12 +31,25 @@ class markergmaps_persistentdocument_ground extends markergmaps_persistentdocume
 
 	public function getFrontofficeCode($mapName, $overlayName)
 	{
-		$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Ground');
-		$tpl->setAttribute('ground', $this);
-		$tpl->setAttribute('map', $mapName);
-		$tpl->setAttribute('o', $overlayName);
-		$tpl->setOriginalPath(null);
-		return $tpl->execute();
+		if($this->isDefined())
+		{
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Ground');
+			$tpl->setAttribute('ground', $this);
+			$tpl->setAttribute('map', $mapName);
+			$tpl->setAttribute('o', $overlayName);
+			$tpl->setOriginalPath(null);
+			return $tpl->execute();
+		}
+		return null;
+	}
+
+	public function isDefined()
+	{
+		if($this->getSwlat() && $this->getSwlng() && $this->getNelat() && $this->getNelng())
+		{
+			return true;
+		}
+		return false;
 	}
 
 	public function getImageUrl()

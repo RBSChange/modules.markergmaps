@@ -14,6 +14,7 @@ class markergmaps_persistentdocument_polyline extends markergmaps_persistentdocu
 	public function getGooglemapsvalue()
 	{
 		$info = array();
+		$info['mapElementId'] = $this->getId();
 		$info['points'] = $this->getPoints();
 		$info['color'] = substr($this->getColor(), 1);
 		$info['weight'] = $this->getWeight();
@@ -23,12 +24,25 @@ class markergmaps_persistentdocument_polyline extends markergmaps_persistentdocu
 
 	public function getFrontofficeCode($mapName, $overlayName)
 	{
-		$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polyline');
-		$tpl->setAttribute('polyline', $this);
-		$tpl->setAttribute('map', $mapName);
-		$tpl->setAttribute('o', $overlayName);
-		$tpl->setOriginalPath(null);
-		return $tpl->execute();
+		if($this->isDefined())
+		{
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polyline');
+			$tpl->setAttribute('polyline', $this);
+			$tpl->setAttribute('map', $mapName);
+			$tpl->setAttribute('o', $overlayName);
+			$tpl->setOriginalPath(null);
+			return $tpl->execute();
+		}
+		return null;
+	}
+
+	public function isDefined()
+	{
+		if($this->getPoints())
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

@@ -15,6 +15,7 @@ class markergmaps_persistentdocument_gmarker extends markergmaps_persistentdocum
 	public function getGooglemapsvalue()
 	{
 		$info = array();
+		$info['mapElementId'] = $this->getId();
 		$info['latitude'] = $this->getLatitude();
 		$info['longitude'] = $this->getLongitude();
 		$info['colormarker'] = $this->getColormarker();
@@ -53,12 +54,25 @@ class markergmaps_persistentdocument_gmarker extends markergmaps_persistentdocum
 
 	public function getFrontofficeCode($mapName, $overlayName)
 	{
-		$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Gmarker');
-		$tpl->setAttribute('gmarker', $this);
-		$tpl->setAttribute('map', $mapName);
-		$tpl->setAttribute('o', $overlayName);
-		$tpl->setOriginalPath(null);
-		return $tpl->execute();
+		if($this->isDefined())
+		{
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Gmarker');
+			$tpl->setAttribute('gmarker', $this);
+			$tpl->setAttribute('map', $mapName);
+			$tpl->setAttribute('o', $overlayName);
+			$tpl->setOriginalPath(null);
+			return $tpl->execute();
+		}
+		return null;
+	}
+
+	public function isDefined()
+	{
+		if($this->getLatitude() && $this->getLongitude())
+		{
+			return true;
+		}
+		return false;
 	}
 
 	public function getAddslashesSummaryAsHtml()

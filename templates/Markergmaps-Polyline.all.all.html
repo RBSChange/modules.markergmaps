@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+  	<script tal:replace="js"></script>
   	<script tal:attributes="src url" type="text/javascript"></script>
   	<script type="text/javascript">
 	  function initialize()
@@ -28,6 +29,13 @@
 			  	map.setCenter(center.getCenter(), zoom);
 			  	zoomed = true;
 			  }
+
+			  overlays = [];
+				<tal:block tal:repeat="e elements" tal:replace="php: e->getFrontofficeCode('map', 'overlays')"/>
+				for(i in overlays)
+				{
+					overlays[i].hide();
+				}
 
 			  if(address != "")
 			  {
@@ -75,10 +83,29 @@
 				}
       }
     }
+    $(function(){
+			$(".gmapsoverlay").click(function(){
+				m = $(this).attr('m');
+				n = $(this).attr('n');
+				if($(this).is(':checked')) { eval(m + '[' + n + '].show();'); }
+				else { eval(m + '[' + n + '].hide();');  }
+			});
+		});
     </script>
   </head>
   	<body onload="initialize()" onunload="GUnload()" marginheight="0" marginwidth="0" leftmargin="0" topmargin="0">
-		<div id="maps" style="width: 650px; height: 400px"></div>
+		<div id="maps" style="width: 600px; height: 400px; float:left;"></div>
 		<input type="hidden" id="points" value="${points}"/>
+		<div style="margin-left:15px; float:left; max-width:150px; max-height:350px; overflow:auto;" tal:condition="php: count(elements)">
+			<strong i18n:translate="&modules.markergmaps.bo.general.List;"/>
+			<ul style="padding-left:0;">
+				<p tal:omit-tag=""  tal:repeat="e elements">
+				<li tal:condition="e/isDefined" style="list-style-type:none;">
+					<input tal:condition="not: map/getDisplayall" type="checkbox" class="gmapsoverlay" m="overlays" n="${repeat/e/index}" id="o${e/getId}" />
+					<label for="o${e/getId}" tal:content="e/getLabel"/>
+				</li>
+				</p>
+			</ul>
+		</div>
 	</body>
 </html>

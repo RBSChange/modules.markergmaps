@@ -41,6 +41,7 @@
 
 			default-value="xxxx"
 		-->
+		<add name="mapid" type="Integer" />
 	</properties>
 
 	<!--
@@ -78,6 +79,6 @@
 			localized="true | [false]"
 			default-value="xxxx"
 		-->
-		<add name="mapid" type="Integer" />
+		<add name="notused" type="Integer" />
 	</serializedproperties>
 </document>

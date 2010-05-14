@@ -414,7 +414,7 @@
 			<children />
 			<xul:vbox>
 				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
-					<xul:iframe anonid="googlepolylineiframe" xbl:inherits="src=googlepolylineiframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:iframe anonid="googlepolylineiframe" xbl:inherits="src=googlepolylineiframesrc" scrolling="no" width="850" height="400" style="margin-top:4px" />
 					<xul:toolbar xbl:inherits="hidden=hidehelp">
 						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
 					</xul:toolbar>
@@ -536,6 +536,10 @@
 			<method name="updateIframe">
 				<body><![CDATA[
 					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframePolyline';
+					if(this.mInternalValue.mapElementId)
+					{
+						url += '&id='+this.mInternalValue.mapElementId;
+					}
 					if(this.mInternalValue.color)
 					{
 						url += '&color='+this.mInternalValue.color;
@@ -589,7 +593,7 @@
 			<children />
 			<xul:vbox>
 				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
-					<xul:iframe anonid="googlemarkeriframe" xbl:inherits="src=googlemarkeriframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:iframe anonid="googlemarkeriframe" xbl:inherits="src=googlemarkeriframesrc" scrolling="no" width="850" height="400" style="margin-top:4px" />
 					<xul:toolbar xbl:inherits="hidden=hidehelp">
 						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
 					</xul:toolbar>
@@ -741,6 +745,10 @@
 			<method name="updateIframe">
 				<body><![CDATA[
 					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframeGmarker';
+					if(this.mInternalValue.mapElementId)
+					{
+						url += '&id='+this.mInternalValue.mapElementId;
+					}
 					if(this.mInternalValue.latitude && this.mInternalValue.longitude)
 					{
 						url += '&latitude='+this.mInternalValue.latitude+'&longitude='+this.mInternalValue.longitude;
@@ -809,7 +817,7 @@
 			<children />
 			<xul:vbox>
 				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
-					<xul:iframe anonid="googlepolygoniframe" xbl:inherits="src=googlepolygoniframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:iframe anonid="googlepolygoniframe" xbl:inherits="src=googlepolygoniframesrc" scrolling="no" width="850" height="400" style="margin-top:4px" />
 					<xul:toolbar xbl:inherits="hidden=hidehelp">
 						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
 					</xul:toolbar>
@@ -949,6 +957,10 @@
 			<method name="updateIframe">
 				<body><![CDATA[
 					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframePolygon';
+					if(this.mInternalValue.mapElementId)
+					{
+						url += '&id='+this.mInternalValue.mapElementId;
+					}
 					if(this.mInternalValue.color)
 					{
 						url += '&color='+this.mInternalValue.color;
@@ -1009,7 +1021,7 @@
 			<children />
 			<xul:vbox>
 				<xul:hbox xbl:inherits="context,spellcheck" flex="1">
-					<xul:iframe anonid="googlegroundiframe" xbl:inherits="src=googlegroundiframesrc" scrolling="no" width="650" height="400" style="margin-top:4px" />
+					<xul:iframe anonid="googlegroundiframe" xbl:inherits="src=googlegroundiframesrc" scrolling="no" width="850" height="400" style="margin-top:4px" />
 					<xul:toolbar xbl:inherits="hidden=hidehelp">
 						<xul:toolbarbutton image="chrome://global/skin/icons/question-16.png" oncommand="dispatchFieldEvent('fieldHelp');" />
 					</xul:toolbar>
@@ -1109,6 +1121,10 @@
 			<method name="updateIframe">
 				<body><![CDATA[
 					var url = Context.CONTROLLER + '?module=markergmaps&action=GetBOIframeGround';
+					if(this.mInternalValue.mapElementId)
+					{
+						url += '&id='+this.mInternalValue.mapElementId;
+					}
 					if(this.mInternalValue.swlat && this.mInternalValue.swlng
 					&& this.mInternalValue.nelat && this.mInternalValue.nelng)
 					{

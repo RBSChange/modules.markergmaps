@@ -14,6 +14,7 @@ class markergmaps_persistentdocument_polygon extends markergmaps_persistentdocum
 	public function getGooglemapsvalue()
 	{
 		$info = array();
+		$info['mapElementId'] = $this->getId();
 		$info['points'] = $this->getPoints();
 		$info['color'] = substr($this->getColor(), 1);
 		$info['fillcolor'] = substr($this->getFillcolor(), 1);
@@ -25,12 +26,25 @@ class markergmaps_persistentdocument_polygon extends markergmaps_persistentdocum
 
 	public function getFrontofficeCode($mapName, $overlayName)
 	{
-		$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polygon');
-		$tpl->setAttribute('polygon', $this);
-		$tpl->setAttribute('map', $mapName);
-		$tpl->setAttribute('o', $overlayName);
-		$tpl->setOriginalPath(null);
-		return $tpl->execute();
+		if($this->isDefined())
+		{
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polygon');
+			$tpl->setAttribute('polygon', $this);
+			$tpl->setAttribute('map', $mapName);
+			$tpl->setAttribute('o', $overlayName);
+			$tpl->setOriginalPath(null);
+			return $tpl->execute();
+		}
+		return null;
+	}
+
+	public function isDefined()
+	{
+		if($this->getPoints())
+		{
+			return true;
+		}
+		return false;
 	}
 
 	/**

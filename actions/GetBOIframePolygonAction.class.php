@@ -26,6 +26,15 @@ class markergmaps_GetBOIframePolygonAction extends f_action_BaseAction
 		$request->setParameter('weight', $request->getParameter('weight', 5));
 		$request->setParameter('opacity', $request->getParameter('opacity', 0.5));
 		$request->setParameter('fillopacity', $request->getParameter('fillopacity', 0.3));
+		if($request->hasParameter('id'))
+		{
+			$element = DocumentHelper::getDocumentInstance($request->getParameter('id'));
+			$elements = markergmaps_ElementService::getInstance()->createQuery()->add(Restrictions::eq('mapid', $element->getMapid()))->add(Restrictions::ne('id', $element->getId()))->find();
+			$request->setParameter('elements', $elements);
+		}
+
+		$js = JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline(K::HTML);
+		$request->setParameter('js', $js);
 
 		return View::SUCCESS ;
 	}
