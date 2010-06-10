@@ -83,11 +83,11 @@
 				}
       }
     }
-    $(function(){
-			$(".gmapsoverlay").click(function(){
-				m = $(this).attr('m');
-				n = $(this).attr('n');
-				if($(this).is(':checked')) { eval(m + '[' + n + '].show();'); }
+    jQuery(function(){
+			jQuery(".gmapsoverlay").click(function(){
+				m = jQuery(this).attr('m');
+				n = jQuery(this).attr('n');
+				if(jQuery(this).is(':checked')) { eval(m + '[' + n + '].show();'); }
 				else { eval(m + '[' + n + '].hide();');  }
 			});
 		});

@@ -19,7 +19,7 @@
 <script tal:condition="load" change:javascript="src 'modules.markergmaps.lib.js.streetview'" type="text/javascript"></script>
 </tal:block>
 <script type="text/javascript">
-$(function(){
+jQuery(function(){
 	function loadMap${map/getId}()
 	{
 		if (GBrowserIsCompatible())
