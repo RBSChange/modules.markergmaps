@@ -5,10 +5,7 @@
  */
 class markergmaps_GetMarkerSuccessView extends f_view_BaseView
 {
-
 	/**
-	 * Enter description here...
-	 *
 	 * @param Context $context
 	 * @param Request $request
 	 */
@@ -23,5 +20,4 @@ class markergmaps_GetMarkerSuccessView extends f_view_BaseView
 		$this->setAttribute('website', $website);
 		
      }
-    
 }

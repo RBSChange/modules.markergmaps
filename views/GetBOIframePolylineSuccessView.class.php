@@ -6,8 +6,6 @@
 class markergmaps_GetBOIframePolylineSuccessView extends f_view_BaseView
 {
 	/**
-	 * Enter description here...
-	 *
 	 * @param Context $context
 	 * @param Request $request
 	 */

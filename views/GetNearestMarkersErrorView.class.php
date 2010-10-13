@@ -5,10 +5,7 @@
  */
 class markergmaps_GetNearestMarkersErrorView extends f_view_BaseView
 {
-
 	/**
-	 * Enter description here...
-	 *
 	 * @param Context $context
 	 * @param Request $request
 	 */
@@ -17,5 +14,4 @@ class markergmaps_GetNearestMarkersErrorView extends f_view_BaseView
 		$this->setTemplateName('Gmaps-Markers-Error', K::XML);
 		$this->setAttribute('errors', $request->getAttribute('errors'));
     }
-    
 }

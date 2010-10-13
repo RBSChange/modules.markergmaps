@@ -5,10 +5,7 @@
  */
 class markergmaps_GetNearestMarkersSuccessView extends f_view_BaseView
 {
-
 	/**
-	 * Enter description here...
-	 *
 	 * @param Context $context
 	 * @param Request $request
 	 */
@@ -28,7 +25,5 @@ class markergmaps_GetNearestMarkersSuccessView extends f_view_BaseView
 		
 		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
 		$this->setAttribute('website', $website);
-		
     }
-    
 }

@@ -6,8 +6,6 @@
 class markergmaps_GetBOIframeGroundSuccessView extends f_view_BaseView
 {
 	/**
-	 * Enter description here...
-	 *
 	 * @param Context $context
 	 * @param Request $request
 	 */
