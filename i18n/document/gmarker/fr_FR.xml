@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.gmarker" lcid="fr_FR">
+  <include id="m.markergmaps.document.element"/>
+  <key id="document-name">point</key>
+  <key id="label">nom</key>
+  <key id="label-help">nom</key>
+  <key id="summary">résumé</key>
+  <key id="summary-help">résumé</key>
+  <key id="longitude">longitude</key>
+  <key id="longitude-help">longitude</key>
+  <key id="latitude">latitude</key>
+  <key id="latitude-help">latitude</key>
+  <key id="colormarker">couleur du point</key>
+  <key id="colormarker-help">couleur du point</key>
+  <key id="title">titre</key>
+  <key id="title-help">titre</key>
+  <key id="description">description</key>
+  <key id="description-help">description</key>
+  <key id="picto">image</key>
+  <key id="picto-help">image, remplace le marqueur standard</key>
+  <key id="width">largeur de l'image</key>
+  <key id="width-help">largeur de l'image</key>
+  <key id="height">hauteur de l'image</key>
+  <key id="height-help">hauteur de l'image</key>
+  <key id="shadow">ombre</key>
+  <key id="shadow-help">ombre, remplace l'ombre standard</key>
+  <key id="swidth">largeur de l'ombre</key>
+  <key id="swidth-help">largeur de l'ombre</key>
+  <key id="sheight">hauteur de l'ombre</key>
+  <key id="sheight-help">hauteur de l'ombre</key>
+  <key id="infobulle">activer l'infobulle</key>
+  <key id="infobulle-help">activer l'infobulle</key>
+</i18n>

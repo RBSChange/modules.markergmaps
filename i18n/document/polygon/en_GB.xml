@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.polygon" lcid="en_GB">
+  <include id="m.markergmaps.document.element"/>
+  <key id="document-name">polygon</key>
+  <key id="label">nom</key>
+  <key id="label-help">nom</key>
+  <key id="color">border color</key>
+  <key id="color-help">border color</key>
+  <key id="weight">weight</key>
+  <key id="weight-help">weight</key>
+  <key id="opacity">border opacity</key>
+  <key id="opacity-help">border opacity</key>
+  <key id="fillcolor">fill color</key>
+  <key id="fillcolor-help">fill color</key>
+  <key id="fillopacity">polygon opacity</key>
+  <key id="fillopacity-help">polygon opacity</key>
+  <key id="points">points</key>
+  <key id="points-help">points</key>
+</i18n>

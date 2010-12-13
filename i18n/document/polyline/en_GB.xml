@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.polyline" lcid="en_GB">
+  <key id="document-name">polyline</key>
+  <key id="label">nom</key>
+  <key id="label-help">nom</key>
+  <key id="color">color</key>
+  <key id="color-help">color</key>
+  <key id="weight">weight</key>
+  <key id="weight-help">weight</key>
+  <key id="opacity">opacity</key>
+  <key id="opacity-help">opacity</key>
+  <key id="points">points</key>
+  <key id="points-help">points</key>
+</i18n>

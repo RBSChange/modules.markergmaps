@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.doceditor" lcid="en_GB">
+  <key id="localizeaddress">localize address</key>
+  <key id="capturemap">capture map settings</key>
+  <key id="refreshpreview">refresh map</key>
+  <key id="map">map</key>
+  <key id="address">geocode an address</key>
+  <key id="elements">elements</key>
+  <key id="plus">more info</key>
+  <key id="image">picture</key>
+  <key id="changeicon">define a picture replace default marker</key>
+  <key id="helpinitdata">adjustments of position, zoom and type of card will be used as the default view in frontoffice</key>
+  <key id="helprefreshdata">map must be saved for an overview updated</key>
+</i18n>

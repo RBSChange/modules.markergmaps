@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.list" lcid="en_GB">
+  <key id="red">red</key>
+  <key id="blue">blue</key>
+  <key id="green">green</key>
+  <key id="yellow">yellow</key>
+  <key id="purple">purple</key>
+  <key id="pink">pink</key>
+  <key id="orange">orange</key>
+  <key id="cyan">cyan</key>
+</i18n>

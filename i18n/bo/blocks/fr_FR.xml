@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.blocks" lcid="fr_FR">
+  <key id="document-name">Google Maps</key>
+  <key id="document-list">Google Maps</key>
+  <key id="map">carte Google Maps</key>
+</i18n>

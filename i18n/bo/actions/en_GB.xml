@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.actions" lcid="en_GB">
+  <key id="create-position">Create a position</key>
+  <key id="create-markergmaps">Create a Google Maps marker</key>
+  <key id="create-preferences">Create preferences</key>
+  <key id="create_">Create...</key>
+  <key id="create-map">Créer a map</key>
+</i18n>

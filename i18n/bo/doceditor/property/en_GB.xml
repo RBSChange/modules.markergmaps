@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.doceditor.property" lcid="en_GB">
+  <key id="googlemap">Google Map</key>
+  <key id="preview">preview</key>
+  <key id="mappreview">map preview</key>
+</i18n>

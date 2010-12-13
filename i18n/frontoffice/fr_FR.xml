@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.frontoffice" lcid="fr_FR">
+  <key id="wrong-address">nous n'avons pas pu vous localiser, vérifier votre adresse</key>
+  <key id="no-marker-found">aucun élément trouvé, a votre proximité</key>
+  <key id="right-click-for-itinerary">cliquez droit sur l'icône dans la carte pour chercher l'itineraire</key>
+  <key id="maximize-map">agrandir la carte</key>
+  <key id="minimize-map">réduire la carte</key>
+  <key id="gpsexportmultiple">Point(s) d'intérêt(s) pour GPS</key>
+  <key id="gpsexportsingle">Point d'intérêt pour GPS</key>
+  <key id="gpsexportov2">Format ov2</key>
+  <key id="gpsexportgpx">Format gpx</key>
+  <key id="backtomap">retour à la carte</key>
+</i18n>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.ground" lcid="fr_FR">
+  <include id="m.markergmaps.document.element"/>
+  <key id="document-name">image de fond</key>
+  <key id="label">nom</key>
+  <key id="label-help">nom</key>
+  <key id="image">image</key>
+  <key id="image-help">image</key>
+</i18n>

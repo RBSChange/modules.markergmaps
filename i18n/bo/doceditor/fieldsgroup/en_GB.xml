@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.doceditor.fieldsgroup" lcid="en_GB">
+  <key id="control">navigation control</key>
+  <key id="scale">scale</key>
+  <key id="streetview">StreetView</key>
+  <key id="preview">define default display</key>
+  <key id="display">display</key>
+  <key id="search">search</key>
+</i18n>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.list.opacity" lcid="en_GB">
+  <key id="o1">10%</key>
+  <key id="o2">20%</key>
+  <key id="o3">30%</key>
+  <key id="o4">40%</key>
+  <key id="o5">50%</key>
+  <key id="o6">60%</key>
+  <key id="o7">70%</key>
+  <key id="o8">80%</key>
+  <key id="o9">90%</key>
+  <key id="o10">100%</key>
+</i18n>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.frontoffice" lcid="en_GB">
+  <key id="wrong-address"></key>
+  <key id="no-marker-found"></key>
+  <key id="right-click-for-itinerary"></key>
+  <key id="maximize-map">maximize map</key>
+  <key id="minimize-map">minimize map</key>
+  <key id="backtomap">back to map</key>
+</i18n>

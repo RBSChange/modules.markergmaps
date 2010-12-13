@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.position" lcid="en_GB">
+  <key id="label">label</key>
+  <key id="label-help">label</key>
+  <key id="longitude">longitude</key>
+  <key id="longitude-help">longitude</key>
+  <key id="latitude">latitude</key>
+  <key id="latitude-help">latitude</key>
+  <key id="address">address</key>
+  <key id="address-help">address</key>
+  <key id="description">description</key>
+  <key id="colormarker">point color</key>
+  <key id="colormarker-help">point color</key>
+  <key id="edition-form-title">position Google Maps</key>
+</i18n>

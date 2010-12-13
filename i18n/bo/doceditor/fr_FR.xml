@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.doceditor" lcid="fr_FR">
+  <key id="localizeaddress">localiser l'adresse</key>
+  <key id="capturemap">capturer les réglages de la carte</key>
+  <key id="refreshpreview">rafraichir la carte</key>
+  <key id="map">carte</key>
+  <key id="address">géolocaliser une adresse</key>
+  <key id="elements">éléments</key>
+  <key id="plus">informations complémentaires</key>
+  <key id="image">image</key>
+  <key id="changeicon">définir une image remplace le point par défaut</key>
+  <key id="helpinitdata">les réglages de la position, du zoom et du type de carte seront utilisés comme affichage par défaut en frontoffice</key>
+  <key id="helprefreshdata">la carte doit être sauvegardée pour avoir un aperçu à jour</key>
+</i18n>

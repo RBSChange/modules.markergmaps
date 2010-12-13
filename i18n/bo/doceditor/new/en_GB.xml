@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.doceditor.new" lcid="en_GB">
+  <key id="polyline">add a polyline</key>
+  <key id="marker">add a marker</key>
+  <key id="polygon">add a polygon</key>
+  <key id="ground">add a ground image</key>
+</i18n>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.gmarker" lcid="en_GB">
+  <include id="m.markergmaps.document.element"/>
+  <key id="document-name">marker</key>
+  <key id="label">name</key>
+  <key id="label-help">name</key>
+  <key id="summary">summary</key>
+  <key id="summary-help">summary</key>
+  <key id="longitude">longitude</key>
+  <key id="longitude-help">longitude</key>
+  <key id="latitude">latitude</key>
+  <key id="latitude-help">latitude</key>
+  <key id="colormarker">point color</key>
+  <key id="colormarker-help">point color</key>
+  <key id="title">title</key>
+  <key id="title-help">title</key>
+  <key id="description">description</key>
+  <key id="description-help">description</key>
+  <key id="picto">picture</key>
+  <key id="picto-help">picture, replace standard marker</key>
+  <key id="width">picture width</key>
+  <key id="width-help">picture width</key>
+  <key id="height">picture height</key>
+  <key id="height-help">picture height</key>
+  <key id="shadow">shadow</key>
+  <key id="shadow-help">shadow, replace standard shadow</key>
+  <key id="swidth">shadow width</key>
+  <key id="swidth-help">shadow width</key>
+  <key id="sheight">shadow height</key>
+  <key id="sheight-help">shadow height</key>
+  <key id="infobulle">enable info window</key>
+  <key id="infobulle-help">enable info window</key>
+</i18n>

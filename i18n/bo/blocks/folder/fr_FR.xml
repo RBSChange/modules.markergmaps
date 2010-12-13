@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.blocks.folder" lcid="fr_FR">
+  <key id="width">largeur</key>
+  <key id="height">hauteur</key>
+  <key id="width-help">largeur de cette carte, largeur par défaut prise dans les préférences du module</key>
+  <key id="height-help">hauteur de cette carte, hauteur par défaut prise dans les préférences du module</key>
+  <key id="maxwidth">largeur agrandie</key>
+  <key id="maxheight">hauteur agrandie</key>
+  <key id="maxwidth-help">largeur agrandie de cette carte, largeur agrandie par défaut prise dans les préférences du module</key>
+  <key id="maxheight-help">hauteur agrandie de cette carte, hauteur agrandie par défaut prise dans les préférences du module</key>
+  <key id="subfolder">inclure les sous dossiers</key>
+  <key id="subfolder-help">définit si les points sont pris dans le dossier uniquement ou également dans les sous dossiers</key>
+  <key id="gpsexport">export GPS</key>
+  <key id="gpsexport-help">permet de proposer à l'internaute de télécharger le point de la carte dans des formats compatibles avec les GPS</key>
+  <key id="showpositionslist">afficher la liste des points</key>
+  <key id="showpositionslist-help">permet de proposer à l'internaute la liste textuelle des points présent sur la carte</key>
+</i18n>

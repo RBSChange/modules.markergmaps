@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.blocks.folder" lcid="en_GB">
+  <key id="width">width</key>
+  <key id="height">height</key>
+  <key id="width-help">width of this map, default width taken in module preferences</key>
+  <key id="height-help">height of this map, default height taken in module preferences</key>
+  <key id="maxwidth">maximized width</key>
+  <key id="maxheight">maximized height</key>
+  <key id="maxwidth-help">maximized width of this map, default maximized width taken in module preferences</key>
+  <key id="maxheight-help">maximized height of this map, default maximized height taken in module preferences</key>
+  <key id="subfolder">include subfolders</key>
+  <key id="subfolder-help">define if markers are taken in the folder only or also in subfolders</key>
+  <key id="gpsexport">GPS export</key>
+</i18n>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.position" lcid="fr_FR">
+  <key id="label">libellé</key>
+  <key id="label-help">libellé</key>
+  <key id="author">author</key>
+  <key id="author-help">author-help</key>
+  <key id="creationdate">creationdate</key>
+  <key id="creationdate-help">creationdate-help</key>
+  <key id="modificationdate">modificationdate</key>
+  <key id="modificationdate-help">modificationdate-help</key>
+  <key id="publicationstatus">publicationstatus</key>
+  <key id="publicationstatus-help">publicationstatus-help</key>
+  <key id="lang">lang</key>
+  <key id="lang-help">lang-help</key>
+  <key id="modelversion">modelversion</key>
+  <key id="modelversion-help">modelversion-help</key>
+  <key id="documentversion">documentversion</key>
+  <key id="documentversion-help">documentversion-help</key>
+  <key id="startpublicationdate">startpublicationdate</key>
+  <key id="startpublicationdate-help">startpublicationdate-help</key>
+  <key id="endpublicationdate">endpublicationdate</key>
+  <key id="endpublicationdate-help">endpublicationdate-help</key>
+  <key id="longitude">longitude</key>
+  <key id="longitude-help">longitude</key>
+  <key id="latitude">latitude</key>
+  <key id="latitude-help">latitude</key>
+  <key id="address">adresse</key>
+  <key id="address-help">adresse</key>
+  <key id="description">description</key>
+  <key id="description-help">Description de la position</key>
+  <key id="colormarker">couleur du point</key>
+  <key id="colormarker-help">couleur du point</key>
+  <key id="edition-form-title">position Google Maps</key>
+  <key id="localization">localisation</key>
+  <key id="localize">localiser</key>
+  <key id="updatecoordinates">mettre à jour les coordonnées</key>
+</i18n>

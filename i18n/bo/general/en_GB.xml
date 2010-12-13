@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.bo.general" lcid="en_GB">
+  <key id="module-name">Google Maps</key>
+  <key id="tree-root-name">Google Maps</key>
+  <key id="system-folder-name">Google Maps</key>
+  <key id="markertype">Google Maps</key>
+  <key id="add-new-marker">add Google Maps marker</key>
+  <key id="blocktitle">Google Maps</key>
+  <key id="get-key">get key</key>
+  <key id="suretodelete">are you sure to delete this element?</key>
+  <key id="list">elements list</key>
+</i18n>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.markergmaps.document.polygon" lcid="fr_FR">
+  <include id="m.markergmaps.document.element"/>
+  <key id="document-name">zone</key>
+  <key id="label">label</key>
+  <key id="label-help">label</key>
+  <key id="color">couleur de la bordure</key>
+  <key id="color-help">couleur de la bordure</key>
+  <key id="weight">épaisseur</key>
+  <key id="weight-help">épaisseur</key>
+  <key id="opacity">opacité de la bordure</key>
+  <key id="opacity-help">opacité de la bordure</key>
+  <key id="fillcolor">couleur de remplissage</key>
+  <key id="fillcolor-help">couleur de remplissage</key>
+  <key id="fillopacity">opacité de la zone</key>
+  <key id="fillopacity-help">opacité de la zone</key>
+  <key id="points">points</key>
+  <key id="points-help">points</key>
+  <key id="startpublicationdate">Début de publication</key>
+  <key id="startpublicationdate-help">A partir de cette date, le document sera publié. Si le champ est vide, la publication du document commencera dès maintenant.</key>
+  <key id="endpublicationdate">Fin de publication</key>
+  <key id="endpublicationdate-help">A partir de cette date, le document ne sera plus publié. Si le champ est vide, le document restera indéfiniment publié.</key>
+</i18n>
