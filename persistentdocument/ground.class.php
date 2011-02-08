@@ -57,20 +57,4 @@ class markergmaps_persistentdocument_ground extends markergmaps_persistentdocume
 		return MediaHelper::getPublicUrl($this->getImage());
 	}
 
-	/**
-	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
-	 */
-//	protected function addTreeAttributes($moduleName, $treeType, &$nodeAttributes)
-//	{
-//	}
-
-	/**
-	 * @param string $actionType
-	 * @param array $formProperties
-	 */
-//	public function addFormProperties($propertiesNames, &$formProperties)
-//	{
-//	}
 }
