@@ -26,7 +26,6 @@ class markergmaps_BlockFolderAction extends website_BlockAction
 	private function setDatas($request, $bo = false)
 	{
 		$pref = ModuleService::getInstance()->getPreferencesDocument('markergmaps');
-		$width = $height = $maxwidth = $maxheight = null;
 		if ($pref !== null)
 		{
 			$prefwidth = $pref->getWidth();
@@ -34,8 +33,8 @@ class markergmaps_BlockFolderAction extends website_BlockAction
 			$prefmaxheight = $pref->getMaxHeight();
 			$prefmaxwidth = $pref->getMaxWidth();
 		}
-		$width = $this->getConfigurationParameter('width', $prefwidth);
-		$height = $this->getConfigurationParameter('height', $prefheight);
+		$width = $this->getConfigurationParameter('mapWidth', $prefwidth);
+		$height = $this->getConfigurationParameter('mapHeight', $prefheight);
 		$maxwidth = $this->getConfigurationParameter('maxwidth', $prefmaxwidth);
 		$maxheight = $this->getConfigurationParameter('maxheight', $prefmaxheight);
 		$folder = $this->getDocumentParameter();

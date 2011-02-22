@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.bo.blocks.position" lcid="fr_FR">
-  <key id="width">largeur</key>
-  <key id="height">hauteur</key>
-  <key id="width-help">largeur de cette carte, largeur par défaut prise dans les préférences du module</key>
-  <key id="height-help">hauteur de cette carte, hauteur par défaut prise dans les préférences du module</key>
+  <key id="mapWidth">largeur</key>
+  <key id="mapHeight">hauteur</key>
+  <key id="mapWidth-help">largeur de cette carte, largeur par défaut prise dans les préférences du module</key>
+  <key id="mapHeight-help">hauteur de cette carte, hauteur par défaut prise dans les préférences du module</key>
   <key id="maxwidth">largeur agrandie</key>
   <key id="maxheight">hauteur agrandie</key>
   <key id="maxwidth-help">largeur agrandie de cette carte, largeur agrandie par défaut prise dans les préférences du module</key>
