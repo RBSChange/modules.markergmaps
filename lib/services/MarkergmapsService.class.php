@@ -37,4 +37,28 @@ class markergmaps_MarkergmapsService extends website_MarkerService
 	{
 		return $this->pp->createQuery('modules_markergmaps/markergmaps');
 	}
+	
+	/**
+	 * @param markergmaps_persistentdocument_markergmaps $document
+	 * @param string $actionType
+	 * @param array $formProperties
+	 */
+	public function addFormProperties($document, $propertiesNames, &$formProperties)
+	{
+		parent::addFormProperties($document, $propertiesNames, $formProperties);
+		$formProperties['signupUrl'] = 'http://code.google.com/apis/maps/signup.html';
+	}
+	
+	/**
+	 * @param markergmaps_persistentdocument_markergmaps $document
+	 * @param string $forModuleName
+	 * @param array $allowedSections
+	 * @return array
+	 */
+	public function getResume($document, $forModuleName, $allowedSections = null)
+	{
+		$data = parent::getResume($document, $forModuleName, $allowedSections);
+		$data['properties']['signupUrl'] = 'http://code.google.com/apis/maps/signup.html';
+		return $data;
+	}
 }

@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.markergmaps" lcid="fr_FR">
-  <key id="label">libellé</key>
-  <key id="label-help">libellé</key>
-  <key id="author">author</key>
-  <key id="author-help">author-help</key>
-  <key id="creationdate">creationdate</key>
-  <key id="creationdate-help">creationdate-help</key>
-  <key id="modificationdate">modificationdate</key>
-  <key id="modificationdate-help">modificationdate-help</key>
-  <key id="publicationstatus">publicationstatus</key>
-  <key id="publicationstatus-help">publicationstatus-help</key>
-  <key id="lang">lang</key>
-  <key id="lang-help">lang-help</key>
-  <key id="modelversion">modelversion</key>
-  <key id="modelversion-help">modelversion-help</key>
-  <key id="documentversion">documentversion</key>
-  <key id="documentversion-help">documentversion-help</key>
-  <key id="startpublicationdate">startpublicationdate</key>
-  <key id="startpublicationdate-help">startpublicationdate-help</key>
-  <key id="endpublicationdate">endpublicationdate</key>
-  <key id="endpublicationdate-help">endpublicationdate-help</key>
-  <key id="account">clé</key>
-  <key id="account-help">clé Google Maps valide pour l'url du site</key>
-  <key id="edition-form-title">Edition marqueur Google Maps</key>
+	<include id="m.website.document.marker" />
+	<key id="edition-form-title">Edition marqueur Google Maps</key>
+	<key id="account">clé</key>
+	<key id="account-help">clé Google Maps valide pour l'url du site</key>
 </i18n>

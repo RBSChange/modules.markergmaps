@@ -4,10 +4,6 @@ cfield[fieldtype="googlemap"]{
 cfield[fieldtype="googlemapaddress"]{
 	-moz-binding: url(binding:modules.markergmaps.cPositionEditor#cGoogleMapAddressField);
 }
-#edt_website_marker cfield[fieldtype="markergmapsproperties"]
-{
-	-moz-binding: url(binding:modules.markergmaps.cMarkergmapsEditor#cMarkergmapsPropertiesField);
-}
 cfield[fieldtype="googlemappolyline"]{
 	-moz-binding: url(binding:modules.markergmaps.cMapEditor#cGooglePolylineField);
 }

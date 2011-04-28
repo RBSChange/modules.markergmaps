@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<panel>
+	<section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+		<field name="label" />
+		<field name="account" />
+		<field name="langs" type="checklist" />
+	</section>
+	
+	<xul>
+		<javascript>
+			<constructor><![CDATA[
+				this.extendMethod("fireInitializeComplete", this.initializeCompleteMarker);
+			]]></constructor>
+
+			<method name="initializeCompleteMarker">
+				<parameter name="result" />
+				<body><![CDATA[
+					var fields = this.fields;
+					try
+					{
+						fields.langs.replaceItems({websiteId: result.contents.websiteid});
+					}
+					catch (e)
+					{
+						wCore.error("markergmaps.properties.initializeCompleteMarker", [], e);
+					}
+				]]></body>
+			</method>
+		</javascript>
+	</xul>
+</panel>
