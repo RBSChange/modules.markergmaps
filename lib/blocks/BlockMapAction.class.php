@@ -11,13 +11,12 @@ class markergmaps_BlockMapAction extends website_BlockAction
 	 */
 	function execute($request, $response)
 	{
-		if ($this->isInBackoffice())
+		if ($this->isInBackofficeEdition())
 		{
 			return website_BlockView::NONE;
 		}
 
 		$map = $this->getDocumentParameter();
-
 		if(!$map instanceof markergmaps_persistentdocument_map || !$map->isPublished())
 		{
 			return website_BlockView::NONE;
