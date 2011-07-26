@@ -5,17 +5,22 @@
  */
 class markergmaps_persistentdocument_map extends markergmaps_persistentdocument_mapbase
 {
+	/**
+	 * @return array
+	 */
 	public function getGmapselements()
 	{
+		$ls = LocaleService::getInstance();
 		$info = array();
 		foreach ($this->getElementsArray() as $element)
 		{
+			/* @var $element markergmaps_persistentdocument_element */
 			$info[] = array(
-				'id'=>$element->getId(),
-				'type'=>f_Locale::translateUI('&modules.markergmaps.document.'.$element->getDocumentModel()->getDocumentName().'.Document-name;'),
-				'label'=>$element->getLabel(),
-				'model'=>str_replace('/', '_', $element->getDocumentModelName()),
-				'status'=>f_Locale::translateUI(DocumentHelper::getPublicationstatusLocaleKey($element))
+				'id' => $element->getId(),
+				'type' => $ls->transBO('m.markergmaps.document.'.$element->getPersistentModel()->getDocumentName().'.document-name', array('ucf')),
+				'label'=> $element->getLabel(),
+				'model' => str_replace('/', '_', $element->getDocumentModelName()),
+				'status' => $ls->transBO(DocumentHelper::getStatusLocaleKey($element))
 			);
 		}
 		return $info;
@@ -49,5 +54,4 @@ class markergmaps_persistentdocument_map extends markergmaps_persistentdocument_
 		$this->setZoom($value['zoom']);
 		$this->setMaptype($value['maptype']);
 	}
-
 }
