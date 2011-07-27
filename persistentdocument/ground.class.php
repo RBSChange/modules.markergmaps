@@ -54,7 +54,6 @@ class markergmaps_persistentdocument_ground extends markergmaps_persistentdocume
 
 	public function getImageUrl()
 	{
-		return MediaHelper::getPublicUrl($this->getImage());
+		return LinkHelper::getDocumentUrl($this->getImage());
 	}
-
 }

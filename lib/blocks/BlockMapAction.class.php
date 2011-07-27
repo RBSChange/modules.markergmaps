@@ -24,8 +24,8 @@ class markergmaps_BlockMapAction extends website_BlockAction
 
 		if($map->getSearch())
 		{
-			$this->getPage()->addLink('stylesheet', 'text/css', 'http://www.google.com/uds/css/gsearch.css');
-			$this->getPage()->addLink('stylesheet', 'text/css', 'http://www.google.com/uds/solutions/localsearch/gmlocalsearch.css');
+			$this->getContext()->addLink('stylesheet', 'text/css', 'http://www.google.com/uds/css/gsearch.css');
+			$this->getContext()->addLink('stylesheet', 'text/css', 'http://www.google.com/uds/solutions/localsearch/gmlocalsearch.css');
 		}
 
 		if($map->getStreetview())
@@ -45,7 +45,7 @@ class markergmaps_BlockMapAction extends website_BlockAction
 
 		if($map->getChoosedisplay())
 		{
-			$this->getPage()->addScript('modules.markergmaps.lib.js.overlays');
+			$this->getContext()->addScript('modules.markergmaps.lib.js.overlays');
 		}
 
 		$request->setAttribute('map', $map);
