@@ -97,7 +97,7 @@
 		<div id="maps" style="width: 600px; height: 400px; float:left;"></div>
 		<input type="hidden" id="points" value="${points}"/>
 		<div style="margin-left:15px; float:left; max-width:150px; max-height:350px; overflow:auto;" tal:condition="php: count(elements)">
-			<strong i18n:translate="&modules.markergmaps.bo.general.List;"/>
+			<strong tal:content="trans:m.markergmaps.bo.general.list,ucf"/>
 			<ul style="padding-left:0;">
 				<p tal:omit-tag=""  tal:repeat="e elements">
 				<li tal:condition="e/isDefined" style="list-style-type:none;">

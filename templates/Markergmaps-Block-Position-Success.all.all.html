@@ -3,10 +3,10 @@
 		<tal:block tal:condition="gpsexport">
 
 			<span class="gps-export">
-				<tal:block change:translate="&amp;modules.markergmaps.frontoffice.GpsExportSingleLabel;"/>
-				<a change:link="module markergmaps; action ExportGpsOv2; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportOv2;"></a>
+				<tal:block tal:content="trans:m.markergmaps.frontoffice.gpsexportsingle,ucf,lab"/>
+				<a change:link="module markergmaps; action ExportGpsOv2; cmpref position/getId" tal:content="trans:m.markergmaps.frontoffice.gpsexportov2,ucf"></a>
 				-
-				<a change:link="module markergmaps; action ExportGpsGpx; cmpref position/getId" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportGpx;"></a>
+				<a change:link="module markergmaps; action ExportGpsGpx; cmpref position/getId" tal:content="trans:m.markergmaps.frontoffice.gpsexportgpx,ucf"></a>
 			</span>
 
 		</tal:block>
@@ -115,8 +115,8 @@
        	}
        	if(!isNaN(markergmaps_maxwidth${position/getId}) && !isNaN(markergmaps_maxheight${position/getId}))
        	{
-       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${position/getId}+'"><a href="javascript:minimizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Minimize-map;"/></p>');
-       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${position/getId}+'"><a href="javascript:maximizeMap${position/getId}()" i18n:translate="&modules.markergmaps.frontoffice.Maximize-map;"/></p>');
+       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${position/getId}+'"><a href="javascript:minimizeMap${position/getId}()" tal:content="trans:m.markergmaps.frontoffice.minimize-map,ucf"/></p>');
+       		jQuery('#'+markergmaps_id${position/getId}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${position/getId}+'"><a href="javascript:maximizeMap${position/getId}()" tal:content="trans:m.markergmaps.frontoffice.maximize-map,ucf"/></p>');
        		jQuery('#gmaps-min-'+markergmaps_id${position/getId}).hide();
        	}
       }

@@ -9,10 +9,10 @@
 		<tal:block tal:condition="gpsexport">
 
 			<span class="gps-export">
-				<tal:block change:translate="&amp;modules.markergmaps.frontoffice.GpsExportMultipleLabel;"/>
-				<a change:link="module markergmaps; action ExportGpsOv2; cmpref folderid" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportOv2;"></a>
+				<tal:block tal:content="trans:m.markergmaps.frontoffice.gpsexportmultiple,ucf,lab"/>
+				<a change:link="module markergmaps; action ExportGpsOv2; cmpref folderid" tal:content="trans:m.markergmaps.frontoffice.gpsexportov2,ucf"></a>
 				-
-				<a change:link="module markergmaps; action ExportGpsGpx; cmpref folderid" change:translate="&amp;modules.markergmaps.frontoffice.GpsExportGpx;"></a>
+				<a change:link="module markergmaps; action ExportGpsGpx; cmpref folderid" tal:content="trans:m.markergmaps.frontoffice.gpsexportgpx,ucf"></a>
 			</span>
 
 		</tal:block>
@@ -138,8 +138,8 @@
        	}
        	if(!isNaN(markergmaps_maxwidth${folderid}) && !isNaN(markergmaps_maxheight${folderid}))
        	{
-       		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${folderid}+'"><a href="javascript:minimizeMap${folderid}()" i18n:translate="&modules.markergmaps.frontoffice.Minimize-map;"/></p>');
-       		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${folderid}+'"><a href="javascript:maximizeMap${folderid}()" i18n:translate="&modules.markergmaps.frontoffice.Maximize-map;"/></p>');
+       		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-min-'+markergmaps_id${folderid}+'"><a href="javascript:minimizeMap${folderid}()" tal:content="trans:m.markergmaps.frontoffice.minimize-map,ucf"/></p>');
+       		jQuery('#'+markergmaps_id${folderid}).after('<p class="gmaps-link" id="gmaps-max-'+markergmaps_id${folderid}+'"><a href="javascript:maximizeMap${folderid}()" tal:content="trans:m.markergmaps.frontoffice.maximize-map,ucf"/></p>');
        		jQuery('#gmaps-min-'+markergmaps_id${folderid}).hide();
        	}
 
