@@ -2,15 +2,6 @@
 class GmapsHelper
 {
 	/**
-	 * @return String
-	 * @deprecated use getKeyForCurrentWebsite() function instead
-	 */
-	public static function getRegistrationKey()
-	{
-		return $this->getKeyForCurrentWebsite();
-	}
-
-	/**
 	 * @param website_persistentdocument_website $website
 	 * @return String
 	 */
