@@ -54,7 +54,7 @@ class markergmaps_GetBOIframeGmarkerAction extends f_action_BaseAction
 			$request->setParameter('elements', $elements);
 		}
 
-		$js = JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline(K::HTML);
+		$js = website_JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline(K::HTML);
 		$request->setParameter('js', $js);
 
 		return View::SUCCESS ;
