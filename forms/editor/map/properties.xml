@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
-  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+  <section labeli18n="m.uixul.bo.doceditor.fieldsgroup.title">
     <field name="label"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.Elements" class="toggle">
+  <section labeli18n="m.markergmaps.bo.doceditor.elements" class="toggle">
 		<fieldinput name="elementsJSON" type="gmapselements" />
 	</section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Display" class="toggle">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.display" class="toggle">
     <field name="width"/>
     <field name="height"/>
     <field name="mapnormal"/>
@@ -18,7 +18,7 @@
     <field name="choosedisplay"/>
     <field name="displayall"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Control" class="toggle" hidden="true">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.control" class="toggle" hidden="true">
   	<field name="control"/>
     <field name="controlposition"/>
     <field name="minimap"/>
@@ -26,20 +26,20 @@
     <field name="dblclick"/>
     <field name="scrollzoom"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Scale" class="toggle" hidden="true">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.scale" class="toggle" hidden="true">
     <field name="scale"/>
     <field name="scaleposition"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Streetview" class="toggle" hidden="true">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.streetview" class="toggle" hidden="true">
     <field name="streetview"/>
     <field name="svtop"/>
     <field name="svleft"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Search" class="toggle" hidden="true">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.search" class="toggle" hidden="true">
     <field name="search"/>
     <field name="searchposition"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.fieldsgroup.Preview" class="toggle" hidden="true">
+  <section labeli18n="m.markergmaps.bo.doceditor.fieldsgroup.preview" class="toggle" hidden="true">
   	<field name="initmap" type="initmap" />
   </section>
 </panel>

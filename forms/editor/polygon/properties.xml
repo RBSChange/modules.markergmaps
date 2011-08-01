@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
-  <section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+  <section labeli18n="m.uixul.bo.doceditor.fieldsgroup.title">
     <field name="label"/>
     <field name="color" type="color"/>
     <field name="weight"/>
@@ -8,9 +8,9 @@
     <field name="fillcolor" type="color"/>
     <field name="fillopacity"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.Map">
+  <section labeli18n="m.markergmaps.bo.doceditor.map">
   	<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
-		<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemappolygon" />
+		<field name="googlemapsvalue" labeli18n="m.markergmaps.bo.doceditor.property.googlemap" type="googlemappolygon" />
   </section>
 
   <xul>

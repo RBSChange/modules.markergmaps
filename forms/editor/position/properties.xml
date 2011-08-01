@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <panel>
-	<section labeli18n="modules.uixul.bo.doceditor.fieldsgroup.Title">
+	<section labeli18n="m.uixul.bo.doceditor.fieldsgroup.title">
 		<field name="label" />
 		<field name="description" />
 	</section>
-	<section labeli18n="modules.markergmaps.bo.doceditor.Map">
+	<section labeli18n="m.markergmaps.bo.doceditor.map">
 		<field name="colormarker" />
-		<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemap" />
+		<field name="googlemapsvalue" labeli18n="m.markergmaps.bo.doceditor.property.googlemap" type="googlemap" />
 		<field name="address" type="googlemapaddress" />
 	</section>
 
