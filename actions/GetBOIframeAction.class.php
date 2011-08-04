@@ -4,11 +4,11 @@
  * @author intessit
  * @package modules.markergmaps
  */
-class markergmaps_GetBOIframeAction extends f_action_BaseAction
+class markergmaps_GetBOIframeAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -16,7 +16,7 @@ class markergmaps_GetBOIframeAction extends f_action_BaseAction
 
 		if($url === null)
 		{
-			return View::NONE ;
+			return change_View::NONE ;
 		}
 		
 		$request->setParameter('url', $url);
@@ -28,6 +28,6 @@ class markergmaps_GetBOIframeAction extends f_action_BaseAction
 		$request->setParameter('address', str_replace('"', '\"', $request->getParameter('address')));
 		$request->setParameter('colormarker', $request->getParameter('colormarker', 'red-dot.png'));
 
-		return View::SUCCESS ;
+		return change_View::SUCCESS ;
 	}
 }

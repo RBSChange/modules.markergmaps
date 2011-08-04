@@ -4,11 +4,11 @@
  * @author intstaufl
  * @package modules.markergmaps
  */
-class markergmaps_ExportGpsOv2Action extends f_action_BaseAction
+class markergmaps_ExportGpsOv2Action extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -44,7 +44,7 @@ class markergmaps_ExportGpsOv2Action extends f_action_BaseAction
 			echo markergmaps_PositionService::getInstance()->getOv2ContentForPositions(array($document));
 		}
 		
-		return View::NONE;
+		return change_View::NONE;
 	}
 	
 	/**

@@ -3,8 +3,8 @@ class markergmaps_GetMarkersAction extends markergmaps_Action
 {
 
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -13,7 +13,7 @@ class markergmaps_GetMarkersAction extends markergmaps_Action
 		
 		if(is_null($documentIds) || f_util_ArrayUtils::isEmpty($documentIds))
 		{
-			return View::NONE;
+			return change_View::NONE;
 		}
 		
 		foreach($documentIds as $documentId)
@@ -27,7 +27,7 @@ class markergmaps_GetMarkersAction extends markergmaps_Action
 		}
 
 		$request->setAttribute('markers', $documents);
-		return View::SUCCESS;
+		return change_View::SUCCESS;
 	}
 	
 	public function isSecure()

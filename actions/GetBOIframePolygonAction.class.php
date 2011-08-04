@@ -3,11 +3,11 @@
  * @date Mon, 08 Sep 2008 08:51:19 +0000
  * @package modules.markergmaps
  */
-class markergmaps_GetBOIframePolygonAction extends f_action_BaseAction
+class markergmaps_GetBOIframePolygonAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -15,7 +15,7 @@ class markergmaps_GetBOIframePolygonAction extends f_action_BaseAction
 
 		if($url === null)
 		{
-			return View::NONE ;
+			return change_View::NONE ;
 		}
 
 		$request->setParameter('url', $url);
@@ -36,6 +36,6 @@ class markergmaps_GetBOIframePolygonAction extends f_action_BaseAction
 		$js = website_JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline(K::HTML);
 		$request->setParameter('js', $js);
 
-		return View::SUCCESS ;
+		return change_View::SUCCESS ;
 	}
 }

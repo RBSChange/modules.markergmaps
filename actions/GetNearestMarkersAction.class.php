@@ -1,9 +1,9 @@
 <?php
-class markergmaps_GetNearestMarkersAction extends f_action_BaseAction
+class markergmaps_GetNearestMarkersAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -17,7 +17,7 @@ class markergmaps_GetNearestMarkersAction extends f_action_BaseAction
 		if (is_null($latitude) || is_null($longitude))
 		{
 			$request->setAttribute('errors', array(Locale::translate('&modules.markergmaps.frontoffice.Wrong-address;')));
-			return View::ERROR;
+			return change_View::ERROR;
 		}
 		
 		$markers = markergmaps_MarkerService::getInstance()->getNearestMarkers(
@@ -32,12 +32,12 @@ class markergmaps_GetNearestMarkersAction extends f_action_BaseAction
 		if (f_util_ArrayUtils::isEmpty($markers))
 		{
 			$request->setAttribute('errors', array(Locale::translate('&modules.markergmaps.frontoffice.No-marker-found;')));
-			return View::ERROR;
+			return change_View::ERROR;
 		}
 		
 		$request->setAttribute('markers', $markers);
 		
-		return View::SUCCESS;
+		return change_View::SUCCESS;
 	}
 	
 	public function isSecure()

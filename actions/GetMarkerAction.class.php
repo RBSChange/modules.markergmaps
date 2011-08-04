@@ -1,9 +1,9 @@
 <?php
-class markergmaps_GetMarkerAction extends f_action_BaseAction
+class markergmaps_GetMarkerAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -12,18 +12,18 @@ class markergmaps_GetMarkerAction extends f_action_BaseAction
 		
 		if (!$documentId)
 		{
-			return View::NONE;
+			return change_View::NONE;
 		}
 		
 		$document = DocumentHelper::getDocumentInstance($documentId);
 		
 		if (!$document || !$document instanceof markergmaps_Marker)
 		{
-			return View::NONE;
+			return change_View::NONE;
 		}
 		
 		$request->setAttribute('marker', $document);
-		return View::SUCCESS;
+		return change_View::SUCCESS;
 	}
 	
 	public function isSecure()

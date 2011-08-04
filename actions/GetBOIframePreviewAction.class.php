@@ -3,11 +3,11 @@
  * @date Mon, 08 Sep 2008 08:51:19 +0000
  * @package modules.markergmaps
  */
-class markergmaps_GetBOIframePreviewAction extends f_action_BaseAction
+class markergmaps_GetBOIframePreviewAction extends change_Action
 {
 	/**
-	 * @param Context $context
-	 * @param Request $request
+	 * @param change_Context $context
+	 * @param change_Request $request
 	 */
 	public function _execute($context, $request)
 	{
@@ -15,7 +15,7 @@ class markergmaps_GetBOIframePreviewAction extends f_action_BaseAction
 
 		if($url === null)
 		{
-			return View::NONE ;
+			return change_View::NONE ;
 		}
 
 		$request->setParameter('url', $url);
@@ -35,9 +35,9 @@ class markergmaps_GetBOIframePreviewAction extends f_action_BaseAction
 		}
 		catch (Exception $e)
 		{
-			return View::NONE ;
+			return change_View::NONE ;
 		}
 
-		return View::SUCCESS ;
+		return change_View::SUCCESS ;
 	}
 }
