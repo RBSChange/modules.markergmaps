@@ -12,6 +12,6 @@
 	</models>
 	<actions>
 		<action name="createMarkergmaps" single="true" permission="Insert_markergmaps" icon="add" 
-			label="&amp;modules.markergmaps.bo.actions.Createmarkergmaps;"/>
+			labeli18n="m.markergmaps.bo.actions.createmarkergmaps"/>
 	</actions>
 </perspective>
