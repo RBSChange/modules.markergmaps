@@ -34,7 +34,7 @@ class markergmaps_MarkerService extends BaseService
 			throw new Exception("Document is not a marker");
 		}
 
-		$klmUrl = LinkHelper::getActionUrl('markergmaps', 'GetMarker', array(K::COMPONENT_ID_ACCESSOR => $marker->getId()));
+		$klmUrl = LinkHelper::getActionUrl('markergmaps', 'GetMarker', array(change_Request::DOCUMENT_ID => $marker->getId()));
 
 		return GmapsHelper::getGoogleMapsUrl().'?q='.$klmUrl;
 	}

@@ -11,7 +11,7 @@ class markergmaps_GetNearestMarkersErrorView extends change_View
 	 */
     public function _execute($context, $request)
     {
-		$this->setTemplateName('Gmaps-Markers-Error', K::XML);
+		$this->setTemplateName('Gmaps-Markers-Error', 'xml');
 		$this->setAttribute('errors', $request->getAttribute('errors'));
     }
 }

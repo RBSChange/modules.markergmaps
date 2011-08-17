@@ -26,7 +26,7 @@ class markergmaps_persistentdocument_polyline extends markergmaps_persistentdocu
 	{
 		if($this->isDefined())
 		{
-			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polyline');
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType('html')->load('Polyline');
 			$tpl->setAttribute('polyline', $this);
 			$tpl->setAttribute('map', $mapName);
 			$tpl->setAttribute('o', $overlayName);

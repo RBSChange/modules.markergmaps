@@ -12,7 +12,7 @@ class markergmaps_ExportGpsOv2Action extends change_Action
 	 */
 	public function _execute($context, $request)
 	{
-		$documentId = $request->getModuleParameter('markergmaps', K::COMPONENT_ID_ACCESSOR);
+		$documentId = $request->getModuleParameter('markergmaps', change_Request::DOCUMENT_ID);
 		if (is_int($documentId) && $documentId > 0)
 		{
 			$document = DocumentHelper::getDocumentInstance(intval($documentId));

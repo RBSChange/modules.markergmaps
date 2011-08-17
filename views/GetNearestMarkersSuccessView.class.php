@@ -11,7 +11,7 @@ class markergmaps_GetNearestMarkersSuccessView extends change_View
 	 */
     public function _execute($context, $request)
     {
-		$this->setTemplateName('Gmaps-Markers-KML', K::XML);
+		$this->setTemplateName('Gmaps-Markers-KML', 'xml');
     	
 		$markers = $request->getAttribute('markers');
 		

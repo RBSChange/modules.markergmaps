@@ -8,7 +8,7 @@ class markergmaps_GetMarkerAction extends change_Action
 	public function _execute($context, $request)
 	{
 		$parameters = $request->getParameter('gmapsParam');
-		$documentId = $parameters[K::COMPONENT_ID_ACCESSOR];
+		$documentId = $parameters[change_Request::DOCUMENT_ID];
 		
 		if (!$documentId)
 		{

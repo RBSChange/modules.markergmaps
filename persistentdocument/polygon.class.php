@@ -28,7 +28,7 @@ class markergmaps_persistentdocument_polygon extends markergmaps_persistentdocum
 	{
 		if($this->isDefined())
 		{
-			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Polygon');
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType('html')->load('Polygon');
 			$tpl->setAttribute('polygon', $this);
 			$tpl->setAttribute('map', $mapName);
 			$tpl->setAttribute('o', $overlayName);

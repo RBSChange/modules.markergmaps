@@ -33,7 +33,7 @@ class markergmaps_persistentdocument_ground extends markergmaps_persistentdocume
 	{
 		if($this->isDefined())
 		{
-			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Ground');
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType('html')->load('Ground');
 			$tpl->setAttribute('ground', $this);
 			$tpl->setAttribute('map', $mapName);
 			$tpl->setAttribute('o', $overlayName);

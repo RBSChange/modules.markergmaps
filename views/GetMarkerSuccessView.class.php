@@ -11,7 +11,7 @@ class markergmaps_GetMarkerSuccessView extends change_View
 	 */
     public function _execute($context, $request)
     {
-		$this->setTemplateName('Gmaps-Markers-KML', K::XML);
+		$this->setTemplateName('Gmaps-Markers-KML', 'xml');
 		
 		$marker = $request->getAttribute('marker');
 		$this->setAttribute('markers', array($marker));

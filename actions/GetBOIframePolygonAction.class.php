@@ -33,7 +33,7 @@ class markergmaps_GetBOIframePolygonAction extends change_Action
 			$request->setParameter('elements', $elements);
 		}
 
-		$js = website_JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline(K::HTML);
+		$js = website_JsService::getInstance()->registerScript('modules.website.lib.js.jquery')->executeInline('html');
 		$request->setParameter('js', $js);
 
 		return change_View::SUCCESS ;

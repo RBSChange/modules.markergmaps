@@ -56,7 +56,7 @@ class markergmaps_persistentdocument_gmarker extends markergmaps_persistentdocum
 	{
 		if($this->isDefined())
 		{
-			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType(K::HTML)->load('Gmarker');
+			$tpl = TemplateLoader::getInstance()->setPackageName('modules_markergmaps')->setDirectory('templates/includes')->setMimeContentType('html')->load('Gmarker');
 			$tpl->setAttribute('gmarker', $this);
 			$tpl->setAttribute('map', $mapName);
 			$tpl->setAttribute('o', $overlayName);
