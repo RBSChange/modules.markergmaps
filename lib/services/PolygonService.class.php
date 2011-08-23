@@ -17,7 +17,7 @@ class markergmaps_PolygonService extends markergmaps_ElementService
 	{
 		if (self::$instance === null)
 		{
-			self::$instance = self::getServiceClassInstance(get_class());
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}

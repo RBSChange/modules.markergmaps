@@ -16,7 +16,7 @@ class markergmaps_MarkergmapsService extends website_MarkerService
 	{
 		if (self::$instance === null)
 		{
-			self::$instance = self::getServiceClassInstance(get_class());
+			self::$instance = new self();
 		}
 		return self::$instance;
 	}
