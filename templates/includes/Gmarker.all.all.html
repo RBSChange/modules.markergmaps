@@ -34,7 +34,7 @@ var gmarker${gmarker/getId} = new GMarker(point${gmarker/getId}, options${gmarke
 <tal:block tal:condition="gmarker/getInfobulle">
 GEvent.addListener(gmarker${gmarker/getId}, "click", function()
 {
-	gmarker${gmarker/getId}.openInfoWindowHtml("${gmarker/getAddslashesSummaryAsHtml}", {maxTitle: "${gmarker/getAddslashesTitleAsHtml}", maxContent: "${gmarker/getAddslashesDescriptionAsHtml}", autoScroll:true});
+	gmarker${gmarker/getId}.openInfoWindowHtml("${structure gmarker/getAddslashesSummaryAsHtml}", {maxTitle: "${structure gmarker/getAddslashesTitleAsHtml}", maxContent: "${structure gmarker/getAddslashesDescriptionAsHtml}", autoScroll:true});
 });
 </tal:block>
 ${o}.push(gmarker${gmarker/getId});
