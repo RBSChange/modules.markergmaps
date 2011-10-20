@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.markergmaps" lcid="fr_FR">
 	<include id="m.website.document.marker" />
+	<key id="document-name">marqueur Google Maps</key>
 	<key id="edition-form-title">Edition marqueur Google Maps</key>
 	<key id="account">clé</key>
 	<key id="account-help">clé Google Maps valide pour l'url du site</key>
