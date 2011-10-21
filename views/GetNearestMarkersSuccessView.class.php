@@ -23,7 +23,7 @@ class markergmaps_GetNearestMarkersSuccessView extends change_View
 			$this->setAttribute('iconUrl', $iconUrl);
 		}
 		
-		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$website = website_WebsiteService::getInstance()->getCurrentWebsite();
 		$this->setAttribute('website', $website);
     }
 }

@@ -16,7 +16,7 @@ class markergmaps_GetMarkersSuccessView extends change_View
 		$markers = $request->getAttribute('markers');
 		$this->setAttribute('markers', $markers);
 		
-		$website = website_WebsiteModuleService::getInstance()->getCurrentWebsite();
+		$website = website_WebsiteService::getInstance()->getCurrentWebsite();
 		$this->setAttribute('website', $website);
 		
      }

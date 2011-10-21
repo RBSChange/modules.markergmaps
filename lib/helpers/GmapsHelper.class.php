@@ -25,14 +25,14 @@ class GmapsHelper
 	 */
 	public static function getKeyForCurrentWebsite()
 	{
-		return GmapsHelper::getKeyForWebsite(website_WebsiteModuleService::getInstance()->getCurrentWebsite());
+		return GmapsHelper::getKeyForWebsite(website_WebsiteService::getInstance()->getCurrentWebsite());
 	}
 	/**
 	 * @return String
 	 */
 	public static function getKeyForDefaultWebsite()
 	{
-		return GmapsHelper::getKeyForWebsite(website_WebsiteModuleService::getInstance()->getDefaultWebsite());
+		return GmapsHelper::getKeyForWebsite(website_WebsiteService::getInstance()->getDefaultWebsite());
 	}
 
 	/**
