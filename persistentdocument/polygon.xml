@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
-	model-version="1.0" icon="chart_line" extend="modules_markergmaps/element" has-url="false">
-	<properties>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="chart_line" extend="modules_markergmaps/element" has-url="false">
+  <properties>
 	</properties>
-
-	<serializedproperties>
-		<add name="color" type="String" min-occurs="1" />
-		<add name="weight" type="Integer" min-occurs="1" default-value="5" />
-		<add name="opacity" type="Double" from-list="modules_markergmaps/opacity" min-occurs="1" default-value="0.5"/>
-		<add name="fillcolor" type="String" min-occurs="1" />
-		<add name="fillopacity" type="Double" from-list="modules_markergmaps/opacity" min-occurs="1" default-value="0.3"/>
-		<add name="points" type="LongString" />
-	</serializedproperties>
+  <serializedproperties>
+    <property name="color" type="String" min-occurs="1"/>
+    <property name="weight" type="Integer" min-occurs="1" default-value="5"/>
+    <property name="opacity" type="Double" from-list="modules_markergmaps/opacity" min-occurs="1" default-value="0.5"/>
+    <property name="fillcolor" type="String" min-occurs="1"/>
+    <property name="fillopacity" type="Double" from-list="modules_markergmaps/opacity" min-occurs="1" default-value="0.3"/>
+    <property name="points" type="LongString"/>
+  </serializedproperties>
 </document>

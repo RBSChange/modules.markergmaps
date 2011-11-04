@@ -1,46 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
-	model-version="1.0" icon="googlemaps" has-url="false">
-	<properties>
-		<add name="elements" type="modules_markergmaps/element" max-occurs="-1" tree-node="true" cascade-delete="true"/>
-	</properties>
-
-	<serializedproperties>
-		<add name="width" type="Integer" min-occurs="1" default-value="400"/>
-		<add name="height" type="Integer" min-occurs="1" default-value="400"/>
-		<add name="minimap" type="Boolean" default-value="false"/>
-
-		<add name="mapnormal" type="Boolean" default-value="true" />
-		<add name="mapsatellite" type="Boolean" default-value="true" />
-		<add name="maphybrid" type="Boolean" default-value="true" />
-		<add name="mapterrain" type="Boolean" default-value="false" />
-		<add name="menulistmaptype" type="Boolean" default-value="false"/>
-		<add name="maptypeposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_TOP_RIGHT"/>
-
-		<add name="scale" type="Boolean" default-value="false"/>
-		<add name="scaleposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_BOTTOM_LEFT"/>
-
-		<add name="search" type="Boolean" default-value="false"/>
-		<add name="searchposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_BOTTOM_LEFT"/>
-
-		<add name="choosedisplay" type="Boolean" default-value="false"/>
-		<add name="displayall" type="Boolean" default-value="true"/>
-
-		<add name="control" type="String" from-list="modules_markergmaps/control" default-value="GSmallMapControl"/>
-		<add name="controlposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_TOP_LEFT"/>
-		<add name="drag" type="Boolean" default-value="true"/>
-		<add name="dblclick" type="Boolean" default-value="true"/>
-		<add name="scrollzoom" type="Boolean" default-value="true"/>
-
-		<add name="streetview" type="Boolean" default-value="false"/>
-		<add name="svtop" type="Integer" default-value="25"/>
-		<add name="svleft" type="Integer" default-value="80"/>
-
-		<add name="maptype" type="String" default-value="G_NORMAL_MAP"/>
-		<add name="longitude" type="String"/>
-		<add name="latitude" type="String"/>
-		<add name="zoom" type="String"/>
-	</serializedproperties>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="googlemaps" has-url="false">
+  <properties>
+    <property name="elements" type="modules_markergmaps/element" max-occurs="-1" tree-node="true" cascade-delete="true"/>
+  </properties>
+  <serializedproperties>
+    <property name="width" type="Integer" min-occurs="1" default-value="400"/>
+    <property name="height" type="Integer" min-occurs="1" default-value="400"/>
+    <property name="minimap" type="Boolean" default-value="false"/>
+    <property name="mapnormal" type="Boolean" default-value="true"/>
+    <property name="mapsatellite" type="Boolean" default-value="true"/>
+    <property name="maphybrid" type="Boolean" default-value="true"/>
+    <property name="mapterrain" type="Boolean" default-value="false"/>
+    <property name="menulistmaptype" type="Boolean" default-value="false"/>
+    <property name="maptypeposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_TOP_RIGHT"/>
+    <property name="scale" type="Boolean" default-value="false"/>
+    <property name="scaleposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_BOTTOM_LEFT"/>
+    <property name="search" type="Boolean" default-value="false"/>
+    <property name="searchposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_BOTTOM_LEFT"/>
+    <property name="choosedisplay" type="Boolean" default-value="false"/>
+    <property name="displayall" type="Boolean" default-value="true"/>
+    <property name="control" type="String" from-list="modules_markergmaps/control" default-value="GSmallMapControl"/>
+    <property name="controlposition" type="String" from-list="modules_markergmaps/position" default-value="G_ANCHOR_TOP_LEFT"/>
+    <property name="drag" type="Boolean" default-value="true"/>
+    <property name="dblclick" type="Boolean" default-value="true"/>
+    <property name="scrollzoom" type="Boolean" default-value="true"/>
+    <property name="streetview" type="Boolean" default-value="false"/>
+    <property name="svtop" type="Integer" default-value="25"/>
+    <property name="svleft" type="Integer" default-value="80"/>
+    <property name="maptype" type="String" default-value="G_NORMAL_MAP"/>
+    <property name="longitude" type="String"/>
+    <property name="latitude" type="String"/>
+    <property name="zoom" type="String"/>
+  </serializedproperties>
 </document>

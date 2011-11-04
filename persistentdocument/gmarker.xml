@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<document xmlns="http://www.rbs.fr/schema/change-document/1.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd"
-	model-version="1.0" icon="map-position" extend="modules_markergmaps/element" has-url="false">
-	<properties>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/4.0.xsd" model-version="1.0" icon="map-position" extend="modules_markergmaps/element" has-url="false">
+  <properties>
 	</properties>
-
-	<serializedproperties>
-		<add name="longitude" type="String" min-occurs="1" max-occurs="1"/>
-		<add name="latitude" type="String" min-occurs="1" max-occurs="1"/>
-		<add name="summary" type="XHTMLFragment"/>
-		<add name="infobulle" type="Boolean" default-value="true"/>
-		<add name="title" type="String"/>
-		<add name="description" type="XHTMLFragment"/>
-		<add name="colormarker" type="String" from-list="modules_markergmaps/colormarker" default-value="red-dot.png"/>
-		<add name="picto" type="modules_media/media" max-occurs="1"/>
-		<add name="width" type="Integer"/>
-		<add name="height" type="Integer"/>
-		<add name="shadow" type="modules_media/media" max-occurs="1"/>
-		<add name="swidth" type="Integer"/>
-		<add name="sheight" type="Integer"/>
-	</serializedproperties>
+  <serializedproperties>
+    <property name="longitude" type="String" min-occurs="1" max-occurs="1"/>
+    <property name="latitude" type="String" min-occurs="1" max-occurs="1"/>
+    <property name="summary" type="XHTMLFragment"/>
+    <property name="infobulle" type="Boolean" default-value="true"/>
+    <property name="title" type="String"/>
+    <property name="description" type="XHTMLFragment"/>
+    <property name="colormarker" type="String" from-list="modules_markergmaps/colormarker" default-value="red-dot.png"/>
+    <property name="picto" type="modules_media/media" max-occurs="1"/>
+    <property name="width" type="Integer"/>
+    <property name="height" type="Integer"/>
+    <property name="shadow" type="modules_media/media" max-occurs="1"/>
+    <property name="swidth" type="Integer"/>
+    <property name="sheight" type="Integer"/>
+  </serializedproperties>
 </document>
