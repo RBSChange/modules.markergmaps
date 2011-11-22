@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.markergmaps" lcid="en_GB">
-  <key id="label">label</key>
-  <key id="label-help">label</key>
+	<include id="m.website.document.marker" />
   <key id="account">key</key>
-  <key id="account-help">valid Google Maps key for website url</key>
+  <key id="account-help">Google Maps key valid for the site's URL.</key>
   <key id="edition-form-title">Edit Google Maps marker</key>
 </i18n>

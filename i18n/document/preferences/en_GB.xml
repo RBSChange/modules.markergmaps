@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.preferences" lcid="en_GB">
   <key id="document-name">preferences</key>
-  <key id="edition-form-title">preferences edition</key>
-  <key id="width">width in pixel</key>
-  <key id="width-help">maps default width in pixel</key>
-  <key id="height">height in pixel</key>
-  <key id="height-help">maps default height in pixel</key>
-  <key id="maxwidth">maximized width in pixel</key>
-  <key id="maxwidth-help">maps default maximized width in pixel</key>
-  <key id="maxheight">maximize height in pixel</key>
-  <key id="maxheight-help">maps default maximized height in pixel</key>
-  <key id="generalities">Main properties of maps rendering</key>
+  <key id="edition-form-title">Google Maps preferences</key>
+  <key id="width">width in pixels</key>
+  <key id="width-help">Default map width in pixels.</key>
+  <key id="height">height in pixels</key>
+  <key id="height-help">Default map height in pixels.</key>
+  <key id="maxwidth">maximized width in pixels</key>
+  <key id="maxwidth-help">Default map width in pixels when maximized.</key>
+  <key id="maxheight">maximized height in pixels</key>
+  <key id="maxheight-help">Default map height in pixels when maximized.</key>
+  <key id="generalities">Main properties of map rendering</key>
 </i18n>

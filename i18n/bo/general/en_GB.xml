@@ -4,9 +4,9 @@
   <key id="tree-root-name">Google Maps</key>
   <key id="system-folder-name">Google Maps</key>
   <key id="markertype">Google Maps</key>
-  <key id="add-new-marker">add Google Maps marker</key>
-  <key id="blocktitle">Google Maps</key>
-  <key id="get-key">get key</key>
-  <key id="suretodelete">are you sure to delete this element?</key>
-  <key id="list">elements list</key>
+  <key id="add-new-marker">add a Google Maps marker</key>
+  <key id="blocktitle">Google Maps map</key>
+  <key id="get-key">get a key</key>
+  <key id="suretodelete">are you sure that you want to delete this element?</key>
+  <key id="list">element list</key>
 </i18n>

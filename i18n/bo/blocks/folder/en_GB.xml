@@ -6,9 +6,14 @@
   <key id="mapHeight-help">height of this map, default height taken in module preferences</key>
   <key id="maxwidth">maximized width</key>
   <key id="maxheight">maximized height</key>
-  <key id="maxwidth-help">maximized width of this map, default maximized width taken in module preferences</key>
-  <key id="maxheight-help">maximized height of this map, default maximized height taken in module preferences</key>
-  <key id="subfolder">include subfolders</key>
-  <key id="subfolder-help">define if markers are taken in the folder only or also in subfolders</key>
+  <key id="maxwidth-help">Maximized width of this map, the default value is extracted from module preferences.</key>
+  <key id="maxheight-help">Maximized height of this map, the default mvalue is extracted from module preferences.</key>
+  <key id="subfolder">include the subfolders</key>
+  <key id="subfolder-help">Specifies if the markers are extracted from the folder only or also from the subfolders.</key>
   <key id="gpsexport">GPS export</key>
+  <key id="gpsexport-help">This option allows offering the visitor the possibility of downloading the map marker in GPS compatible formats.</key>
+  <key id="mapheight-help">Height of this map, the default value is extracted from module preferences.</key>
+  <key id="mapwidth-help">Width of this map, the default value is extracted from module preferences.</key>
+  <key id="showpositionslist">display the list of markers</key>
+  <key id="showpositionslist-help">This option allows offering the visitor the text list of markers shown on the map.</key>
 </i18n>

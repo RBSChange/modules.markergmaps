@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.frontoffice" lcid="en_GB">
-  <key id="wrong-address"></key>
-  <key id="no-marker-found"></key>
-  <key id="right-click-for-itinerary"></key>
-  <key id="maximize-map">maximize map</key>
-  <key id="minimize-map">minimize map</key>
+  <key id="wrong-address">we have not been able to locate you, please check your address</key>
+  <key id="no-marker-found">no element found in your vicinity</key>
+  <key id="right-click-for-itinerary">right-click on the icon in the map in order to search for an itinerary</key>
+  <key id="maximize-map">maximize the map</key>
+  <key id="minimize-map">minimize the map</key>
   <key id="backtomap">back to map</key>
+  <key id="gpsexportgpx">GPX format</key>
+  <key id="gpsexportmultiple">Point(s) of interest for GPS</key>
+  <key id="gpsexportov2">OV2 format</key>
+  <key id="gpsexportsingle">Point of interest for GPS</key>
 </i18n>

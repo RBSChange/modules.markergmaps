@@ -6,7 +6,10 @@
   <key id="mapHeight-help">height of this map, default height taken in module preferences</key>
   <key id="maxwidth">maximized width</key>
   <key id="maxheight">maximized height</key>
-  <key id="maxwidth-help">maximized width of this map, default maximized width taken in module preferences</key>
-  <key id="maxheight-help">maximized height of this map, default maximized height taken in module preferences</key>
+  <key id="maxwidth-help">Maximized width of this map, the default value is extracted from module preferences.</key>
+  <key id="maxheight-help">Maximized height of this map, the default mvalue is extracted from module preferences.</key>
   <key id="gpsexport">GPS export</key>
+  <key id="gpsexport-help">This option allows offering the visitor the possibility of downloading the map marker in GPS compatible formats.</key>
+  <key id="mapheight-help">Height of this map, the default value is extracted from module preferences.</key>
+  <key id="mapwidth-help">Width of this map, the default value is extracted from module preferences.</key>
 </i18n>

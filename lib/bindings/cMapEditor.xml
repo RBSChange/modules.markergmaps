@@ -380,10 +380,10 @@
 		<content>
 			<xul:vbox flex="1">
 				<xul:toolbar anonid="result-toolbar">
-					<xul:toolbarbutton action="createGround" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Ground;" />
-					<xul:toolbarbutton action="createMarker" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Marker;" />
-					<xul:toolbarbutton action="createPolyline" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polyline;" />
-					<xul:toolbarbutton action="createPolygon" image="{IconsBase}/small/add.png" label="&amp;modules.markergmaps.bo.doceditor.new.Polygon;" />
+					<xul:toolbarbutton action="createGround" image="{IconsBase}/small/add.png" label="${transui:m.markergmaps.bo.doceditor.new.Ground,ucf,attr}" />
+					<xul:toolbarbutton action="createMarker" image="{IconsBase}/small/add.png" label="${transui:m.markergmaps.bo.doceditor.new.Marker,ucf,attr}" />
+					<xul:toolbarbutton action="createPolyline" image="{IconsBase}/small/add.png" label="${transui:m.markergmaps.bo.doceditor.new.Polyline,ucf,attr}" />
+					<xul:toolbarbutton action="createPolygon" image="{IconsBase}/small/add.png" label="${transui:m.markergmaps.bo.doceditor.new.Polygon,ucf,attr}" />
 					<xul:spacer flex="1" />
 				</xul:toolbar>
 				<xul:grid flex="1" anonid="grid">
@@ -420,7 +420,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapPolyline()" image="{IconsBase}/small/refresh.png" />
+					<xul:button label="${transui:m.markergmaps.bo.doceditor.CaptureMap,ucf,attr}" oncommand="captureMapPolyline()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
@@ -599,7 +599,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapMarker()" image="{IconsBase}/small/refresh.png" />
+					<xul:button label="${transui:m.markergmaps.bo.doceditor.CaptureMap,ucf,attr}" oncommand="captureMapMarker()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
@@ -823,7 +823,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapPolygon()" image="{IconsBase}/small/refresh.png" />
+					<xul:button label="${transui:m.markergmaps.bo.doceditor.CaptureMap,ucf,attr}" oncommand="captureMapPolygon()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
@@ -1027,7 +1027,7 @@
 					</xul:toolbar>
 				</xul:hbox>
 				<xul:hbox>
-					<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureMapGround()" image="{IconsBase}/small/refresh.png" />
+					<xul:button label="${transui:m.markergmaps.bo.doceditor.CaptureMap,ucf,attr}" oncommand="captureMapGround()" image="{IconsBase}/small/refresh.png" />
 					<xul:spacer flex="1" />
 				</xul:hbox>
 			</xul:vbox>
@@ -1172,13 +1172,13 @@
 			<xul:vbox>
 				<xul:vbox>
 					<xul:hbox>
-						<xul:label value="&amp;modules.markergmaps.bo.doceditor.Helprefreshdata;"/>
-						<xul:button label="&amp;modules.markergmaps.bo.doceditor.Refreshpreview;" oncommand="updateIframe()" image="{IconsBase}/small/refresh.png" />
+						<xul:label value="${transui:m.markergmaps.bo.doceditor.Helprefreshdata,ucf,attr}"/>
+						<xul:button label="${transui:m.markergmaps.bo.doceditor.Refreshpreview,ucf,attr}" oncommand="updateIframe()" image="{IconsBase}/small/refresh.png" />
 						<xul:spacer flex="1" />
 					</xul:hbox>
 					<xul:hbox>
-						<xul:label value="&amp;modules.markergmaps.bo.doceditor.Helpinitdata;"/>
-						<xul:button label="&amp;modules.markergmaps.bo.doceditor.CaptureMap;" oncommand="captureInitmap()" image="{IconsBase}/small/refresh.png" />
+						<xul:label value="${transui:m.markergmaps.bo.doceditor.Helpinitdata,ucf,attr}"/>
+						<xul:button label="${transui:m.markergmaps.bo.doceditor.CaptureMap,ucf,attr}" oncommand="captureInitmap()" image="{IconsBase}/small/refresh.png" />
 						<xul:spacer flex="1" />
 					</xul:hbox>
 				</xul:vbox>

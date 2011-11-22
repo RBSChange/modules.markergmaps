@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.polyline" lcid="en_GB">
   <key id="document-name">polyline</key>
-  <key id="label">nom</key>
-  <key id="label-help">nom</key>
-  <key id="color">color</key>
-  <key id="color-help">color</key>
-  <key id="weight">weight</key>
-  <key id="weight-help">weight</key>
+  <key id="label">label</key>
+  <key id="label-help">label</key>
+  <key id="color">colour</key>
+  <key id="color-help">colour</key>
+  <key id="weight">thickness</key>
+  <key id="weight-help">thickness</key>
   <key id="opacity">opacity</key>
   <key id="opacity-help">opacity</key>
   <key id="points">points</key>
   <key id="points-help">points</key>
+  <key id="endpublicationdate">End of publication date</key>
+  <key id="endpublicationdate-help">From this date on, the document will no longer be published. If left empty, the document will be published indefinitely.</key>
+  <key id="startpublicationdate">Start of publication date</key>
+  <key id="startpublicationdate-help">From this date on, the document will be published. If left empty, the document will be published immediately.</key>
 </i18n>

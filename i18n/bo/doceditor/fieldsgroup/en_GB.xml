@@ -3,7 +3,7 @@
   <key id="control">navigation control</key>
   <key id="scale">scale</key>
   <key id="streetview">StreetView</key>
-  <key id="preview">define default display</key>
+  <key id="preview">definition of the default display</key>
   <key id="display">display</key>
   <key id="search">search</key>
 </i18n>

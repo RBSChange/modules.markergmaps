@@ -6,9 +6,9 @@
     <field name="weight"/>
     <field name="opacity"/>
   </section>
-  <section labeli18n="modules.markergmaps.bo.doceditor.Map">
-  	<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
-		<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemappolyline" />
+  <section labeli18n="modules.markergmaps.bo.doceditor.map">
+  	<field labeli18n="modules.markergmaps.bo.doceditor.address" name="address" type="googlemapaddress" />
+	<field name="googlemapsvalue" labeli18n="modules.markergmaps.bo.doceditor.property.GoogleMap" type="googlemappolyline" />
   </section>
 
   <xul>
