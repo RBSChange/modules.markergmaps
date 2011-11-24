@@ -2,5 +2,5 @@
 <i18n baseKey="m.markergmaps.bo.blocks" lcid="en_GB">
   <key id="document-name">Google Maps</key>
   <key id="document-list">Google Maps</key>
-  <key id="map">map Google Maps</key>
+  <key id="map">Google Maps map</key>
 </i18n>

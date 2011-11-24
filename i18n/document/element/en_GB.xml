@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.document.element" lcid="en_GB">
-  <key id="label">name</key>
-  <key id="label-help">name</key>
+  <key id="label">label</key>
+  <key id="label-help">label</key>
+  <key id="document-name">element</key>
+  <key id="endpublicationdate">End of publication date</key>
+  <key id="endpublicationdate-help">From this date on, the document will no longer be published. If left empty, the document will be published indefinitely.</key>
+  <key id="startpublicationdate">Start of publication date</key>
+  <key id="startpublicationdate-help">From this date on, the document will be published. If left empty, the document will be published immediately.</key>
 </i18n>

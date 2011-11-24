@@ -2,8 +2,8 @@
 <i18n baseKey="m.markergmaps.bo.list.control" lcid="en_GB">
   <key id="none">none</key>
   <key id="small">small control</key>
-  <key id="large">big control</key>
-  <key id="large3d">big control in 3D</key>
+  <key id="large">large control</key>
+  <key id="large3d">large 3D control</key>
   <key id="smallzoom">only zoom</key>
   <key id="smallzoom3d">only 3D zoom</key>
 </i18n>

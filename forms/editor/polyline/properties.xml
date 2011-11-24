@@ -7,7 +7,7 @@
     <field name="opacity"/>
   </section>
   <section labeli18n="m.markergmaps.bo.doceditor.map">
-  	<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
+  		<field label="m.markergmaps.bo.doceditor.address" name="address" type="googlemapaddress" />
 		<field name="googlemapsvalue" labeli18n="m.markergmaps.bo.doceditor.property.googlemap" type="googlemappolyline" />
   </section>
 

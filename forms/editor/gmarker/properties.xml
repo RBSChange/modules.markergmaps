@@ -21,8 +21,8 @@
   	</section>
   </section>
   <section labeli18n="m.markergmaps.bo.doceditor.map">
-		<field label="&amp;modules.markergmaps.bo.doceditor.Address;" name="address" type="googlemapaddress" />
-  	<field name="googlemapsvalue" labeli18n="m.markergmaps.bo.doceditor.property.googlemap" type="googlemapmarker" />
+		<field labeli18n="m.markergmaps.bo.doceditor.address" name="address" type="googlemapaddress" />
+  		<field name="googlemapsvalue" labeli18n="m.markergmaps.bo.doceditor.property.googlemap" type="googlemapmarker" />
 	</section>
 
 	<xul>
