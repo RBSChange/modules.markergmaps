@@ -1,9 +1,4 @@
 <?php
-/**
- * @date Thu, 11 Sep 2008 14:35:26 +0000
- * @author intessit
- * @package 
- */
 class markergmaps_PreferencesService extends f_persistentdocument_DocumentService
 {
 	/**
@@ -37,7 +32,7 @@ class markergmaps_PreferencesService extends f_persistentdocument_DocumentServic
 	 */
 	public function createQuery()
 	{
-		return $this->pp->createQuery('modules_markergmaps/preferences');
+		return $this->getPersistentProvider()->createQuery('modules_markergmaps/preferences');
 	}
 
 	/**
@@ -47,6 +42,6 @@ class markergmaps_PreferencesService extends f_persistentdocument_DocumentServic
 	 */
 	protected function preSave($document, $parentNodeId = null)
 	{
-		$document->setLabel('&modules.markergmaps.bo.general.Module-name;');
+		$document->setLabel('markergmaps');
 	}
 }
