@@ -81,8 +81,8 @@
     <action name="reactivate" permission="ReActivate" icon="reactivate" labeli18n="m.uixul.bo.actions.reactivate"/>
     <action name="deactivated" permission="Deactivated" icon="deactivated" labeli18n="m.uixul.bo.actions.deactivate"/>
     <action name="create_" actions="createPosition" icon="add"/>
-    <action name="createPosition" permission="Insert_position" group="create_" labeli18n="m.markergmaps.bo.actions.create-position"/>
-    <action name="createFolder" single="true" icon="create-folder" labeli18n="m.uixul.bo.actions.create-folder"/>
+    <action name="createPosition" single="true" permission="Insert_position" group="create_" labeli18n="m.markergmaps.bo.actions.create-position"/>
+    <action name="createFolder" single="true" permission="Insert_folder" icon="create-folder" labeli18n="m.uixul.bo.actions.create-folder"/>
     <action name="createMap" single="true" permission="Insert_map" icon="document_add" labeli18n="m.markergmaps.bo.actions.create-map"/>
   </actions>
 </perspective>

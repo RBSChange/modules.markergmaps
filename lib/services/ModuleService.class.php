@@ -35,4 +35,17 @@ class markergmaps_ModuleService extends ModuleBaseService
 		}
 		return null;
 	}
+	
+	/**
+	 * @param f_persistentdocument_PersistentDocument $document
+	 * @param array<string, string> $attributes
+	 * @param integer $mode
+	 */
+	public static function completeBOAttributes($document, &$attributes, $mode)
+	{
+		if ($mode & DocumentHelper::MODE_RESOURCE)
+		{
+			$attributes['block'] = 'modules_markergmaps_folder';
+		}
+	}
 }
