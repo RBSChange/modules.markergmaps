@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <i18n baseKey="m.markergmaps.bo.blocks.folder" lcid="en_GB">
-  <key id="mapWidth">width</key>
-  <key id="mapHeight">height</key>
-  <key id="mapWidth-help">width of this map, default width taken in module preferences</key>
-  <key id="mapHeight-help">height of this map, default height taken in module preferences</key>
+  <key id="mapwidth">width</key>
+  <key id="mapheight">height</key>
+  <key id="mapwidth-help">width of this map, default width taken in module preferences</key>
+  <key id="mapheight-help">height of this map, default height taken in module preferences</key>
   <key id="maxwidth">maximized width</key>
   <key id="maxheight">maximized height</key>
   <key id="maxwidth-help">Maximized width of this map, the default value is extracted from module preferences.</key>
