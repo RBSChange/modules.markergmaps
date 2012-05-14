@@ -1,5 +1,5 @@
 <?php
-class markergmaps_GetMarkersAction extends markergmaps_Action
+class markergmaps_GetMarkersAction extends f_action_BaseAction
 {
 
 	/**

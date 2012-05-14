@@ -16,7 +16,7 @@ class markergmaps_GetNearestMarkersAction extends f_action_BaseAction
 		
 		if (is_null($latitude) || is_null($longitude))
 		{
-			$request->setAttribute('errors', array(Locale::translate('&modules.markergmaps.frontoffice.Wrong-address;')));
+			$request->setAttribute('errors', array(LocaleService::getInstance()->trans('m.markergmaps.frontoffice.wrong-address', array('ucf'))));
 			return View::ERROR;
 		}
 		
@@ -31,7 +31,7 @@ class markergmaps_GetNearestMarkersAction extends f_action_BaseAction
 
 		if (f_util_ArrayUtils::isEmpty($markers))
 		{
-			$request->setAttribute('errors', array(Locale::translate('&modules.markergmaps.frontoffice.No-marker-found;')));
+			$request->setAttribute('errors', array(LocaleService::getInstance()->trans('m.markergmaps.frontoffice.no-marker-found', array('ucf'))));
 			return View::ERROR;
 		}
 		
