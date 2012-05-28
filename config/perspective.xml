@@ -63,6 +63,42 @@
         <contextaction name="reactivate"/>
       </contextactions>
     </model>
+    <model name="modules_markergmaps/gmarker">
+      <contextactions>
+        <contextaction name="edit"/>
+        <contextaction name="delete"/>
+        <contextaction name="activate"/>
+        <contextaction name="deactivated"/>
+        <contextaction name="reactivate"/>
+      </contextactions>
+    </model>
+    <model name="modules_markergmaps/polygon">
+      <contextactions>
+        <contextaction name="edit"/>
+        <contextaction name="delete"/>
+        <contextaction name="activate"/>
+        <contextaction name="deactivated"/>
+        <contextaction name="reactivate"/>
+      </contextactions>
+    </model>
+    <model name="modules_markergmaps/polyline">
+      <contextactions>
+        <contextaction name="edit"/>
+        <contextaction name="delete"/>
+        <contextaction name="activate"/>
+        <contextaction name="deactivated"/>
+        <contextaction name="reactivate"/>
+      </contextactions>
+    </model>
+    <model name="modules_markergmaps/ground">
+      <contextactions>
+        <contextaction name="edit"/>
+        <contextaction name="delete"/>
+        <contextaction name="activate"/>
+        <contextaction name="deactivated"/>
+        <contextaction name="reactivate"/>
+      </contextactions>
+    </model>
   </models>
   <toolbar>
     <toolbarbutton name="edit"/>
