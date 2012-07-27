@@ -40,12 +40,13 @@ class markergmaps_MarkergmapsService extends website_MarkerService
 	
 	/**
 	 * @param markergmaps_persistentdocument_markergmaps $document
-	 * @param string $actionType
+	 * @param string[] $propertiesNames
 	 * @param array $formProperties
+	 * @param integer $parentId
 	 */
-	public function addFormProperties($document, $propertiesNames, &$formProperties)
+	public function addFormProperties($document, $propertiesNames, &$formProperties, $parentId = null)
 	{
-		parent::addFormProperties($document, $propertiesNames, $formProperties);
+		parent::addFormProperties($document, $propertiesNames, $formProperties, $parentId);
 		$formProperties['signupUrl'] = 'http://code.google.com/apis/maps/signup.html';
 	}
 	
